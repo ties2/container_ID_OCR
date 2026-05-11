@@ -1,0 +1,68 @@
+[build-system]
+requires      = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name        = "container-id-ocr"
+version     = "1.0.0"
+description = "Five-stage OCR pipeline for ISO 6346 container IDs"
+readme      = "README.md"
+requires-python = ">=3.10"
+
+dependencies = [
+    # Core vision
+    "opencv-python>=4.9",
+    "numpy>=1.26",
+    "Pillow>=10.0",
+
+    # Deep learning
+    "torch>=2.2",
+    "torchvision>=0.17",
+
+    # Detection
+    "ultralytics>=8.1",        # YOLOv8 + RT-DETR
+
+    # Config
+    "pyyaml>=6.0",
+
+    # Logging / utilities
+    "tqdm>=4.66",
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+train = [
+    "albumentations>=1.3",
+    "tensorboard>=2.15",
+    "matplotlib>=3.8",
+    "pandas>=2.1",
+]
+vlm = [
+    "transformers>=4.40",
+    "accelerate>=0.28",
+    "bitsandbytes>=0.43",   # 4-bit quantisation for VLM on smaller GPUs
+]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=4.1",
+    "ruff>=0.3",
+    "mypy>=1.9",
+    "pre-commit>=3.6",
+]
+
+[project.scripts]
+container-ocr = "src.models.pipeline:main"
+
+[tool.pytest.ini_options]
+testpaths    = ["tests"]
+addopts      = "-v --tb=short"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+select = ["E", "F", "W", "I", "N", "UP"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true

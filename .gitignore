@@ -1,0 +1,71 @@
+# ==========================================
+# 1. Project-Specific (Data, Models, Logs)
+# ==========================================
+# Ignore large data files, but keep the directory structure
+data/01_raw/*
+!data/01_raw/.gitkeep
+data/02_interim/*
+!data/02_interim/.gitkeep
+data/03_processed/*
+!data/03_processed/.gitkeep
+
+# Ignore saved model weights (e.g., .pt, .pth, .onnx, .h5)
+models/*
+!models/.gitkeep
+
+# Ignore training logs and output results
+logs/*
+!logs/.gitkeep
+results/*
+!results/.gitkeep
+
+# ==========================================
+# 2. Python & Bytecode
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# ==========================================
+# 3. Virtual Environments
+# ==========================================
+.venv/
+venv/
+env/
+ENV/
+.conda/
+.local/
+
+# ==========================================
+# 4. Jupyter Notebooks
+# ==========================================
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ==========================================
+# 5. Testing & Tooling (pytest, coverage)
+# ==========================================
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+
+# ==========================================
+# 6. macOS Specific
+# ==========================================
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# ==========================================
+# 7. IDE & Editor Files
+# ==========================================
+.idea/
+.vscode/
+*.swp
+*.swo
