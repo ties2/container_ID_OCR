@@ -1,89 +1,132 @@
-# Container ID OCR Pipeline
+# Container ID Reading: Character Segmentation vs Detection
 
-An end-to-end OCR pipeline for reading ISO 6346 shipping container identification codes from images and video streams.
+Reading ISO 6346 shipping-container codes from port-gate camera images.
+
+The repository has two parts:
+
+1. **Research workflow (current focus):** each character of the code is treated as its own
+   instance. We compare **per-character instance segmentation (YOLOv8n-seg)** with
+   **per-character detection (YOLOv8n)**, trained on exactly the same annotations, and
+   measure how well each reads the full code.
+2. **OCR pipeline prototype (earlier work):** detection → preprocessing → CRNN → ISO 6346
+   check → confidence gate. The code is in `src/models/`, but no trained weights are included.
+
+A full description of the method, data and design decisions is in
+[`project_info.md`](project_info.md).
 
 ```
-Pipeline: Image → [Detection] → [Preprocessing] → [Recognition] → [Post-processing] → [Confidence Gate] → Result
+CVAT annotations ──► prepare_dataset ──► YOLO-seg / YOLO-det datasets ──► train (MLflow) ──► evaluate
+ (code polygon +      (Otsu masks, checks,     (same images, same split)
+  box per character)   grouped split)
 ```
 
 ---
 
-## Pipeline Stages
+## ISO 6346 format
 
-| Stage | Method | Key Output |
-|-------|--------|-----------|
-| **1. Detection** | YOLOv8 / RT-DETR | Cropped plate ROI |
-| **2. Preprocessing** | Deskew + CLAHE + Sharpen | Normalised plate image |
-| **3. Recognition** | CRNN (CNN+BiLSTM+CTC) | Raw text string |
-| **4. Post-processing** | ISO 6346 checksum | Validated container ID |
-| **5. Confidence Gate** | Threshold + human flag | Committed or flagged read |
+```
+ B M O U   6 7 2 5 7 3   7
+ \_____/   \_________/   \__ check digit (mod-11 over the first 10 characters)
+ owner + category  serial
+```
+
+- **Owner code**: 3 letters, **category**: `U` (freight), `J` (detachable), `Z` (trailer)
+- **Serial**: 6 digits, **check digit**: 1 digit
+- Validation is implemented in `src/models/postprocess.py` and reused by the dataset builder.
 
 ---
 
-## ISO 6346 Format
-
-```
- B I C U  1 2 3 4 5 6  8
- \_____/  \__________/  \__ check digit
- owner+cat   serial
-```
-
-- **Owner code**: 3 alpha letters (e.g. `BIC`)
-- **Category**: `U` (freight), `J` (detachable), `Z` (trailer)
-- **Serial**: 6 digits
-- **Check digit**: computed mod-11 over first 10 characters
-
----
-
-## Quickstart
+## Quickstart (research workflow)
 
 ```bash
-# 1. Install dependencies
-make install
+# 0. Environment (once)
+python3 -m venv .venv
+source .venv/bin/activate
+pip install opencv-python-headless numpy matplotlib pytest
 
-# 2. Run inference on a single image
-make predict IMAGE=data/01_raw/sample.jpg
+# 1. Put the data in place
+#    data/02_interim/cvat_export/   unzipped CVAT export ("CVAT for images 1.1", with images)
+#    data/02_interim/labels.csv     filename,container_id
 
-# 3. Train the CRNN recogniser
-make train
+# 2. Build the datasets and check them
+make prepare          # -> data/03_processed/char_dataset/
+make plot-data        # -> results/figures/char_samples/ (image | ground truth | masks)
 
-# 4. Run the full test suite
-make test
+# 3. Train with MLflow tracking (installs PyTorch + Ultralytics + MLflow once)
+make train-setup
+make train-seg SEED=42 EPOCHS=3     # short timing test first
+make train-seg SEED=42              # segmentation
+make train-det SEED=42              # detection, same data and settings
+make train-all                      # both models x 3 seeds (42, 7, 123)
 
-# 5. Build & run with Docker
-make docker-build
-make docker-run
+# 4. Watch training
+make mlflow-ui                      # http://127.0.0.1:5000
+
+# 5. Tests
+pytest tests/
+```
+
+Useful variables: `DEVICE=0` (GPU), `IMGSZ=1280`, `EPOCHS=100`, `BATCH=4`, `SEED=42`,
+`MLFLOW_URI=sqlite:///results/mlflow.db` (if the folder store gives errors).
+
+To show the figures interactively (e.g. in PyCharm's Plots window):
+
+```bash
+python3 -m src.visualization.plot_char_dataset --show
+python3 -m src.visualization.plot_char_dataset --split test --show \
+    --weights results/yolo/seg-s42/weights/best.pt      # adds a prediction panel
 ```
 
 ---
 
-## Project Structure
+## Outputs
+
+| Path | Content |
+|---|---|
+| `data/03_processed/char_dataset/yolo_seg/` | images + mask polygons, `data.yaml` (36 classes: 0–9, A–Z) |
+| `data/03_processed/char_dataset/yolo_det/` | the same images + boxes derived from the same masks |
+| `data/03_processed/char_dataset/report.csv` | per image: `OK` / `REVIEW` and the reason |
+| `data/03_processed/char_dataset/mask_flags.csv` | masks that look suspicious (check by eye) |
+| `data/03_processed/char_dataset/split.csv` | split per image (grouped by container ID) |
+| `data/03_processed/char_dataset/review/` | overlays of every image with its masks |
+| `results/figures/char_samples/` | rows of image / ground truth / masks (/ prediction) |
+| `results/yolo/<task>-s<seed>/` | Ultralytics run: weights, curves, confusion matrix |
+| `results/mlflow/` | MLflow store: losses and metrics per epoch, test metrics |
+
+---
+
+## Project structure
 
 ```
-container_ocr_pipeline/
-├── .github/workflows/      # CI (lint + test on every push)
-├── configs/                # All hyperparameters and paths in one place
+.
+├── configs/model_config.yaml       # settings of the OCR pipeline prototype
 ├── data/
-│   ├── 01_raw/             # Original images – never modified
-│   ├── 02_interim/         # Cropped / deskewed plates
-│   └── 03_processed/       # Feature-ready tensors / annotation CSVs
-├── models/                 # Saved weights (.pt) and ONNX exports
-├── notebooks/              # Exploration notebooks (not production code)
+│   ├── 01_raw/                     # original images, never modified
+│   ├── 02_interim/                 # CVAT export + labels.csv
+│   └── 03_processed/char_dataset/  # generated YOLO datasets and reports
+├── notebooks/                      # data exploration
+├── results/                        # training runs, figures, MLflow store
 ├── src/
-│   ├── data/               # Loaders and dataset classes
-│   ├── features/           # Preprocessing transforms
-│   ├── models/             # Detector, recogniser, full pipeline
-│   └── visualization/      # Plotting utilities and dashboards
-└── tests/                  # PyTest unit + integration tests
+│   ├── data/
+│   │   ├── dataset.py              # CRNN dataset (prototype)
+│   │   └── prepare_dataset.py      # CVAT -> masks -> checks -> grouped split -> YOLO
+│   ├── features/preprocess.py      # deskew / CLAHE / sharpen (prototype)
+│   ├── models/
+│   │   ├── train_yolo.py           # train seg or det, MLflow logging, test evaluation
+│   │   ├── detector.py, recognizer.py, pipeline.py   # OCR pipeline (prototype)
+│   │   └── postprocess.py          # ISO 6346 validation + confidence gate
+│   └── visualization/
+│       ├── plot_char_dataset.py    # image | ground truth | masks (| prediction)
+│       └── plots.py                # plots for the prototype pipeline
+├── tests/                          # pytest
+├── Makefile
+└── project_info.md                 # full description for reviewers
 ```
 
 ---
 
-## Configuration
+## Data and licence
 
-All tuneable knobs live in `configs/model_config.yaml`. Override any value on the CLI:
-
-```bash
-python -m src.models.pipeline --config configs/model_config.yaml \
-    recognition.confidence_threshold=0.92
-```
+Images: *container-id-number* dataset by kerofox (Roboflow Universe, CC BY 4.0), also on Kaggle
+as "Container Number Recognition". The character annotations (polygons, boxes, text) are our own.
+Data files are not tracked in git.

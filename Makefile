@@ -1,13 +1,26 @@
 # ============================================================
 # Container ID OCR Pipeline – Makefile
 # ============================================================
-.PHONY: install install-dev train predict test lint format docker-build docker-run clean
+.PHONY: install install-dev prepare plot-data train-setup mlflow-ui train-seg train-det train-all predict test lint format docker-build docker-run clean
 
 # ── Variables ────────────────────────────────────────────────
 CONFIG  ?= configs/model_config.yaml
 IMAGE   ?= data/01_raw/sample.jpg
 VIDEO   ?= data/01_raw/sample.mp4
-DEVICE  ?= cuda
+# DEVICE: cpu | 0 (first GPU) | mps (Apple)
+DEVICE  ?= cpu
+
+# Character dataset (built by `make prepare`) and training settings
+CHARSET  ?= data/03_processed/char_dataset
+EPOCHS   ?= 100
+# characters are small: 640 px loses detail
+IMGSZ    ?= 1280
+BATCH    ?= 4
+SEED     ?= 42
+# MLflow store (MLflow 3 no longer accepts a plain folder)
+MLFLOW_URI ?= sqlite:///results/mlflow.db
+TRAIN_ARGS = --seed $(SEED) --epochs $(EPOCHS) --imgsz $(IMGSZ) --batch $(BATCH) \
+             --device $(DEVICE) --dataset $(CHARSET) --mlflow-uri $(MLFLOW_URI)
 
 # ── Environment ──────────────────────────────────────────────
 
@@ -34,11 +47,38 @@ predict-video:
 		--video  $(VIDEO)  \
 		--output results/video_reads.json
 
-## Train the CRNN recogniser
-train:
-	python -m src.models.train \
-		--config $(CONFIG) \
-		--device $(DEVICE)
+# ── Character segmentation vs detection ──────────────────────
+
+## Build YOLO datasets from the CVAT export (see src/data/prepare_dataset.py)
+prepare:
+	python3 -m src.data.prepare_dataset
+
+## Plot rows of: image | ground truth | masks  (results/figures/char_samples)
+plot-data:
+	python3 -m src.visualization.plot_char_dataset --n 6
+
+## One-time: install the training stack (PyTorch, Ultralytics, MLflow)
+train-setup:
+	pip install ultralytics mlflow
+
+## Open the MLflow dashboard at http://127.0.0.1:5000
+mlflow-ui:
+	mkdir -p results
+	mlflow server --backend-store-uri $(MLFLOW_URI) --port 5000
+
+## Train per-character instance segmentation (YOLOv8n-seg), logged to MLflow
+train-seg:
+	python3 -m src.models.train_yolo --task seg $(TRAIN_ARGS)
+
+## Train per-character detection on the same annotations (YOLOv8n), logged to MLflow
+train-det:
+	python3 -m src.models.train_yolo --task det $(TRAIN_ARGS)
+
+## Both models with three seeds (6 runs)
+train-all:
+	for s in 42 7 123; do \
+		$(MAKE) train-seg SEED=$$s && $(MAKE) train-det SEED=$$s || exit 1; \
+	done
 
 # ── Quality ───────────────────────────────────────────────────
 
