@@ -40,9 +40,10 @@ CVAT annotations ──► prepare_dataset ──► YOLO-seg / YOLO-det dataset
 
 ```bash
 # 0. Environment (once)
+sudo apt install libgl1 libglib2.0-0     # system libraries OpenCV needs
 python3 -m venv .venv
 source .venv/bin/activate
-pip install opencv-python-headless numpy matplotlib pytest
+pip install opencv-python numpy matplotlib pytest
 
 # 1. Put the data in place
 #    data/02_interim/cvat_export/   unzipped CVAT export ("CVAT for images 1.1", with images)
@@ -66,8 +67,9 @@ make mlflow-ui                      # http://127.0.0.1:5000
 pytest tests/
 ```
 
-Useful variables: `DEVICE=0` (GPU), `IMGSZ=1280`, `EPOCHS=100`, `BATCH=4`, `SEED=42`,
-`MLFLOW_URI=sqlite:///results/mlflow.db` (if the folder store gives errors).
+Useful variables: `DEVICE=0` (GPU), `IMGSZ=1280`, `EPOCHS=300`, `BATCH=4`, `SEED=42`,
+`SINGLE_CLS=1` (all characters as one class: localisation only).
+MLflow uses an SQLite store (`results/mlflow.db`); artifacts go to `results/mlflow-artifacts/`.
 
 To show the figures interactively (e.g. in PyCharm's Plots window):
 
@@ -88,10 +90,13 @@ python3 -m src.visualization.plot_char_dataset --split test --show \
 | `data/03_processed/char_dataset/report.csv` | per image: `OK` / `REVIEW` and the reason |
 | `data/03_processed/char_dataset/mask_flags.csv` | masks that look suspicious (check by eye) |
 | `data/03_processed/char_dataset/split.csv` | split per image (grouped by container ID) |
+| `data/03_processed/char_dataset/dataset_info.json`, `class_counts.csv` | images / containers / characters per split, instances per class |
+| `data/02_interim/split_assignments.csv` | **persistent** container → split table: new annotations never move old containers |
 | `data/03_processed/char_dataset/review/` | overlays of every image with its masks |
 | `results/figures/char_samples/` | rows of image / ground truth / masks (/ prediction) |
 | `results/yolo/<task>-s<seed>/` | Ultralytics run: weights, curves, confusion matrix |
-| `results/mlflow/` | MLflow store: losses and metrics per epoch, test metrics |
+| `results/history/<stamp>_<run>.*` | one record per run: `.txt` summary, `_curves.png`, `_epochs.csv`, `_test_predictions.png`, `_console.log` |
+| `results/mlflow.db`, `results/mlflow-artifacts/` | MLflow store: losses and metrics per epoch, test metrics, weights |
 
 ---
 

@@ -74,6 +74,16 @@ class TestSplit:
         assert set(split) == set(keys)
         assert {"train", "val", "test"} <= set(split.values())
 
+    def test_old_containers_keep_their_split_when_data_grows(self):
+        first = grouped_split([f"C{i}" for i in range(10)], (0.6, 0.2, 0.2), seed=1)
+        grown = grouped_split([f"C{i}" for i in range(25)], (0.6, 0.2, 0.2), seed=1, previous=first)
+        assert all(grown[c] == first[c] for c in first)
+
+    def test_split_shares_follow_targets(self):
+        split = grouped_split([f"C{i}" for i in range(50)], (0.6, 0.2, 0.2), seed=3)
+        counts = {sp: list(split.values()).count(sp) for sp in ("train", "val", "test")}
+        assert counts == {"train": 30, "val": 10, "test": 10}
+
 
 class TestExtractMask:
     @staticmethod

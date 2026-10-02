@@ -30,6 +30,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import json
 import logging
 import random
 import re
@@ -321,17 +322,65 @@ def draw_overlay(img: np.ndarray, insts: list[Instance], codes: list[Code], stat
     return vis
 
 
-def grouped_split(keys: list[str], ratios: tuple[float, float, float], seed: int) -> dict[str, str]:
-    """Assign whole containers to train/val/test. Returns container -> split."""
-    groups = sorted(set(keys))
-    random.Random(seed).shuffle(groups)
-    n = len(groups)
-    n_val = max(1, round(ratios[1] * n))
-    n_test = max(1, round(ratios[2] * n))
-    out = {}
-    for i, g in enumerate(groups):
-        out[g] = "test" if i < n_test else "val" if i < n_test + n_val else "train"
+SPLITS = ("train", "val", "test")
+
+
+def grouped_split(keys: list[str], ratios: tuple[float, float, float], seed: int,
+                  previous: dict[str, str] | None = None) -> dict[str, str]:
+    """Assign whole containers to train/val/test. Returns container -> split.
+
+    Containers already in `previous` keep their split, so adding new annotations
+    never moves an old image to another set (results stay comparable over time
+    and a test container can never later become a training container).
+    New containers are shuffled with `seed` and each one goes to the split that is
+    furthest below its target share.
+    """
+    out = {g: sp for g, sp in (previous or {}).items() if g in set(keys)}
+    new = sorted(set(keys) - set(out))
+    random.Random(seed).shuffle(new)
+    target = dict(zip(SPLITS, ratios))
+    for g in new:
+        total = len(out) + 1
+        count = {sp: sum(v == sp for v in out.values()) for sp in SPLITS}
+        out[g] = max(SPLITS, key=lambda sp: target[sp] * total - count[sp])
     return out
+
+
+def load_assignments(path: Path) -> dict[str, str]:
+    if not path.exists():
+        return {}
+    with open(path, newline="") as fh:
+        return {r["container_id"]: r["split"] for r in csv.DictReader(fh)}
+
+
+def save_assignments(path: Path, assignments: dict[str, str], previous: dict[str, str]) -> None:
+    merged = {**previous, **assignments}            # keep containers that are REVIEW for now
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w", newline="") as fh:
+        wr = csv.writer(fh)
+        wr.writerow(["container_id", "split"])
+        wr.writerows(sorted(merged.items()))
+
+
+def write_dataset_info(out: Path, prepared, truth: dict[str, str], split_of: dict[str, str],
+                       n_annotated: int) -> None:
+    """Write dataset_info.json (sizes per split) and class_counts.csv (instances per class)."""
+    info = {"annotated_images": n_annotated, "ok_images": len(prepared)}
+    class_counts = {sp: [0] * len(CLASSES) for sp in SPLITS}
+    for sp in SPLITS:
+        keys = [k for k, *_ in prepared if split_of[truth[k]] == sp]
+        info[f"{sp}_images"] = len(keys)
+        info[f"{sp}_containers"] = len({truth[k] for k in keys})
+    for key, _img, seg, _det in prepared:
+        for line in seg:
+            class_counts[split_of[truth[key]]][int(line.split()[0])] += 1
+    for sp in SPLITS:
+        info[f"{sp}_characters"] = sum(class_counts[sp])
+    (out / "dataset_info.json").write_text(json.dumps(info, indent=2) + "\n")
+    with open(out / "class_counts.csv", "w", newline="") as fh:
+        wr = csv.writer(fh)
+        wr.writerow(["class", *SPLITS])
+        wr.writerows([c, *(class_counts[sp][i] for sp in SPLITS)] for i, c in enumerate(CLASSES))
 
 
 # --------------------------------------------------------------------------- main
@@ -346,6 +395,8 @@ def main() -> None:
                     help="output folder (deleted and rebuilt on every run)")
     ap.add_argument("--split", type=float, nargs=3, default=(0.6, 0.2, 0.2), metavar=("TRAIN", "VAL", "TEST"))
     ap.add_argument("--seed", type=int, default=42)
+    ap.add_argument("--assignments", type=Path, default=Path("data/02_interim/split_assignments.csv"),
+                    help="persistent container -> split table (kept between runs)")
     args = ap.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 
@@ -423,7 +474,9 @@ def main() -> None:
         log.error("No image passed the checks - see %s", args.out / "report.csv")
         return
 
-    split_of = grouped_split([truth[k] for k, *_ in prepared], tuple(args.split), args.seed)
+    previous = load_assignments(args.assignments)
+    split_of = grouped_split([truth[k] for k, *_ in prepared], tuple(args.split), args.seed, previous)
+    save_assignments(args.assignments, split_of, previous)
     for task, idx in (("seg", 2), ("det", 3)):
         root = args.out / f"yolo_{task}"
         for key, img_path, *labels in prepared:
@@ -441,7 +494,8 @@ def main() -> None:
         wr.writerow(["image", "container_id", "split"])
         wr.writerows([k, truth[k], split_of[truth[k]]] for k, *_ in prepared)
 
-    counts = {s: sum(1 for k, *_ in prepared if split_of[truth[k]] == s) for s in ("train", "val", "test")}
+    counts = {s: sum(1 for k, *_ in prepared if split_of[truth[k]] == s) for s in SPLITS}
+    write_dataset_info(args.out, prepared, truth, split_of, len(report_rows))
     log.info("OK images: %d / %d  | split %s", len(prepared), len(report_rows), counts)
     log.info("Check the overlays in %s before training.", args.out / "review")
 

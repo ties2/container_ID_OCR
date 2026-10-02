@@ -100,11 +100,94 @@ def draw_masks(shape: tuple[int, int], instances: list[tuple[int, np.ndarray]],
 
 
 def predict_instances(model, img_bgr: np.ndarray) -> list[tuple[int, np.ndarray]]:
-    """Run a trained YOLO-seg model and return [(class_id, polygon)]."""
+    """Run a trained YOLO model and return [(class_id, polygon)].
+
+    Segmentation models give mask outlines; detection models give boxes, which are
+    returned as 4-point polygons so both can be drawn the same way.
+    """
     res = model.predict(img_bgr, verbose=False)[0]
-    if res.masks is None:
-        return []
-    return [(int(c), p.astype(np.int32)) for c, p in zip(res.boxes.cls.tolist(), res.masks.xy) if len(p) >= 3]
+    classes = [int(c) for c in res.boxes.cls.tolist()]
+    if res.masks is not None:
+        return [(c, p.astype(np.int32)) for c, p in zip(classes, res.masks.xy) if len(p) >= 3]
+    return [(c, np.array([[x1, y1], [x2, y1], [x2, y2], [x1, y2]], np.int32))
+            for c, (x1, y1, x2, y2) in zip(classes, res.boxes.xyxy.tolist())]
+
+
+def render(dataset: Path, export: Path, out: Path, split: str = "all", n: int = 6, seed: int = 0,
+           weights: Path | None = None, show: bool = False, overview_name: str = "overview.png",
+           per_image: bool = True) -> Path | None:
+    """Draw the rows and save them. Returns the path of the overview figure (None if no images)."""
+    with open(dataset / "split.csv", newline="") as fh:
+        rows = [r for r in csv.DictReader(fh) if split in ("all", r["split"])]
+    if not rows:
+        log.error("No images for split '%s' in %s", split, dataset / "split.csv")
+        return None
+    random.Random(seed).shuffle(rows)
+    if n:
+        rows = rows[:n]
+
+    annotations = {image_key(name): v for name, v in parse_cvat(export / "annotations.xml").items()}
+    flagged: dict[str, set[int]] = {}
+    flags_csv = dataset / "mask_flags.csv"
+    if flags_csv.exists():
+        with open(flags_csv, newline="") as fh:
+            for fr in csv.DictReader(fh):
+                flagged.setdefault(fr["image"], set()).add(int(fr["instance"]))
+    model = None
+    if weights:
+        from ultralytics import YOLO   # imported only when needed
+        model = YOLO(str(weights))
+
+    titles = ["Image", "Ground truth (CVAT)", "Character masks"] + (["Prediction"] if model else [])
+    out.mkdir(parents=True, exist_ok=True)
+    all_panels = []
+
+    for r in rows:
+        key, sp = r["image"], r["split"]
+        img_path = next((dataset / "yolo_seg" / "images" / sp).glob(f"{key}.*"))
+        img_bgr = cv2.imread(str(img_path))
+        img = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2RGB)
+        h, w = img.shape[:2]
+        _, _, codes, loose = annotations[key]
+        masks = load_seg_labels(dataset / "yolo_seg" / "labels" / sp / f"{key}.txt", w, h)
+
+        x1, y1, x2, y2 = crop_window([c.polygon for c in codes], w, h)
+        panels = [img, draw_ground_truth(img, codes, loose), draw_masks((h, w), masks, flagged.get(key))]
+        if model:
+            panels.append(draw_masks((h, w), predict_instances(model, img_bgr)))
+        panels = [p[y1:y2, x1:x2] for p in panels]
+        all_panels.append((f"{key}  [{sp}]  {r['container_id']}", panels))
+
+        if per_image:
+            fig, axes = plt.subplots(1, len(panels), figsize=(4 * len(panels), 4.5))
+            for ax, p, t in zip(axes, panels, titles):
+                ax.imshow(p)
+                ax.set_title(t, fontsize=11)
+                ax.axis("off")
+            fig.suptitle(all_panels[-1][0], fontsize=10)
+            fig.tight_layout()
+            fig.savefig(out / f"{key}.png", dpi=150)
+            if not show:
+                plt.close(fig)
+
+    cols = len(titles)
+    fig, axes = plt.subplots(len(all_panels), cols, figsize=(3.2 * cols, 3.4 * len(all_panels)), squeeze=False)
+    for row, (label, panels) in enumerate(all_panels):
+        for col, p in enumerate(panels):
+            ax = axes[row][col]
+            ax.imshow(p)
+            ax.axis("off")
+            if row == 0:
+                ax.set_title(titles[col], fontsize=11)
+        axes[row][0].text(0, -8, label, fontsize=7, va="bottom")
+    fig.tight_layout()
+    overview = out / overview_name
+    fig.savefig(overview, dpi=150)
+    log.info("Saved %d rows to %s", len(all_panels), overview)
+    if show:
+        plt.show()
+    plt.close("all")
+    return overview
 
 
 def main() -> None:
@@ -119,75 +202,7 @@ def main() -> None:
     ap.add_argument("--show", action="store_true", help="also display the figures (e.g. in PyCharm)")
     args = ap.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
-
-    with open(args.dataset / "split.csv", newline="") as fh:
-        rows = [r for r in csv.DictReader(fh) if args.split in ("all", r["split"])]
-    if not rows:
-        log.error("No images for split '%s' in %s", args.split, args.dataset / "split.csv")
-        return
-    random.Random(args.seed).shuffle(rows)
-    if args.n:
-        rows = rows[: args.n]
-
-    annotations = {image_key(name): v for name, v in parse_cvat(args.export / "annotations.xml").items()}
-    flagged: dict[str, set[int]] = {}
-    flags_csv = args.dataset / "mask_flags.csv"
-    if flags_csv.exists():
-        with open(flags_csv, newline="") as fh:
-            for fr in csv.DictReader(fh):
-                flagged.setdefault(fr["image"], set()).add(int(fr["instance"]))
-    model = None
-    if args.weights:
-        from ultralytics import YOLO   # imported only when needed
-        model = YOLO(str(args.weights))
-
-    titles = ["Image", "Ground truth (CVAT)", "Character masks"] + (["Prediction"] if model else [])
-    args.out.mkdir(parents=True, exist_ok=True)
-    all_panels = []
-
-    for r in rows:
-        key, split = r["image"], r["split"]
-        img_path = next((args.dataset / "yolo_seg" / "images" / split).glob(f"{key}.*"))
-        img_bgr = cv2.imread(str(img_path))
-        img = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2RGB)
-        h, w = img.shape[:2]
-        _, _, codes, loose = annotations[key]
-        masks = load_seg_labels(args.dataset / "yolo_seg" / "labels" / split / f"{key}.txt", w, h)
-
-        x1, y1, x2, y2 = crop_window([c.polygon for c in codes], w, h)
-        panels = [img, draw_ground_truth(img, codes, loose), draw_masks((h, w), masks, flagged.get(key))]
-        if model:
-            panels.append(draw_masks((h, w), predict_instances(model, img_bgr)))
-        panels = [p[y1:y2, x1:x2] for p in panels]
-        all_panels.append((f"{key}  [{split}]  {r['container_id']}", panels))
-
-        fig, axes = plt.subplots(1, len(panels), figsize=(4 * len(panels), 4.5))
-        for ax, p, t in zip(axes, panels, titles):
-            ax.imshow(p)
-            ax.set_title(t, fontsize=11)
-            ax.axis("off")
-        fig.suptitle(all_panels[-1][0], fontsize=10)
-        fig.tight_layout()
-        fig.savefig(args.out / f"{key}.png", dpi=150)
-        if not args.show:
-            plt.close(fig)
-
-    cols = len(titles)
-    fig, axes = plt.subplots(len(all_panels), cols, figsize=(3.2 * cols, 3.4 * len(all_panels)), squeeze=False)
-    for row, (label, panels) in enumerate(all_panels):
-        for col, p in enumerate(panels):
-            ax = axes[row][col]
-            ax.imshow(p)
-            ax.axis("off")
-            if row == 0:
-                ax.set_title(titles[col], fontsize=11)
-        axes[row][0].text(0, -8, label, fontsize=7, va="bottom")
-    fig.tight_layout()
-    fig.savefig(args.out / "overview.png", dpi=150)
-    log.info("Saved %d figures + overview.png to %s", len(all_panels), args.out)
-    if args.show:
-        plt.show()
-    plt.close("all")
+    render(args.dataset, args.export, args.out, args.split, args.n, args.seed, args.weights, args.show)
 
 
 if __name__ == "__main__":
