@@ -39,11 +39,38 @@ CVAT annotations ──► prepare_dataset ──► YOLO-seg / YOLO-det dataset
 ## Quickstart (research workflow)
 
 ```bash
-# 0. Environment (once)
-sudo apt install libgl1 libglib2.0-0     # system libraries OpenCV needs
-python3 -m venv .venv
+# 1. System dependencies (once)
+sudo apt install libgl1 libglib2.0-0
+
+# 2. Create the environment
+uv venv --python 3.14.7
+
+# 3. Activate it
 source .venv/bin/activate
+
+# 4. Install everything in one go using uv
+uv pip install opencv-python numpy matplotlib pytest
+
+```
+
+### The Standard Python 3.12 Path
+
+If you decide to ditch `uv` and go back to the standard Python tools, use this:
+
+```bash
+# 1. System dependencies (once)
+sudo apt install libgl1 libglib2.0-0
+sudo apt install python3.12-venv
+
+# 2. Create the environment
+python3.12 -m venv .venv
+
+# 3. Activate it
+source .venv/bin/activate
+
+# 4. Install everything in one go using standard pip
 pip install opencv-python numpy matplotlib pytest
+> **A quick tip for PyCharm:** If you activate the environment in your standard terminal (`source .venv/bin/activate`) and then launch PyCharm from that same terminal by typing `pycharm-community` or `pycharm-professional`, PyCharm will often automatically detect and use that `.venv` as the default interpreter for the project.
 
 # 1. Put the data in place
 #    data/02_interim/cvat_export/   unzipped CVAT export ("CVAT for images 1.1", with images)
@@ -51,7 +78,11 @@ pip install opencv-python numpy matplotlib pytest
 
 # 2. Build the datasets and check them
 make prepare          # -> data/03_processed/char_dataset/
+pytest tests/test_prepare_dataset.py
+
 make plot-data        # -> results/figures/char_samples/ (image | ground truth | masks)
+python3 -m src.visualization.plot_char_dataset --show
+python3 -m src.visualization.plot_char_dataset --split test --weights results/yolo/seg-s42/weights/best.pt
 
 # 3. Train with MLflow tracking (installs PyTorch + Ultralytics + MLflow once)
 make train-setup

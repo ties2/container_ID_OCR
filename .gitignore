@@ -69,3 +69,6 @@ Icon
 .vscode/
 *.swp
 *.swo
+
+runs/
+/*.pt
