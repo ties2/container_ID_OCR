@@ -12,6 +12,11 @@ import pytest
 
 from src.data.prepare_dataset import (
     Box,
+    camera_of,
+    load_annotations,
+    load_metadata,
+    paint_out,
+    parse_cvat,
     extract_mask,
     group_id,
     grouped_split,
@@ -28,6 +33,9 @@ class TestNames:
 
     def test_image_key_accepts_short_name(self):
         assert image_key("1-122830001-OCR-AH-A01.jpg") == "1-122830001-OCR-AH-A01"
+
+    def test_camera_from_filename(self):
+        assert camera_of("1-122830001-OCR-LB-C02_jpg.rf.abc.jpg") == "LB"
 
     def test_group_id_is_capture_timestamp(self):
         assert group_id("1-123603001-OCR-LF-C01_jpg.rf.abc.jpg") == "123603001"
@@ -78,6 +86,13 @@ class TestSplit:
         first = grouped_split([f"C{i}" for i in range(10)], (0.6, 0.2, 0.2), seed=1)
         grown = grouped_split([f"C{i}" for i in range(25)], (0.6, 0.2, 0.2), seed=1, previous=first)
         assert all(grown[c] == first[c] for c in first)
+
+    def test_every_variation_group_is_spread_over_the_splits(self):
+        keys = [f"C{i}" for i in range(40)]
+        strata = {k: ("G1" if i < 30 else "G4") for i, k in enumerate(keys)}
+        split = grouped_split(keys, (0.6, 0.2, 0.2), seed=0, strata=strata)
+        g4 = [split[k] for k in keys if strata[k] == "G4"]
+        assert g4.count("train") == 6 and g4.count("val") == 2 and g4.count("test") == 2
 
     def test_split_shares_follow_targets(self):
         split = grouped_split([f"C{i}" for i in range(50)], (0.6, 0.2, 0.2), seed=3)
@@ -138,3 +153,96 @@ class TestFramedCheckDigit:
         contour, _ = extract_mask(img, Box(58, 46, 142, 154), pad_frac=0.0, framed=True)
         x, y, w, h = cv2.boundingRect(contour.astype(np.int32))
         assert w > 55 and h > 80      # the whole zero survives
+
+    @pytest.mark.parametrize("shear", [0, 10, -12])
+    def test_sheared_frame_in_oblique_view(self, shear):
+        """In oblique views the frame is a parallelogram, and the digit touches it."""
+        img = np.full((220, 220), 40, np.uint8)
+        frame = np.array([[60 + shear, 40], [130 + shear, 40], [130 - shear, 150], [60 - shear, 150]], np.int32)
+        cv2.polylines(img, [frame], True, 235, 4)
+        cv2.putText(img, "0", (74, 130), cv2.FONT_HERSHEY_SIMPLEX, 2.6, 235, 8)
+        cv2.line(img, (95, 42), (95, 62), 235, 6)                     # digit merges with frame
+        x1, x2 = frame[:, 0].min() - 2, frame[:, 0].max() + 2
+        contour, _ = extract_mask(img, Box(x1, 37, x2, 153), pad_frac=0.0, framed=True)
+        assert contour is not None
+        x, y, w, h = cv2.boundingRect(contour.astype(np.int32))
+        assert w < 0.75 * (x2 - x1) and h < 0.85 * 110                # digit, not the frame
+
+    @pytest.mark.parametrize("shear", [0, 8])
+    def test_digit_touching_frame_top_and_bottom(self, shear):
+        """A tall digit that fills its frame touches it on two sides."""
+        img = np.full((220, 220), 40, np.uint8)
+        frame = np.array([[70 + shear, 50], [130 + shear, 50], [130 - shear, 150], [70 - shear, 150]], np.int32)
+        cv2.polylines(img, [frame], True, 235, 5)
+        cv2.line(img, (100, 50), (100, 150), 235, 9)                 # a '1' from edge to edge
+        cv2.line(img, (100, 55), (88, 70), 235, 9)
+        img = cv2.GaussianBlur(img, (3, 3), 0)
+        x1, x2 = frame[:, 0].min() - 3, frame[:, 0].max() + 3
+        contour, _ = extract_mask(img, Box(x1, 46, x2, 154), pad_frac=0.0, framed=True)
+        assert contour is not None
+        x, y, w, h = cv2.boundingRect(contour.astype(np.int32))
+        assert w < 0.6 * (x2 - x1)                                    # the '1', not the frame
+
+
+def test_rejected_status_and_reason_are_read(tmp_path):
+    sheet = tmp_path / "Label-camera-AH.csv"
+    sheet.write_text("file,group,layout,angle,condition,status,notes\n"
+                     "1-1-OCR-AH-A01.jpg,G1,vertical,straight,clean,Rejected,\"code hidden, glare\"\n"
+                     "1-2-OCR-AH-A01.jpg,G1,vertical,straight,clean,ok,\n")
+    meta = load_metadata([sheet])
+    assert meta["1-1-OCR-AH-A01"]["status"] == "rejected"
+    assert meta["1-1-OCR-AH-A01"]["notes"] == "code hidden, glare"
+    assert meta["1-2-OCR-AH-A01"]["status"] == "ok"
+
+
+class TestIgnoreRegions:
+    XML = """<annotations><image id="0" name="a.jpg" width="400" height="300">
+      <polygon label="container_id" points="10,10;390,10;390,60;10,60"></polygon>
+      <polygon label="ignore" points="0,0;400,0;400,70;0,70"></polygon>
+      <polygon label="container_id" points="180,90;220,90;220,290;180,290"></polygon>
+      <box label="char" xtl="20" ytl="20" xbr="40" ybr="50"></box>
+      <box label="char" xtl="190" ytl="100" xbr="210" ybr="120"></box>
+    </image></annotations>"""
+
+    def test_code_and_boxes_inside_ignore_are_dropped(self, tmp_path):
+        xml = tmp_path / "annotations.xml"
+        xml.write_text(self.XML)
+        _, _, codes, loose = parse_cvat(xml)["a.jpg"]
+        assert len(codes) == 1 and len(codes[0].boxes) == 1 and not loose
+
+    def test_paint_out_removes_the_text(self):
+        img = np.full((120, 300, 3), 60, np.uint8)
+        cv2.putText(img, "MEDU", (20, 80), cv2.FONT_HERSHEY_SIMPLEX, 2, (240, 240, 240), 5)
+        region = np.array([[10, 20], [200, 20], [200, 100], [10, 100]], np.float32)
+        out = paint_out(img, [region])
+        assert out[20:100, 10:200].max() < 120          # no bright stroke left
+
+
+def test_exports_of_several_cvat_tasks_are_merged(tmp_path):
+    xml = """<annotations><image id="0" name="{n}" width="100" height="100">
+      <polygon label="container_id" points="0,0;50,0;50,90;0,90"></polygon></image></annotations>"""
+    for task, name in (("AH-G1", "1-1-OCR-AH-A01.jpg"), ("AH-G2", "1-2-OCR-AH-A01.jpg")):
+        (tmp_path / task).mkdir()
+        (tmp_path / task / "annotations.xml").write_text(xml.format(n=name))
+    assert sorted(load_annotations(tmp_path)) == ["1-1-OCR-AH-A01.jpg", "1-2-OCR-AH-A01.jpg"]
+
+
+def test_speck_inside_a_character_does_not_remove_it():
+    """A 1-pixel speck inside the loop of a '9' must not make the '9' look like a frame."""
+    img = np.full((120, 100), 40, np.uint8)
+    cv2.putText(img, "9", (25, 95), cv2.FONT_HERSHEY_SIMPLEX, 2.4, 235, 9)
+    loop = np.argwhere(img[30:60, 30:70] < 100)[len(np.argwhere(img[30:60, 30:70] < 100)) // 2] + [30, 30]
+    img[loop[0], loop[1]] = 235                                    # the speck
+    contour, flags = extract_mask(img, Box(22, 25, 80, 100))
+    assert contour is not None and "no_character_found" not in flags
+
+
+def test_thin_frame_cut_by_the_crop_is_removed():
+    """Frame line much thinner than the digit stroke, frame partly outside the crop."""
+    img = np.full((160, 140), 40, np.uint8)
+    cv2.rectangle(img, (30, 30), (100, 130), 235, 2)
+    cv2.putText(img, "3", (40, 118), cv2.FONT_HERSHEY_SIMPLEX, 2.8, 235, 10)
+    contour, _ = extract_mask(img, Box(31, 22, 99, 140), pad_frac=0.0, framed=True)
+    assert contour is not None
+    x, y, w, h = cv2.boundingRect(contour.astype(np.int32))
+    assert w < 0.85 * 68

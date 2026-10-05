@@ -36,7 +36,7 @@ import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 
-from src.data.prepare_dataset import CLASSES, image_key, parse_cvat
+from src.data.prepare_dataset import CLASSES, image_key, load_annotations
 
 log = logging.getLogger("plot_char_dataset")
 
@@ -115,8 +115,15 @@ def predict_instances(model, img_bgr: np.ndarray) -> list[tuple[int, np.ndarray]
 
 def render(dataset: Path, export: Path, out: Path, split: str = "all", n: int = 6, seed: int = 0,
            weights: Path | None = None, show: bool = False, overview_name: str = "overview.png",
-           per_image: bool = True) -> Path | None:
-    """Draw the rows and save them. Returns the path of the overview figure (None if no images)."""
+           per_image: bool = True, predictions: dict | None = None,
+           row_notes: dict[str, str] | None = None, title: str | None = None) -> Path | None:
+    """Draw the rows and save them. Returns the path of the overview figure (None if no images).
+
+    predictions: image key -> [(class_id, polygon)], already computed (e.g. by evaluate.py);
+                 if not given and `weights` is set, the model is run here.
+    row_notes:   image key -> text shown above that row (e.g. "GT ... | pred ...").
+    title:       text shown above the whole overview (e.g. the main metrics).
+    """
     with open(dataset / "split.csv", newline="") as fh:
         rows = [r for r in csv.DictReader(fh) if split in ("all", r["split"])]
     if not rows:
@@ -126,7 +133,7 @@ def render(dataset: Path, export: Path, out: Path, split: str = "all", n: int = 
     if n:
         rows = rows[:n]
 
-    annotations = {image_key(name): v for name, v in parse_cvat(export / "annotations.xml").items()}
+    annotations = {image_key(name): v for name, v in load_annotations(export).items()}
     flagged: dict[str, set[int]] = {}
     flags_csv = dataset / "mask_flags.csv"
     if flags_csv.exists():
@@ -134,11 +141,13 @@ def render(dataset: Path, export: Path, out: Path, split: str = "all", n: int = 
             for fr in csv.DictReader(fh):
                 flagged.setdefault(fr["image"], set()).add(int(fr["instance"]))
     model = None
-    if weights:
+    if weights and predictions is None:
         from ultralytics import YOLO   # imported only when needed
         model = YOLO(str(weights))
+    with_pred = model is not None or predictions is not None
+    row_notes = row_notes or {}
 
-    titles = ["Image", "Ground truth (CVAT)", "Character masks"] + (["Prediction"] if model else [])
+    titles = ["Image", "Ground truth (CVAT)", "Character masks"] + (["Prediction"] if with_pred else [])
     out.mkdir(parents=True, exist_ok=True)
     all_panels = []
 
@@ -153,10 +162,12 @@ def render(dataset: Path, export: Path, out: Path, split: str = "all", n: int = 
 
         x1, y1, x2, y2 = crop_window([c.polygon for c in codes], w, h)
         panels = [img, draw_ground_truth(img, codes, loose), draw_masks((h, w), masks, flagged.get(key))]
-        if model:
+        if predictions is not None:
+            panels.append(draw_masks((h, w), predictions.get(key, [])))
+        elif model:
             panels.append(draw_masks((h, w), predict_instances(model, img_bgr)))
         panels = [p[y1:y2, x1:x2] for p in panels]
-        all_panels.append((f"{key}  [{sp}]  {r['container_id']}", panels))
+        all_panels.append((row_notes.get(key, f"{key}  [{sp}]  {r['container_id']}"), panels))
 
         if per_image:
             fig, axes = plt.subplots(1, len(panels), figsize=(4 * len(panels), 4.5))
@@ -170,17 +181,18 @@ def render(dataset: Path, export: Path, out: Path, split: str = "all", n: int = 
             if not show:
                 plt.close(fig)
 
+    # One sub-figure per image: its own heading (image, GT vs prediction) and four panels.
     cols = len(titles)
-    fig, axes = plt.subplots(len(all_panels), cols, figsize=(3.2 * cols, 3.4 * len(all_panels)), squeeze=False)
-    for row, (label, panels) in enumerate(all_panels):
-        for col, p in enumerate(panels):
-            ax = axes[row][col]
+    fig = plt.figure(figsize=(3.4 * cols, 3.6 * len(all_panels) + (0.5 if title else 0)), layout="constrained")
+    subfigs = np.atleast_1d(fig.subfigures(len(all_panels), 1))
+    for sf, (label, panels) in zip(subfigs, all_panels):
+        sf.suptitle(label, fontsize=8, family="monospace", x=0.01, ha="left")
+        for ax, p, t in zip(np.atleast_1d(sf.subplots(1, cols)), panels, titles):
             ax.imshow(p)
+            ax.set_title(t, fontsize=9)
             ax.axis("off")
-            if row == 0:
-                ax.set_title(titles[col], fontsize=11)
-        axes[row][0].text(0, -8, label, fontsize=7, va="bottom")
-    fig.tight_layout()
+    if title:
+        fig.suptitle(title, fontsize=10, family="monospace", fontweight="bold")
     overview = out / overview_name
     fig.savefig(overview, dpi=150)
     log.info("Saved %d rows to %s", len(all_panels), overview)

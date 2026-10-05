@@ -1,0 +1,29 @@
+det-s42  |  val: 9 images, 13 codes  |  box mAP50 0.72  box mAP50-95 0.65  char acc 0.69  full-code acc 0.15
+
+== Localisation (Ultralytics) ==
+metrics/precisionB          : 0.8454
+metrics/recallB             : 0.5717
+metrics/mAP50B              : 0.7248
+metrics/mAP50-95B           : 0.6501
+fitness                     : 0.6576
+
+== Reading (conf >= 0.25, class-agnostic NMS) ==
+reading/char_acc            : 0.6853
+reading/full_code_acc       : 0.1538
+reading/checkdigit_ok       : 0.1538
+
+== Reads ==
+image                        truth        pred         char_acc
+1-123147001-OCR-AH-A01       BSIU3121575  U81717       0.36
+1-123147001-OCR-AH-A01       BSIU3121575  BS1U3121575  0.91
+1-123638001-OCR-AH-A01       BMOU4131633  BM0U4131633  0.91
+1-123921001-OCR-AH-A01       MRKU0555960  -            0.00
+1-123921001-OCR-AH-A01       MRKU0555960  MRKU0555960  1.00
+1-124722001-OCR-AH-A01       TCNU6461279  TCNU6461279  1.00
+1-125254001-OCR-AH-A01       STXU2054050  U            0.09
+1-125254001-OCR-AH-A01       STXU2054050  SKU2054050   0.82
+1-125513001-OCR-AH-A01       SEGU5845118  SEU58451118  0.82
+1-132303001-OCR-AH-A01       TGHU0537770  7UU5777      0.45
+1-132303001-OCR-AH-A01       TGHU0537770  TCHU0537770  0.91
+1-132407001-OCR-AH-A01       FCIU9594900  FCU594900    0.82
+1-134203001-OCR-AH-A01       TRIU0535670  TU0535670    0.82

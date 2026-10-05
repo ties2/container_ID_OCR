@@ -1,0 +1,53 @@
+seg-s42  |  val: 15 images, 18 codes  |  mask mAP50 0.70  box mAP50 0.75  box mAP50-95 0.64  char acc 0.76  full-code acc 0.33
+
+== Localisation (Ultralytics) ==
+metrics/precisionB          : 0.8020
+metrics/recallB             : 0.6431
+metrics/mAP50B              : 0.7501
+metrics/mAP50-95B           : 0.6437
+metrics/precisionM          : 0.7992
+metrics/recallM             : 0.6352
+metrics/mAP50M              : 0.7009
+metrics/mAP50-95M           : 0.3984
+fitness                     : 1.0421
+
+== Reading (conf >= 0.25, class-agnostic NMS) ==
+reading/char_acc            : 0.7626
+reading/full_code_acc       : 0.3333
+reading/checkdigit_ok       : 0.3333
+reading_fmt/char_acc        : 0.7778
+reading_fmt/full_code_acc   : 0.3889
+reading/n_codes             : 18.0000
+reading_vertical/char_acc   : 0.8970
+reading_vertical/full_code_acc: 0.4000
+reading_vertical/checkdigit_ok: 0.4000
+reading_vertical_fmt/char_acc: 0.9152
+reading_vertical_fmt/full_code_acc: 0.4667
+reading_vertical/n_codes    : 15.0000
+reading_horizontal/char_acc : 0.0909
+reading_horizontal/full_code_acc: 0.0000
+reading_horizontal/checkdigit_ok: 0.0000
+reading_horizontal_fmt/char_acc: 0.0909
+reading_horizontal_fmt/full_code_acc: 0.0000
+reading_horizontal/n_codes  : 3.0000
+
+== Reads ==
+image                        layout     truth        pred         pred_fmt     char_acc
+1-123638001-OCR-AH-A01       vertical   BMOU4131633  BM0U4131633  BMOU4131633  0.91
+1-123921001-OCR-AH-A01       horizontal MRKU0555960  -            -            0.00
+1-123921001-OCR-AH-A01       vertical   MRKU0555960  MRKU0555960  MRKU0555960  1.00
+1-124722001-OCR-AH-A01       vertical   TCNU6461279  TCNU6461279  TCNU6461279  1.00
+1-125254001-OCR-AH-A01       horizontal STXU2054050  U8           U8           0.09
+1-125254001-OCR-AH-A01       vertical   STXU2054050  STKU2054050  STKU2054050  0.91
+1-125513001-OCR-AH-A01       vertical   SEGU5845118  SECU5845118  SECU5845118  0.91
+1-132303001-OCR-AH-A01       horizontal TGHU0537770  7U0          7U0          0.18
+1-132303001-OCR-AH-A01       vertical   TGHU0537770  TCHU0537770  TCHU0537770  0.91
+1-132407001-OCR-AH-A01       vertical   FCIU9594900  EC1U9594900  ECIU9594900  0.82
+1-134203001-OCR-AH-A01       vertical   TRIU0535670  TB1U0535670  TBIU0535670  0.82
+1-140205001-OCR-AH-A01       vertical   UNIU5041740  UNU5041740   UNU5041740   0.91
+1-144240001-OCR-AH-A01       vertical   TCNU6306020  TCNU6306020  TCNU6306020  1.00
+1-144516001-OCR-AH-A01       vertical   SUDU6843547  SUUUU6855527 SUUUU6855527 0.55
+1-124544001-OCR-AH-A01       vertical   MRKU6235602  MRKU6235602  MRKU6235602  1.00
+1-125942001-OCR-AH-A01       vertical   MRKU5400030  MRKU5400030  MRKU5400030  1.00
+1-140105001-OCR-AH-A01       vertical   GATU8489237  CU8489237    CU8489237    0.73
+1-145251001-OCR-AH-A01       vertical   MRKU0222315  MRKU0222315  MRKU0222315  1.00

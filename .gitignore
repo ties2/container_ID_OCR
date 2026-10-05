@@ -1,34 +1,66 @@
 # ==========================================
-# 1. Project-Specific (Data, Models, Logs)
+# 1. Data: images and generated files stay local.
+#    Only small, hand-made files are versioned:
+#    annotations, typed codes, split table, selection sheets.
 # ==========================================
-# Ignore large data files, but keep the directory structure
 data/01_raw/*
 !data/01_raw/.gitkeep
+
 data/02_interim/*
 !data/02_interim/.gitkeep
+!data/02_interim/labels.csv
+!data/02_interim/split_assignments.csv
+# CVAT exports (one folder per task): only the annotations.xml files are versioned
+!data/02_interim/cvat_export/
+data/02_interim/cvat_export/**
+!data/02_interim/cvat_export/**/
+!data/02_interim/cvat_export/**/annotations.xml
+
 data/03_processed/*
 !data/03_processed/.gitkeep
 
-# Ignore saved model weights (e.g., .pt, .pth, .onnx, .h5)
-models/*
-!models/.gitkeep
-
-# Ignore training logs and output results
-logs/*
-!logs/.gitkeep
-results/*
-!results/.gitkeep
+# data/metadata/ (Label-camera-*.csv, images-camera-info.csv) is versioned.
 
 # ==========================================
-# 2. Python & Bytecode
+# 2. Models, weights, logs, results
+# ==========================================
+models/*
+!models/.gitkeep
+*.pt
+*.pth
+*.onnx
+runs/
+
+logs/*
+!logs/.gitkeep
+
+# results: only the text summaries of the runs are versioned
+results/*
+!results/.gitkeep
+!results/history/
+results/history/*
+!results/history/*.txt
+
+# ==========================================
+# 3. Python & tooling
 # ==========================================
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
 
 # ==========================================
-# 3. Virtual Environments
+# 4. Environments, OS, IDE
 # ==========================================
 .venv/
 venv/
@@ -36,39 +68,12 @@ env/
 ENV/
 .conda/
 .local/
-
-# ==========================================
-# 4. Jupyter Notebooks
-# ==========================================
-.ipynb_checkpoints/
-*.ipynb_checkpoints
-
-# ==========================================
-# 5. Testing & Tooling (pytest, coverage)
-# ==========================================
-.pytest_cache/
-.coverage
-htmlcov/
-.tox/
-.mypy_cache/
-.ruff_cache/
-
-# ==========================================
-# 6. macOS Specific
-# ==========================================
 .DS_Store
 .AppleDouble
 .LSOverride
-Icon
+Icon?
 ._*
-
-# ==========================================
-# 7. IDE & Editor Files
-# ==========================================
 .idea/
 .vscode/
 *.swp
 *.swo
-
-runs/
-/*.pt

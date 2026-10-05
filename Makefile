@@ -1,7 +1,7 @@
 # ============================================================
 # Container ID OCR Pipeline – Makefile
 # ============================================================
-.PHONY: install install-dev prepare plot-data train-setup mlflow-ui train-seg train-det train-all predict test lint format docker-build docker-run clean
+.PHONY: install install-dev sort-groups prepare plot-data train-setup mlflow-ui train-seg train-det train-all evaluate predict test lint format docker-build docker-run clean
 
 # bash + pipefail: a training error still stops make when output is piped to `tee`
 SHELL       := /bin/bash
@@ -16,21 +16,29 @@ DEVICE  ?= cpu
 
 # Character dataset (built by `make prepare`) and training settings
 CHARSET  ?= data/03_processed/char_dataset
-EPOCHS   ?= 300
+EPOCHS   ?= 200
 # characters are small: 640 px loses detail
 IMGSZ    ?= 1280
 BATCH    ?= 4
 SEED     ?= 42
 # MLflow store (MLflow 3 no longer accepts a plain folder)
 MLFLOW_URI ?= sqlite:///results/mlflow.db
+# ARCH: yolov8n (default) | yolo11n | yolov8s | yolo11s  (same family for seg and det)
+ARCH     ?= yolov8n
+ARCH_TAG  = $(if $(filter yolov8n,$(ARCH)),,-$(ARCH))
 # SINGLE_CLS=1: all characters as one class (localisation only)
 SINGLE_CLS ?= 0
 # one time stamp per make call; links the history files of a run
 STAMP    := $(shell date +%Y%m%d-%H%M%S)
-TRAIN_ARGS = --seed $(SEED) --epochs $(EPOCHS) --imgsz $(IMGSZ) --batch $(BATCH) \
+TRAIN_ARGS = --arch $(ARCH) --seed $(SEED) --epochs $(EPOCHS) --imgsz $(IMGSZ) --batch $(BATCH) \
              --device $(DEVICE) --dataset $(CHARSET) --mlflow-uri $(MLFLOW_URI) --stamp $(STAMP) \
              $(if $(filter 1,$(SINGLE_CLS)),--single-cls,)
-RUN_TAG  = $(if $(filter 1,$(SINGLE_CLS)),-1cls,)-s$(SEED)
+RUN_TAG  = $(ARCH_TAG)$(if $(filter 1,$(SINGLE_CLS)),-1cls,)-s$(SEED)
+
+# Evaluation: which run, which split (val while developing, test once at the end), rows in the figure
+RUN      ?= seg-s42
+SPLIT    ?= val
+N        ?= 6
 
 # ── Environment ──────────────────────────────────────────────
 
@@ -58,6 +66,10 @@ predict-video:
 		--output results/video_reads.json
 
 # ── Character segmentation vs detection ──────────────────────
+
+## Copy the camera folders into G1..G8 sub-folders (browsing / choosing what to annotate)
+sort-groups:
+	python3 -m src.data.sort_by_group
 
 ## Build YOLO datasets from the CVAT export (see src/data/prepare_dataset.py)
 prepare:
@@ -87,6 +99,11 @@ train-det:
 	mkdir -p results/history
 	python3 -m src.models.train_yolo --task det $(TRAIN_ARGS) 2>&1 \
 		| tee results/history/$(STAMP)_det$(RUN_TAG)_console.log
+
+## Evaluate a run: localisation + reading metrics, figure shown in PyCharm / saved in results/history
+evaluate:
+	python3 -m src.models.evaluate --run $(RUN) --split $(SPLIT) --n $(N) --imgsz $(IMGSZ) \
+		--device $(DEVICE) --mlflow-uri $(MLFLOW_URI)
 
 ## Both models with three seeds (6 runs)
 train-all:

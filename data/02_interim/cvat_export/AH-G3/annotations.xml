@@ -1,0 +1,1182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotations>
+  <version>1.1</version>
+  <meta>
+    <job>
+      <id>811</id>
+      <size>26</size>
+      <mode>annotation</mode>
+      <overlap>0</overlap>
+      <bugtracker></bugtracker>
+      <created>2026-10-04 16:05:21.952886+00:00</created>
+      <updated>2026-10-05 16:02:10.741264+00:00</updated>
+      <subset>default</subset>
+      <start_frame>0</start_frame>
+      <stop_frame>25</stop_frame>
+      <frame_filter></frame_filter>
+      <segments>
+        <segment>
+          <id>822</id>
+          <start>0</start>
+          <stop>25</stop>
+          <url>http://141.252.12.123:30080/api/jobs/811</url>
+        </segment>
+      </segments>
+      <owner>
+        <username>252forouzandeh.fanaelahi1</username>
+        <email>forouzandeh.fanaelahi1@student.nhlstenden.com</email>
+      </owner>
+      <assignee></assignee>
+      <labels>
+        <label>
+          <name>container_id</name>
+          <color>#fa673a</color>
+          <type>polygon</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>char</name>
+          <color>#fa673a</color>
+          <type>rectangle</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>ignore</name>
+          <color>#c040e0</color>
+          <type>polygon</type>
+          <attributes>
+          </attributes>
+        </label>
+      </labels>
+    </job>
+    <dumped>2026-10-05 16:12:10.985960+00:00</dumped>
+  </meta>
+  <image id="0" name="1-122930001-OCR-AH-A01_jpg.rf.770eef9eb90b83a97f734c9c62f35ea4.jpg" width="1920" height="1080">
+    <box label="char" source="manual" occluded="0" xtl="398.67" ytl="148.48" xbr="427.10" ybr="184.10" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="427.14" ytl="148.50" xbr="441.40" ybr="182.29" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="999.05" ytl="364.86" xbr="1039.62" ybr="428.92" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="443.16" ytl="146.70" xbr="478.74" ybr="180.51" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="485.86" ytl="144.92" xbr="526.79" ybr="180.51" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="528.57" ytl="144.92" xbr="558.82" ybr="176.95" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="560.60" ytl="144.92" xbr="594.41" ybr="178.73" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="996.56" ytl="940.33" xbr="1041.04" ybr="997.27" z_order="0">
+    </box>
+    <polygon label="container_id" source="manual" occluded="0" points="361.30,144.92;777.69,137.81;775.90,184.00;345.30,189.40" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="361.30" ytl="148.48" xbr="396.89" ybr="182.29" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="998.34" ytl="883.39" xbr="1035.71" ybr="926.09" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="998.34" ytl="837.12" xbr="1037.48" ybr="881.61" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="998.34" ytl="789.08" xbr="1033.93" ybr="835.34" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="998.34" ytl="739.25" xbr="1039.26" ybr="785.52" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1001.90" ytl="689.43" xbr="1037.48" ybr="735.70" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1001.90" ytl="632.49" xbr="1037.48" ybr="684.09" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1000.12" ytl="552.41" xbr="1037.48" ybr="609.35" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="998.34" ytl="493.69" xbr="1037.48" ybr="550.63" z_order="0">
+    </box>
+    <polygon label="container_id" source="manual" occluded="0" points="993.00,358.46;1046.38,358.46;1044.60,1009.73;993.00,1006.17" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="998.34" ytl="433.19" xbr="1039.26" ybr="491.91" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="596.19" ytl="144.92" xbr="630.00" ybr="176.95" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="631.78" ytl="143.15" xbr="660.25" ybr="178.73" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="665.58" ytl="143.15" xbr="702.95" ybr="176.95" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="713.63" ytl="141.37" xbr="772.35" ybr="175.18" z_order="0">
+    </box>
+  </image>
+  <image id="1" name="1-123359001-OCR-AH-A01_jpg.rf.8712f2089a4ab0b9a0b072c253c2daab.jpg" width="1920" height="1080">
+    <polygon label="container_id" source="manual" occluded="0" points="1268.81,43.50;1329.31,47.06;1261.69,758.83;1210.09,758.83" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="1279.49" ytl="48.84" xbr="1315.07" ybr="114.67" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1267.03" ytl="118.23" xbr="1307.96" ybr="184.07" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1261.69" ytl="189.41" xbr="1302.62" ybr="255.25" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1256.35" ytl="258.81" xbr="1299.06" ybr="319.31" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1252.80" ytl="338.88" xbr="1288.38" ybr="394.04" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1245.68" ytl="395.82" xbr="1286.60" ybr="458.10" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1240.34" ytl="461.66" xbr="1277.71" ybr="518.60" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1240.34" ytl="522.16" xbr="1268.81" ybr="573.77" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1229.66" ytl="577.33" xbr="1263.47" ybr="632.49" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1226.10" ytl="636.05" xbr="1261.69" ybr="684.09" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1217.20" ytl="692.99" xbr="1258.13" ybr="748.15" z_order="0">
+    </box>
+  </image>
+  <image id="2" name="1-123502001-OCR-AH-A01_jpg.rf.3302eb7b50e4dd9ca78ee0cdd3390367.jpg" width="1920" height="1080">
+    <box label="char" source="manual" occluded="0" xtl="1044.60" ytl="821.11" xbr="1085.53" ybr="865.59" z_order="0">
+    </box>
+    <polygon label="container_id" source="manual" occluded="0" points="1058.84,342.44;1114.00,340.66;1083.75,984.81;1033.93,984.81" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="1062.40" ytl="347.78" xbr="1103.32" ybr="413.62" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1058.84" ytl="413.62" xbr="1105.10" ybr="474.12" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1058.84" ytl="477.68" xbr="1096.21" ybr="534.62" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1053.50" ytl="536.40" xbr="1097.99" ybr="595.12" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1053.50" ytl="609.35" xbr="1090.87" ybr="664.50" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1055.28" ytl="666.30" xbr="1087.31" ybr="717.90" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1051.72" ytl="721.46" xbr="1085.53" ybr="767.72" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1046.38" ytl="771.28" xbr="1089.09" ybr="819.33" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1041.04" ytl="867.37" xbr="1081.97" ybr="911.86" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1039.26" ytl="924.31" xbr="1083.70" ybr="977.70" z_order="0">
+    </box>
+    <polygon label="container_id" source="manual" occluded="0" points="377.32,127.13;843.53,116.45;839.97,166.28;366.64,168.06" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="386.21" ytl="127.13" xbr="423.58" ybr="159.16" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="427.14" ytl="128.91" xbr="462.73" ybr="159.16" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="468.07" ytl="125.35" xbr="487.64" ybr="160.94" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="496.54" ytl="125.35" xbr="530.35" ybr="160.94" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="546.36" ytl="125.35" xbr="583.73" ybr="159.16" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="586.26" ytl="123.06" xbr="617.27" ybr="161.82" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="621.14" ytl="123.06" xbr="648.28" ybr="159.88" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="654.09" ytl="123.06" xbr="687.04" ybr="161.82" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="690.92" ytl="123.06" xbr="723.86" ybr="157.95" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="725.80" ytl="123.06" xbr="756.81" ybr="161.82" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="776.19" ytl="121.10" xbr="836.27" ybr="161.82" z_order="0">
+    </box>
+  </image>
+  <image id="3" name="1-123511001-OCR-AH-A01_jpg.rf.d5a482881cbbfb151ac25223998c95df.jpg" width="1920" height="1080">
+    <box label="char" source="manual" occluded="0" xtl="968.93" ytl="894.61" xbr="1017.05" ybr="949.86" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="970.71" ytl="842.93" xbr="1006.36" ybr="887.49" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="967.15" ytl="794.81" xbr="1008.14" ybr="837.58" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="965.37" ytl="746.69" xbr="1009.92" ybr="794.81" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="968.93" ytl="698.57" xbr="1009.92" ybr="744.91" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="968.93" ytl="652.24" xbr="1008.14" ybr="696.79" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="967.15" ytl="589.86" xbr="1018.83" ybr="650.46" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="972.50" ytl="520.36" xbr="1017.05" ybr="577.39" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="976.06" ytl="465.11" xbr="1017.05" ybr="520.36" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="974.28" ytl="406.30" xbr="1013.49" ybr="461.54" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="981.41" ytl="340.36" xbr="1017.05" ybr="404.52" z_order="0">
+    </box>
+    <polygon label="container_id" source="manual" occluded="0" points="970.71,336.79;1025.96,335.01;1018.83,958.77;963.58,958.77" z_order="0">
+    </polygon>
+  </image>
+  <image id="4" name="1-123915001-OCR-AH-A01_jpg.rf.dedcc4126bf066da4322b13ab17cbc27.jpg" width="1920" height="1080">
+    <box label="char" source="manual" occluded="0" xtl="1047.35" ytl="778.77" xbr="1086.55" ybr="821.54" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="398.63" ytl="97.98" xbr="430.71" ybr="131.84" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="434.28" ytl="96.20" xbr="468.14" ybr="133.62" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="471.70" ytl="94.42" xbr="502.00" ybr="133.62" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="509.13" ytl="94.42" xbr="546.55" ybr="135.41" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="557.25" ytl="97.98" xbr="591.11" ybr="133.62" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="594.67" ytl="96.20" xbr="628.54" ybr="135.41" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="632.10" ytl="94.42" xbr="671.31" ybr="135.41" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="674.87" ytl="97.98" xbr="705.17" ybr="138.97" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="708.73" ytl="96.20" xbr="742.59" ybr="142.54" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="746.16" ytl="99.80" xbr="780.02" ybr="140.75" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="799.62" ytl="101.50" xbr="856.65" ybr="140.75" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1054.48" ytl="541.74" xbr="1099.03" ybr="598.77" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1054.48" ytl="611.25" xbr="1090.12" ybr="666.50" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1050.91" ytl="668.28" xbr="1090.12" ybr="723.53" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1050.91" ytl="728.87" xbr="1086.55" ybr="776.99" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1042.00" ytl="823.33" xbr="1079.43" ybr="864.32" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1045.56" ytl="869.66" xbr="1081.21" ybr="912.44" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1042.00" ytl="923.13" xbr="1082.99" ybr="980.16" z_order="0">
+    </box>
+    <polygon label="container_id" source="manual" occluded="0" points="400.42,89.07;870.91,99.76;853.09,146.10;379.03,137.19" z_order="0">
+    </polygon>
+    <polygon label="container_id" source="manual" occluded="0" points="1059.82,347.49;1120.42,347.49;1084.77,989.07;1036.65,983.72" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="1066.95" ytl="354.61" xbr="1106.16" ybr="418.77" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1058.04" ytl="422.34" xbr="1106.16" ybr="481.15" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1063.39" ytl="482.93" xbr="1106.16" ybr="536.40" z_order="0">
+    </box>
+  </image>
+  <image id="5" name="1-124453001-OCR-AH-A01_jpg.rf.acce5a2df998ea29d63211f908ce7fda.jpg" width="1920" height="1080">
+    <polygon label="container_id" source="manual" occluded="0" points="751.00,180.50;809.70,180.50;840.00,894.10;788.36,888.72" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="759.89" ytl="182.29" xbr="806.16" ybr="251.69" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="767.01" ytl="253.47" xbr="809.72" ybr="322.87" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="767.01" ytl="324.65" xbr="807.94" ybr="383.37" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="767.01" ytl="386.93" xbr="815.06" ybr="454.54" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="770.57" ytl="467.00" xbr="818.62" ybr="525.72" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="777.69" ytl="532.84" xbr="818.62" ybr="588.00" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="772.35" ytl="591.56" xbr="816.84" ybr="644.94" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="779.47" ytl="652.06" xbr="822.17" ybr="698.33" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="790.14" ytl="703.66" xbr="823.95" ybr="749.93" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="788.36" ytl="755.27" xbr="832.85" ybr="805.09" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="790.14" ytl="812.21" xbr="832.85" ybr="883.39" z_order="0">
+    </box>
+  </image>
+  <image id="6" name="1-124543001-OCR-AH-A01_jpg.rf.f597256a9118917a7ec7e859e7ef30a3.jpg" width="1920" height="1080">
+    <polygon label="container_id" source="manual" occluded="0" points="1105.10,329.99;1165.60,331.76;1126.46,956.34;1064.18,954.56" z_order="0">
+    </polygon>
+    <polygon label="ignore" source="manual" occluded="0" points="446.71,43.50;909.37,50.62;904.03,91.54;428.92,84.42" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="1114.00" ytl="338.88" xbr="1153.15" ybr="395.82" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1110.44" ytl="397.60" xbr="1153.15" ybr="458.10" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1101.54" ytl="459.88" xbr="1146.03" ybr="511.49" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1101.54" ytl="516.82" xbr="1144.25" ybr="573.77" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1097.99" ytl="588.00" xbr="1137.13" ybr="639.61" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1094.43" ytl="644.94" xbr="1131.79" ybr="692.99" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1090.87" ytl="698.33" xbr="1128.24" ybr="741.03" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1089.09" ytl="744.59" xbr="1122.90" ybr="789.08" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1089.10" ytl="794.42" xbr="1119.34" ybr="837.12" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1083.75" ytl="840.68" xbr="1122.90" ybr="883.39" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1074.85" ytl="890.50" xbr="1122.90" ybr="943.89" z_order="0">
+    </box>
+  </image>
+  <image id="7" name="1-124709001-OCR-AH-A01_jpg.rf.d1a968e569212a72c5a5e3cb31eb7ee7.jpg" width="1920" height="1080">
+    <box label="char" source="manual" occluded="0" xtl="1033.93" ytl="849.58" xbr="1076.63" ybr="897.62" z_order="0">
+    </box>
+    <polygon label="container_id" source="manual" occluded="0" points="1041.04,340.66;1099.76,338.88;1078.41,972.36;1021.47,965.24" z_order="0">
+    </polygon>
+    <polygon label="container_id" source="manual" occluded="0" points="395.11,100.44;843.53,100.44;839.97,164.50;386.21,157.38" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="1052.04" ytl="349.35" xbr="1091.77" ybr="410.43" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1051.40" ytl="411.72" xbr="1089.14" ybr="469.82" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1047.42" ytl="472.30" xbr="1085.17" ybr="527.92" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1043.95" ytl="530.90" xbr="1085.17" ybr="585.03" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1042.82" ytl="600.46" xbr="1081.97" ybr="652.06" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1041.04" ytl="653.84" xbr="1080.19" ybr="705.44" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1037.48" ytl="705.44" xbr="1076.63" ybr="753.49" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1035.71" ytl="755.27" xbr="1078.41" ybr="799.75" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1033.93" ytl="803.31" xbr="1078.41" ybr="849.58" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1028.59" ytl="902.96" xbr="1074.85" ybr="959.90" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="402.23" ytl="109.34" xbr="436.04" ybr="150.26" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="437.82" ytl="107.56" xbr="466.29" ybr="150.26" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="468.10" ytl="109.34" xbr="500.10" ybr="150.26" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="503.66" ytl="105.78" xbr="541.02" ybr="148.48" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="555.26" ytl="107.56" xbr="587.29" ybr="146.70" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="587.29" ytl="109.34" xbr="622.88" ybr="150.26" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="624.66" ytl="105.78" xbr="656.69" ybr="150.26" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="656.69" ytl="104.00" xbr="686.94" ybr="150.26" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="688.72" ytl="105.78" xbr="722.53" ybr="148.48" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="726.09" ytl="104.00" xbr="761.67" ybr="152.04" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="768.79" ytl="105.78" xbr="825.73" ybr="159.16" z_order="0">
+    </box>
+  </image>
+  <image id="8" name="1-125432001-OCR-AH-A01_jpg.rf.c49a8a98b9552e3618e0e078f1f795c2.jpg" width="1920" height="1080">
+    <polygon label="container_id" source="manual" occluded="0" points="1026.81,248.13;1099.76,251.69;1069.51,920.75;1010.79,918.97" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="1037.48" ytl="255.25" xbr="1092.65" ybr="322.87" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1037.48" ytl="328.21" xbr="1081.97" ybr="386.93" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1028.59" ytl="390.49" xbr="1083.75" ybr="447.43" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1028.59" ytl="449.21" xbr="1080.19" ybr="509.71" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1030.37" ytl="525.72" xbr="1074.85" ybr="579.10" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1032.15" ytl="582.66" xbr="1069.51" ybr="634.27" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1030.37" ytl="639.61" xbr="1069.51" ybr="687.65" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1028.59" ytl="692.99" xbr="1067.73" ybr="741.03" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1023.25" ytl="744.59" xbr="1065.96" ybr="789.08" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1023.25" ytl="794.42" xbr="1064.18" ybr="842.46" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1019.69" ytl="849.58" xbr="1065.96" ybr="904.74" z_order="0">
+    </box>
+    <polygon label="container_id" source="manual" occluded="0" points="186.92,80.87;640.67,68.41;621.10,118.23;149.55,132.47" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="180.60" ytl="85.65" xbr="214.92" ybr="120.60" rotation="9.30" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="217.49" ytl="87.66" xbr="239.88" ybr="120.27" rotation="12.70" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="238.98" ytl="85.61" xbr="280.99" ybr="119.07" rotation="6.10" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="284.47" ytl="82.81" xbr="324.80" ybr="115.42" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="342.82" ytl="79.38" xbr="373.70" ybr="117.13" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="375.40" ytl="81.95" xbr="408.04" ybr="114.56" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="410.61" ytl="78.52" xbr="441.51" ybr="115.42" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="442.37" ytl="76.80" xbr="473.30" ybr="113.70" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="474.97" ytl="78.52" xbr="505.90" ybr="110.27" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="507.58" ytl="76.80" xbr="540.19" ybr="113.70" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="558.21" ytl="74.23" xbr="613.13" ybr="113.70" z_order="0">
+    </box>
+  </image>
+  <image id="9" name="1-131418001-OCR-AH-A01_jpg.rf.1851b418fcbf91634245927158884772.jpg" width="1920" height="1080">
+    <polygon label="container_id" source="manual" occluded="0" points="1032.15,335.32;1114.00,335.32;1064.18,981.25;1010.79,981.25" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="1047.09" ytl="339.13" xbr="1085.71" ybr="397.48" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1043.23" ytl="400.75" xbr="1085.28" ybr="461.67" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1038.08" ytl="463.39" xbr="1086.99" ybr="520.88" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1035.51" ytl="523.46" xbr="1082.70" ybr="582.67" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1035.51" ytl="602.41" xbr="1074.98" ybr="655.61" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1034.65" ytl="659.04" xbr="1074.12" ybr="708.82" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1032.93" ytl="710.53" xbr="1072.41" ybr="759.45" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1028.64" ytl="762.02" xbr="1070.69" ybr="808.36" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1026.93" ytl="810.08" xbr="1071.55" ybr="855.56" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1025.21" ytl="858.13" xbr="1062.11" ybr="902.75" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1016.63" ytl="910.48" xbr="1063.83" ybr="975.69" z_order="0">
+    </box>
+    <polygon label="container_id" source="manual" occluded="0" points="364.86,75.53;850.64,75.53;839.97,130.69;350.63,127.13" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="371.98" ytl="80.87" xbr="411.13" ybr="121.79" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="412.91" ytl="80.87" xbr="439.60" ybr="123.57" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="441.38" ytl="77.31" xbr="476.97" ybr="123.57" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="480.52" ytl="79.09" xbr="517.89" ybr="121.79" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="532.13" ytl="79.09" xbr="567.72" ybr="123.57" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="571.28" ytl="79.09" xbr="605.08" ybr="121.79" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="606.86" ytl="79.09" xbr="642.45" ybr="121.79" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="642.45" ytl="79.09" xbr="681.60" ybr="120.01" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="683.38" ytl="80.87" xbr="717.19" ybr="121.79" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="720.75" ytl="79.09" xbr="754.56" ybr="123.57" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="770.57" ytl="79.09" xbr="832.85" ybr="127.13" z_order="0">
+    </box>
+  </image>
+  <image id="10" name="1-131723001-OCR-AH-A01_jpg.rf.bf86e536923db11ada35e85a16aa94d1.jpg" width="1920" height="1080">
+    <polygon label="container_id" source="manual" occluded="0" points="1299.06,351.34;1366.68,349.56;1286.60,967.02;1227.88,967.02" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="1313.30" ytl="356.68" xbr="1348.88" ybr="417.18" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1302.62" ytl="418.96" xbr="1336.43" ybr="475.90" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1293.72" ytl="479.46" xbr="1334.65" ybr="534.62" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1288.38" ytl="536.40" xbr="1327.53" ybr="591.56" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1277.55" ytl="602.68" xbr="1318.13" ybr="654.34" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1270.17" ytl="658.02" xbr="1310.75" ybr="705.99" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1266.48" ytl="709.68" xbr="1307.06" ybr="753.40" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1261.69" ytl="757.05" xbr="1297.28" ybr="799.75" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1256.35" ytl="803.31" xbr="1288.38" ybr="844.24" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1252.80" ytl="847.80" xbr="1286.60" ybr="888.72" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1238.56" ytl="901.18" xbr="1286.60" ybr="954.56" z_order="0">
+    </box>
+    <polygon label="container_id" source="manual" occluded="0" points="631.78,61.29;1096.21,64.85;1099.76,121.79;626.40,116.50" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="638.89" ytl="68.41" xbr="678.04" ybr="111.12" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="681.60" ytl="66.63" xbr="708.29" ybr="109.34" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="711.85" ytl="64.85" xbr="749.22" ybr="111.12" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="751.00" ytl="64.85" xbr="790.14" ybr="109.34" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="799.04" ytl="64.85" xbr="838.19" ybr="109.34" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="841.75" ytl="66.63" xbr="875.56" ybr="109.34" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="879.12" ytl="66.63" xbr="907.59" ybr="109.34" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="911.15" ytl="63.07" xbr="944.95" ybr="109.34" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="946.73" ytl="64.85" xbr="973.43" ybr="109.34" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="975.20" ytl="66.63" xbr="1009.01" ybr="112.90" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1026.81" ytl="66.63" xbr="1087.31" ybr="118.23" z_order="0">
+    </box>
+  </image>
+  <image id="11" name="1-132223001-OCR-AH-A01_jpg.rf.155b1aef4a62b28028dc75e94eed6799.jpg" width="1920" height="1080">
+    <polygon label="container_id" source="manual" occluded="0" points="1142.47,392.26;1208.31,386.93;1151.37,1066.67;1099.76,1066.67" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="1151.37" ytl="394.04" xbr="1192.29" ybr="458.10" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1144.25" ytl="459.88" xbr="1194.07" ybr="527.50" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1140.69" ytl="534.62" xbr="1183.40" ybr="595.12" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1133.57" ytl="596.90" xbr="1178.06" ybr="655.62" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1133.57" ytl="675.19" xbr="1176.28" ybr="732.14" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1131.79" ytl="737.47" xbr="1167.38" ybr="787.30" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1124.68" ytl="790.86" xbr="1158.49" ybr="844.24" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1115.78" ytl="849.58" xbr="1158.49" ybr="895.84" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1112.22" ytl="899.40" xbr="1154.93" ybr="942.11" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1112.22" ytl="945.67" xbr="1151.37" ybr="995.49" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1106.88" ytl="1000.83" xbr="1153.15" ybr="1061.33" z_order="0">
+    </box>
+    <polygon label="container_id" source="manual" occluded="0" points="452.05,111.12;936.06,111.12;934.28,169.84;430.70,171.62" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="452.05" ytl="114.67" xbr="489.40" ybr="164.50" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="492.98" ytl="112.90" xbr="517.89" ybr="164.50" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="519.67" ytl="114.67" xbr="560.60" ybr="164.50" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="562.38" ytl="114.67" xbr="603.30" ybr="162.72" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="621.10" ytl="112.90" xbr="658.47" ybr="166.28" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="662.03" ytl="114.67" xbr="695.83" ybr="166.28" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="699.39" ytl="114.67" xbr="729.64" ybr="162.72" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="733.20" ytl="112.90" xbr="765.23" ybr="162.72" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="768.79" ytl="116.45" xbr="797.26" ybr="166.28" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="800.82" ytl="116.45" xbr="836.41" ybr="160.94" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="855.98" ytl="118.20" xbr="921.82" ybr="162.72" z_order="0">
+    </box>
+  </image>
+  <image id="12" name="1-132349001-OCR-AH-A01_jpg.rf.7c59c66b18d17d400711db012aa6885f.jpg" width="1920" height="1080">
+    <polygon label="container_id" source="manual" occluded="0" points="1267.03,294.40;1345.33,294.40;1265.25,901.18;1217.21,897.62" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="1281.27" ytl="296.18" xbr="1327.53" ybr="356.68" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1279.49" ytl="358.46" xbr="1316.85" ybr="413.62" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1270.59" ytl="415.40" xbr="1311.52" ybr="467.00" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1261.69" ytl="472.34" xbr="1304.40" ybr="525.72" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1254.57" ytl="536.40" xbr="1295.50" ybr="588.00" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1247.46" ytl="591.56" xbr="1290.16" ybr="639.61" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1249.24" ytl="641.38" xbr="1286.60" ybr="685.87" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1245.68" ytl="689.43" xbr="1279.49" ybr="732.14" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1242.12" ytl="735.69" xbr="1274.15" ybr="778.40" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1233.22" ytl="781.96" xbr="1268.81" ybr="821.11" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1226.10" ytl="835.34" xbr="1268.81" ybr="886.95" z_order="0">
+    </box>
+    <polygon label="container_id" source="manual" occluded="0" points="653.13,73.75;1081.97,79.09;1085.53,127.13;640.67,114.67" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="656.69" ytl="79.09" xbr="692.28" ybr="109.34" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="694.06" ytl="79.09" xbr="729.64" ybr="107.56" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="733.20" ytl="80.87" xbr="758.11" ybr="112.90" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="761.67" ytl="77.31" xbr="791.92" ybr="111.12" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="799.04" ytl="80.87" xbr="829.29" ybr="116.45" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="836.41" ytl="80.87" xbr="864.88" ybr="112.90" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="868.44" ytl="82.64" xbr="900.47" ybr="114.67" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="905.81" ytl="80.87" xbr="932.50" ybr="111.12" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="930.70" ytl="80.87" xbr="968.09" ybr="111.12" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="968.09" ytl="82.64" xbr="994.78" ybr="116.45" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1012.57" ytl="79.09" xbr="1069.51" ybr="121.79" z_order="0">
+    </box>
+  </image>
+  <image id="13" name="1-132724001-OCR-AH-A01_jpg.rf.d561c3fb9b332802fc3ba40df907c087.jpg" width="1920" height="1080">
+    <box label="char" source="manual" occluded="0" xtl="1236.10" ytl="330.67" xbr="1283.55" ybr="388.50" z_order="0">
+    </box>
+    <polygon label="container_id" source="manual" occluded="0" points="1233.22,262.37;1315.07,267.71;1238.56,901.18;1178.06,897.62" z_order="0">
+    </polygon>
+    <polygon label="container_id" source="manual" occluded="0" points="608.64,23.92;1044.60,32.82;1044.60,77.31;594.41,66.63" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="1247.81" ytl="269.13" xbr="1293.78" ybr="325.48" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1231.65" ytl="391.46" xbr="1279.10" ybr="446.33" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1224.24" ytl="452.26" xbr="1268.72" ybr="505.64" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1222.75" ytl="523.44" xbr="1264.27" ybr="573.86" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1216.82" ytl="575.34" xbr="1261.31" ybr="625.76" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1215.34" ytl="628.72" xbr="1255.38" ybr="680.62" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1206.44" ytl="682.10" xbr="1249.44" ybr="728.07" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1204.96" ytl="729.56" xbr="1243.51" ybr="774.04" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1199.03" ytl="777.01" xbr="1236.10" ybr="824.46" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1187.16" ytl="831.87" xbr="1231.65" ybr="885.25" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="608.85" ytl="29.65" xbr="639.99" ybr="62.27" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="641.47" ytl="29.65" xbr="678.54" ybr="62.27" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="680.03" ytl="29.65" xbr="708.20" ybr="63.75" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="711.17" ytl="32.61" xbr="749.72" ybr="59.30" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="760.10" ytl="32.61" xbr="795.69" ybr="65.24" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="800.14" ytl="32.61" xbr="831.28" ybr="65.24" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="835.73" ytl="34.10" xbr="865.38" ybr="68.20" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="868.35" ytl="35.58" xbr="893.56" ybr="68.20" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="898.01" ytl="34.10" xbr="929.10" ybr="68.20" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="935.08" ytl="34.10" xbr="963.25" ybr="69.68" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="982.53" ytl="34.10" xbr="1046.29" ybr="74.13" z_order="0">
+    </box>
+  </image>
+  <image id="14" name="1-132917001-OCR-AH-A01_jpg.rf.fcbeb1f74a4a131df321d9acfb608a9d.jpg" width="1920" height="1080">
+    <box label="char" source="manual" occluded="0" xtl="1245.68" ytl="870.93" xbr="1288.38" ybr="926.09" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1313.30" ytl="374.47" xbr="1352.44" ybr="431.41" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1302.62" ytl="434.97" xbr="1343.55" ybr="488.35" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1293.72" ytl="491.91" xbr="1339.99" ybr="548.85" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1283.05" ytl="559.53" xbr="1327.53" ybr="616.47" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1283.05" ytl="618.25" xbr="1316.85" ybr="669.86" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1272.37" ytl="673.41" xbr="1311.52" ybr="719.68" z_order="0">
+    </box>
+    <polygon label="container_id" source="manual" occluded="0" points="1311.52,305.07;1388.03,310.41;1290.16,934.99;1231.44,934.99" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="1270.59" ytl="721.46" xbr="1306.18" ybr="769.50" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1259.91" ytl="769.50" xbr="1299.06" ybr="815.77" z_order="0">
+    </box>
+    <polygon label="container_id" source="manual" occluded="0" points="396.89,50.62;968.09,59.51;966.31,114.67;375.54,104.00" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="1254.57" ytl="817.55" xbr="1290.16" ybr="860.25" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1318.63" ytl="308.63" xbr="1356.00" ybr="370.91" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="396.89" ytl="54.17" xbr="441.38" ybr="98.66" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="443.16" ytl="55.95" xbr="476.97" ybr="102.22" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="482.30" ytl="55.95" xbr="519.67" ybr="102.22" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="523.23" ytl="57.73" xbr="565.94" ybr="96.88" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="590.85" ytl="59.51" xbr="631.78" ybr="96.88" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="638.89" ytl="59.51" xbr="678.04" ybr="100.44" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="679.82" ytl="59.51" xbr="720.75" ybr="100.44" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="729.64" ytl="59.51" xbr="768.79" ybr="104.00" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="772.35" ytl="63.07" xbr="811.50" ybr="104.00" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="818.62" ytl="61.29" xbr="861.32" ybr="102.22" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="889.79" ytl="63.10" xbr="955.63" ybr="105.78" z_order="0">
+    </box>
+  </image>
+  <image id="15" name="1-133046001-OCR-AH-A01_jpg.rf.229985a0a9bd441a544c46aa7de10a81.jpg" width="1920" height="1080">
+    <box label="char" source="manual" occluded="0" xtl="944.95" ytl="89.76" xbr="980.54" ybr="130.69" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1096.21" ytl="95.10" xbr="1128.24" ybr="136.03" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1137.13" ytl="95.10" xbr="1192.29" ybr="141.37" z_order="0">
+    </box>
+    <polygon label="container_id" source="manual" occluded="0" points="1672.74,303.29;1743.92,308.63;1574.87,993.71;1525.05,990.15" z_order="0">
+    </polygon>
+    <polygon label="container_id" source="manual" occluded="0" points="713.63,80.87;1201.19,93.32;1201.19,146.70;713.63,134.25" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="1683.42" ytl="312.19" xbr="1722.56" ybr="378.03" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1670.96" ytl="381.59" xbr="1706.55" ybr="443.87" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1660.28" ytl="445.65" xbr="1694.09" ybr="499.03" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1644.27" ytl="500.81" xbr="1681.64" ybr="564.87" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1626.47" ytl="580.88" xbr="1660.28" ybr="634.27" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1617.58" ytl="639.61" xbr="1647.83" ybr="685.87" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1596.22" ytl="689.43" xbr="1633.59" ybr="739.25" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1592.67" ytl="742.81" xbr="1621.14" ybr="789.08" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="984.10" ytl="91.54" xbr="1019.69" ybr="128.91" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1025.03" ytl="93.32" xbr="1055.28" ybr="136.03" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1057.06" ytl="93.32" xbr="1094.43" ybr="136.03" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1580.21" ytl="792.64" xbr="1606.90" ybr="835.34" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1564.19" ytl="837.12" xbr="1598.00" ybr="885.17" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1539.32" ytl="924.31" xbr="1576.70" ybr="977.70" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="720.75" ytl="89.76" xbr="770.57" ybr="127.13" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="774.13" ytl="87.98" xbr="806.16" ybr="128.91" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="811.50" ytl="87.98" xbr="843.53" ybr="128.91" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="847.09" ytl="87.98" xbr="884.45" ybr="130.69" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="905.81" ytl="89.76" xbr="943.17" ybr="130.69" z_order="0">
+    </box>
+  </image>
+  <image id="16" name="1-133101001-OCR-AH-A01_jpg.rf.64e63a6604634467671740ce1de434fa.jpg" width="1920" height="1080">
+    <box label="char" source="manual" occluded="0" xtl="1153.65" ytl="722.73" xbr="1187.76" ybr="768.70" z_order="0">
+    </box>
+    <polygon label="container_id" source="manual" occluded="0" points="1185.18,242.79;1242.12,246.35;1179.84,920.75;1135.35,913.64" z_order="0">
+    </polygon>
+    <polygon label="container_id" source="manual" occluded="0" points="302.58,38.16;747.40,47.10;729.60,91.50;293.68,79.09" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="1189.98" ytl="246.89" xbr="1230.02" ybr="310.65" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1186.27" ytl="313.47" xbr="1224.83" ybr="371.30" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1178.86" ytl="374.26" xbr="1220.38" ybr="432.09" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1175.89" ytl="432.09" xbr="1217.41" ybr="489.93" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1172.93" ytl="507.72" xbr="1207.03" ybr="565.55" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1168.48" ytl="568.52" xbr="1202.59" ybr="615.97" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1164.03" ytl="623.38" xbr="1196.65" ybr="673.80" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1161.07" ytl="675.28" xbr="1192.21" ybr="718.29" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1150.69" ytl="771.67" xbr="1183.31" ybr="825.10" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1143.27" ytl="848.78" xbr="1180.34" ybr="911.06" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="311.39" ytl="42.10" xbr="358.84" ybr="76.21" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="363.29" ytl="42.10" xbr="388.50" ybr="74.73" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="391.46" ytl="43.59" xbr="418.16" ybr="77.69" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="419.64" ytl="43.59" xbr="452.26" ybr="77.69" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="468.57" ytl="46.55" xbr="507.13" ybr="79.18" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="510.10" ytl="46.55" xbr="535.30" ybr="79.18" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="538.27" ytl="46.55" xbr="567.92" ybr="79.18" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="572.37" ytl="49.52" xbr="602.03" ybr="80.66" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="605.00" ytl="48.04" xbr="634.65" ybr="82.14" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="639.10" ytl="51.00" xbr="664.31" ybr="86.59" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="671.72" ytl="48.04" xbr="729.56" ybr="86.59" z_order="0">
+    </box>
+  </image>
+  <image id="17" name="1-133901001-OCR-AH-A01_jpg.rf.f96b748d80331ff97976afd5457d0bf3.jpg" width="1920" height="1080">
+    <polygon label="container_id" source="manual" occluded="0" points="1283.04,226.78;1347.10,235.68;1267.03,838.90;1210.09,838.90" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="1290.16" ytl="233.90" xbr="1325.75" ybr="294.40" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1283.05" ytl="299.73" xbr="1322.19" ybr="353.12" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1270.59" ytl="354.90" xbr="1313.30" ybr="408.28" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1263.47" ytl="410.06" xbr="1304.40" ybr="463.44" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1259.91" ytl="481.24" xbr="1299.06" ybr="531.06" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1254.57" ytl="534.62" xbr="1283.05" ybr="580.88" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1247.46" ytl="582.66" xbr="1281.27" ybr="628.93" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1240.34" ytl="630.71" xbr="1277.71" ybr="676.97" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1236.78" ytl="678.75" xbr="1274.15" ybr="719.68" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1233.22" ytl="723.24" xbr="1263.47" ybr="767.72" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1222.50" ytl="776.60" xbr="1261.69" ybr="828.22" z_order="0">
+    </box>
+    <polygon label="container_id" source="manual" occluded="0" points="1088.60,0.00;1092.30,42.70;656.92,32.97;666.81,0.00" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="674.66" ytl="1.03" xbr="701.26" ybr="25.05" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="703.58" ytl="0.00" xbr="729.32" ybr="26.51" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="731.04" ytl="0.77" xbr="767.08" ybr="26.51" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="769.66" ytl="0.77" xbr="802.27" ybr="27.37" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="813.42" ytl="0.77" xbr="847.75" ybr="29.09" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="851.18" ytl="0.00" xbr="876.92" ybr="29.95" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="878.64" ytl="0.77" xbr="912.11" ybr="32.52" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="913.82" ytl="0.80" xbr="945.57" ybr="34.24" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="947.29" ytl="1.63" xbr="971.32" ybr="35.09" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="974.75" ytl="0.77" xbr="1009.93" ybr="30.80" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1025.38" ytl="1.63" xbr="1078.59" ybr="36.81" z_order="0">
+    </box>
+  </image>
+  <image id="18" name="1-134237001-OCR-AH-A01_jpg.rf.4c532832d676c52e63f54bb60207ad92.jpg" width="1920" height="1080">
+    <polygon label="container_id" source="manual" occluded="0" points="1130.01,402.94;1186.96,401.16;1144.25,1007.95;1089.09,1007.95" z_order="0">
+    </polygon>
+    <polygon label="container_id" source="manual" occluded="0" points="489.42,141.37;944.95,141.37;944.95,191.19;473.41,184.07" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="1137.09" ytl="408.02" xbr="1170.46" ybr="467.30" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1134.00" ytl="471.41" xbr="1168.60" ybr="527.02" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1127.83" ytl="528.26" xbr="1163.66" ybr="580.16" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1126.59" ytl="582.63" xbr="1163.66" ybr="638.24" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1124.12" ytl="654.30" xbr="1157.48" ybr="704.96" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1119.18" ytl="707.44" xbr="1157.48" ybr="754.39" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1115.47" ytl="755.63" xbr="1152.54" ybr="797.64" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="488.96" ytl="143.95" xbr="522.33" ybr="178.55" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="522.33" ytl="143.95" xbr="556.93" ybr="181.02" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="560.63" ytl="142.72" xbr="592.76" ybr="177.32" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="594.00" ytl="143.95" xbr="627.36" ybr="181.02" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="636.01" ytl="145.19" xbr="679.26" ybr="181.02" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="681.73" ytl="145.19" xbr="720.00" ybr="182.26" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="722.51" ytl="143.95" xbr="753.40" ybr="183.49" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="755.88" ytl="145.19" xbr="786.77" ybr="184.73" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="791.71" ytl="145.19" xbr="823.84" ybr="181.02" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="828.78" ytl="145.19" xbr="864.62" ybr="185.97" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="879.45" ytl="145.19" xbr="940.00" ybr="184.73" z_order="0">
+    </box>
+  </image>
+  <image id="19" name="1-134829001-OCR-AH-A01_jpg.rf.930488c0de8607af2d256234a66efe74.jpg" width="1920" height="1080">
+    <box label="char" source="manual" occluded="0" xtl="1046.38" ytl="709.00" xbr="1094.43" ybr="755.27" z_order="0">
+    </box>
+    <polygon label="container_id" source="manual" occluded="0" points="1051.72,342.44;1119.34,344.22;1090.87,965.24;1041.04,970.58" z_order="0">
+    </polygon>
+    <polygon label="container_id" source="manual" occluded="0" points="382.66,111.12;823.95,96.88;823.95,153.82;366.64,162.72" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="1058.84" ytl="349.56" xbr="1101.54" ybr="408.28" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1053.50" ytl="413.62" xbr="1097.99" ybr="470.56" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1057.06" ytl="475.90" xbr="1103.32" ybr="529.28" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1051.72" ytl="532.84" xbr="1103.32" ybr="589.78" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1051.72" ytl="595.12" xbr="1099.76" ybr="652.06" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1048.16" ytl="660.96" xbr="1097.99" ybr="705.44" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1048.16" ytl="758.83" xbr="1094.43" ybr="803.31" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1046.38" ytl="805.09" xbr="1090.87" ybr="849.58" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1046.38" ytl="854.92" xbr="1087.31" ybr="899.40" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1046.38" ytl="910.08" xbr="1090.87" ybr="959.90" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="382.66" ytl="116.45" xbr="412.91" ybr="157.38" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="417.56" ytl="114.43" xbr="440.62" ybr="155.43" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="443.18" ytl="114.43" xbr="473.93" ybr="155.43" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="476.50" ytl="111.87" xbr="514.93" ybr="152.87" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="530.31" ytl="109.31" xbr="566.18" ybr="152.87" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="571.30" ytl="109.31" xbr="599.49" ybr="152.87" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="604.61" ytl="109.31" xbr="637.93" ybr="150.31" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="637.93" ytl="106.75" xbr="668.67" ybr="147.74" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="673.80" ytl="104.18" xbr="704.55" ybr="150.31" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="709.67" ytl="104.18" xbr="740.42" ybr="150.31" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="753.23" ytl="101.62" xbr="812.17" ybr="147.74" z_order="0">
+    </box>
+  </image>
+  <image id="20" name="1-135443001-OCR-AH-A01_jpg.rf.1bcfa679db4e1be0153f7b0107fb50da.jpg" width="1920" height="1080">
+    <polygon label="container_id" source="manual" occluded="0" points="1172.72,363.79;1252.80,362.01;1167.38,1007.95;1114.00,1006.17" z_order="0">
+    </polygon>
+    <polygon label="container_id" source="manual" occluded="0" points="478.75,143.15;964.53,159.16;960.97,216.10;462.73,196.53" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="1171.89" ytl="444.49" xbr="1222.12" ybr="498.07" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1168.54" ytl="504.77" xbr="1212.07" ybr="558.35" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1158.49" ytl="565.05" xbr="1208.72" ybr="618.63" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1155.14" ytl="635.38" xbr="1195.33" ybr="692.31" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1145.09" ytl="695.66" xbr="1191.98" ybr="742.55" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1148.40" ytl="745.90" xbr="1185.28" ybr="792.78" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1138.40" ytl="796.13" xbr="1178.58" ybr="839.67" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1131.70" ytl="843.02" xbr="1175.23" ybr="886.55" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1131.70" ytl="889.90" xbr="1165.19" ybr="936.79" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1121.65" ytl="943.49" xbr="1168.50" ybr="993.72" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="480.66" ytl="150.45" xbr="540.94" ybr="190.64" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="543.60" ytl="149.11" xbr="577.11" ybr="193.31" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="578.40" ytl="153.13" xbr="610.60" ybr="193.31" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="611.89" ytl="151.60" xbr="649.57" ybr="194.67" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="667.07" ytl="154.29" xbr="696.68" ybr="194.67" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="699.37" ytl="154.29" xbr="733.02" ybr="197.36" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="735.71" ytl="161.00" xbr="770.70" ybr="197.36" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="773.40" ytl="158.33" xbr="804.35" ybr="198.71" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="807.04" ytl="156.98" xbr="840.69" ybr="201.40" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="840.69" ytl="158.33" xbr="877.03" ybr="205.43" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="895.87" ytl="161.02" xbr="955.09" ybr="208.13" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1179.25" ytl="372.15" xbr="1238.40" ybr="439.13" z_order="0">
+    </box>
+  </image>
+  <image id="21" name="1-140240001-OCR-AH-A01_jpg.rf.de2d67c36b697f367cf6e7b052b3e18e.jpg" width="1920" height="1080">
+    <polygon label="container_id" source="manual" occluded="0" points="1146.03,253.47;1218.99,253.47;1172.72,890.50;1105.10,888.72" z_order="0">
+    </polygon>
+    <polygon label="container_id" source="manual" occluded="0" points="275.89,41.72;800.82,27.48;795.48,82.64;256.32,96.88" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="1154.69" ytl="263.26" xbr="1194.23" ybr="321.40" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1150.04" ytl="326.05" xbr="1201.21" ybr="381.87" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1147.81" ytl="386.93" xbr="1188.74" ybr="436.75" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1142.47" ytl="438.53" xbr="1190.52" ybr="500.81" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1138.91" ytl="518.60" xbr="1188.74" ybr="570.21" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1131.79" ytl="573.77" xbr="1183.40" ybr="623.59" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1131.80" ytl="627.15" xbr="1172.72" ybr="675.19" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1131.80" ytl="676.97" xbr="1179.84" ybr="721.46" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1126.46" ytl="725.02" xbr="1169.16" ybr="767.72" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1124.68" ytl="771.28" xbr="1169.16" ybr="815.77" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1114.00" ytl="826.44" xbr="1167.38" ybr="881.61" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="734.98" ytl="38.16" xbr="777.69" ybr="79.09" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="674.48" ytl="39.94" xbr="704.73" ybr="80.87" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="628.22" ytl="39.94" xbr="656.69" ybr="79.09" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="581.95" ytl="38.16" xbr="619.32" ybr="77.31" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="541.02" ytl="39.94" xbr="576.61" ybr="79.09" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="498.32" ytl="39.94" xbr="532.13" ybr="79.09" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="453.83" ytl="41.72" xbr="492.98" ybr="80.87" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="396.89" ytl="43.50" xbr="436.04" ybr="82.64" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="355.96" ytl="47.06" xbr="389.77" ybr="82.64" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="316.82" ytl="47.06" xbr="350.63" ybr="84.42" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="277.67" ytl="45.28" xbr="311.48" ybr="86.20" z_order="0">
+    </box>
+  </image>
+  <image id="22" name="1-144123001-OCR-AH-A01_jpg.rf.af69572f4ba70409f247f9b85558dabe.jpg" width="1920" height="1080">
+    <polygon label="container_id" source="manual" occluded="0" points="1019.69,217.88;1089.09,217.88;1053.50,915.42;993.00,911.86" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="1028.59" ytl="221.44" xbr="1073.07" ybr="289.06" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1025.03" ytl="294.40" xbr="1067.73" ybr="354.90" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1023.25" ytl="360.24" xbr="1065.96" ybr="420.74" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1016.13" ytl="424.29" xbr="1065.96" ybr="490.13" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1012.57" ytl="511.49" xbr="1057.06" ybr="571.99" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1012.57" ytl="571.99" xbr="1058.84" ybr="628.93" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1012.57" ytl="634.27" xbr="1055.28" ybr="682.31" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1009.01" ytl="685.87" xbr="1053.50" ybr="733.91" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1010.79" ytl="737.47" xbr="1051.72" ybr="783.74" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1005.45" ytl="785.52" xbr="1044.60" ybr="844.24" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="999.57" ytl="848.63" xbr="1053.06" ybr="904.45" z_order="0">
+    </box>
+  </image>
+  <image id="23" name="1-144239001-OCR-AH-A01_jpg.rf.c6b0b910e457d2765e892b9348281209.jpg" width="1920" height="1080">
+    <polygon label="container_id" source="manual" occluded="0" points="962.11,325.40;1023.80,325.40;1011.46,956.84;952.02,954.60" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="969.96" ytl="331.01" xbr="1010.34" ybr="392.69" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="965.48" ytl="397.18" xbr="1011.46" ybr="454.38" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="965.48" ytl="457.74" xbr="1011.46" ybr="511.58" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="965.48" ytl="513.82" xbr="1006.97" ybr="569.90" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="966.60" ytl="588.97" xbr="1006.97" ybr="640.56" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="964.35" ytl="645.04" xbr="1009.22" ybr="694.39" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="960.99" ytl="696.64" xbr="1010.34" ybr="742.62" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="965.48" ytl="745.99" xbr="1009.22" ybr="787.48" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="960.99" ytl="790.85" xbr="1003.61" ybr="834.59" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="959.87" ytl="835.71" xbr="1003.61" ybr="880.57" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="960.99" ytl="890.67" xbr="1008.10" ybr="946.75" z_order="0">
+    </box>
+  </image>
+  <image id="24" name="1-144323001-OCR-AH-A01_jpg.rf.2015b9598a59bd25fa7dcfdcdbc6708e.jpg" width="1920" height="1080">
+    <polygon label="container_id" source="manual" occluded="0" points="1309.74,308.63;1372.02,313.97;1286.60,952.78;1229.66,952.78" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="1315.07" ytl="315.75" xbr="1356.00" ybr="378.03" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1306.18" ytl="381.59" xbr="1345.33" ybr="438.53" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1297.28" ytl="443.87" xbr="1341.77" ybr="499.03" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1288.38" ytl="504.37" xbr="1336.43" ybr="561.31" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1284.82" ytl="577.33" xbr="1325.75" ybr="630.71" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1272.37" ytl="636.05" xbr="1311.52" ybr="687.65" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1267.03" ytl="689.43" xbr="1307.96" ybr="739.25" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1261.69" ytl="741.03" xbr="1299.06" ybr="785.52" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1254.57" ytl="789.08" xbr="1293.72" ybr="833.56" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1245.68" ytl="837.12" xbr="1288.38" ybr="883.39" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1238.56" ytl="895.84" xbr="1286.60" ybr="947.45" z_order="0">
+    </box>
+  </image>
+  <image id="25" name="1-144721001-OCR-AH-A01_jpg.rf.15337378e9adbf7fd7ac32d85fcb97fc.jpg" width="1920" height="1080">
+    <polygon label="container_id" source="manual" occluded="0" points="1227.88,356.68;1297.28,360.24;1218.99,975.92;1167.38,963.46" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="1233.22" ytl="363.79" xbr="1270.59" ybr="424.29" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1224.32" ytl="426.07" xbr="1268.81" ybr="484.80" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1217.21" ytl="486.57" xbr="1259.91" ybr="543.52" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1218.99" ytl="543.52" xbr="1252.80" ybr="600.46" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1208.31" ytl="616.47" xbr="1247.46" ybr="666.30" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1202.97" ytl="668.08" xbr="1245.68" ybr="716.12" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1201.19" ytl="717.90" xbr="1235.00" ybr="762.39" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1192.29" ytl="762.39" xbr="1229.66" ybr="808.65" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1188.74" ytl="812.21" xbr="1226.10" ybr="853.14" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1183.40" ytl="856.69" xbr="1217.21" ybr="901.18" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1176.28" ytl="906.52" xbr="1218.99" ybr="963.46" z_order="0">
+    </box>
+    <polygon label="container_id" source="manual" occluded="0" points="589.07,75.53;1041.04,80.87;1041.04,136.03;580.17,128.91" z_order="0">
+    </polygon>
+    <box label="char" source="manual" occluded="0" xtl="592.63" ytl="79.09" xbr="630.00" ybr="125.35" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="631.78" ytl="80.87" xbr="662.03" ybr="125.35" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="663.40" ytl="81.38" xbr="697.39" ybr="123.60" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="700.48" ytl="82.41" xbr="732.40" ybr="122.57" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="752.61" ytl="82.55" xbr="785.50" ybr="119.74" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="788.36" ytl="79.69" xbr="819.11" ybr="121.17" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="823.41" ytl="83.27" xbr="854.87" ybr="121.17" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="858.45" ytl="81.84" xbr="887.77" ybr="127.60" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="892.77" ytl="84.70" xbr="922.81" ybr="125.46" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="926.38" ytl="85.41" xbr="955.70" ybr="127.60" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="976.44" ytl="86.84" xbr="1034.36" ybr="131.18" z_order="0">
+    </box>
+  </image>
+</annotations>

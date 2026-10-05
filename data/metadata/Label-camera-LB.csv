@@ -1,0 +1,97 @@
+file,group,layout,angle,condition,status,notes
+1-122856001-OCR-LB-C02_jpg.rf.ec5148e854983d73bfc663f187f66f8c.jpg,G3,vertical,skewed,clean,ok,
+1-123009001-OCR-LB-C02_jpg.rf.5ff003039318563bbf8a8be08822f521.jpg,,,,,rejected,first letters cut off at left edge
+1-123101001-OCR-LB-C02_jpg.rf.28a785081b2791a0852e70b627e82d13.jpg,G3,vertical,skewed,clean,ok,graffiti/dirt; rusty right edge
+1-123222001-OCR-LB-C02_jpg.rf.acb98daf14551bc6344d09af4f67071c.jpg,G7,horizontal,skewed,clean,ok,"white reefer, bright; code near top edge"
+1-123236001-OCR-LB-C02_jpg.rf.1d11952be7689461952579d90d95b68a.jpg,G3,vertical,skewed,clean,ok,
+1-123334001-OCR-LB-C02_jpg.rf.3b3e66690f75dd99e08a487989e49b88.jpg,G3,vertical,skewed,clean,ok,
+1-123458001-OCR-LB-C02_jpg.rf.f32242f05e81b7d12f1e49ff681a3f66.jpg,,,,,rejected,first letter clipped at top edge
+1-123554001-OCR-LB-C02_jpg.rf.3532010bd49fb99a8a5b86d458c3e892.jpg,G3,vertical,skewed,clean,ok,code near top edge
+1-123605001-OCR-LB-C02_jpg.rf.52d0fcc3094822dc8e5def166a0de765.jpg,G7,horizontal,skewed,clean,ok,
+1-123705001-OCR-LB-C02_jpg.rf.837c1a2f2fb7e1f6d4b4a34adb746b8f.jpg,G3,vertical,skewed,clean,ok,
+1-123810001-OCR-LB-C02_jpg.rf.e013d9ed55fdf77a950c3079b8fd9ea1.jpg,G7,horizontal,skewed,clean,ok,
+1-123900001-OCR-LB-C02_jpg.rf.b43692c076d52a4f1a86be6fe44c5f88.jpg,G7,horizontal,skewed,clean,ok,
+1-123921001-OCR-LB-C02_jpg.rf.69153ff069a716e877345cff7d79fa8d.jpg,G7,horizontal,skewed,clean,ok,
+1-123957001-OCR-LB-C02_jpg.rf.a73d763e5f01f1b94629a1c114619152.jpg,G7,horizontal,skewed,clean,ok,rusty right edge
+1-124000001-OCR-LB-C02_jpg.rf.07e516de636d623864ad12553200aedc.jpg,G3,vertical,skewed,clean,ok,
+1-124047001-OCR-LB-C02_jpg.rf.7197e4d83fe96832bbf96f20242e1f0a.jpg,G7,horizontal,skewed,clean,ok,
+1-124054001-OCR-LB-C02_jpg.rf.7d2ff9f4ce4ae3e732b989d97bf30de8.jpg,G3,vertical,skewed,clean,ok,
+1-124124001-OCR-LB-C02_jpg.rf.fa73ac102b7e816d0ccc71fd842399ee.jpg,G3,vertical,skewed,clean,ok,
+1-124317001-OCR-LB-C02_jpg.rf.b19ec2f9740b6a1cb8f37d9512b02eb4.jpg,G3,vertical,skewed,clean,ok,
+1-124419001-OCR-LB-C02_jpg.rf.db0d6f2eb7024d77b2258ff4e34aaff5.jpg,G3,vertical,skewed,clean,ok,
+1-124428001-OCR-LB-C02_jpg.rf.f35d0068932dffd1149a4cb17ced111c.jpg,G8,horizontal,skewed,hard,ok,"rust, faint dark code on gray"
+1-124555001-OCR-LB-C02_jpg.rf.9f060ba9b419a12cc5b02abe920a3e30.jpg,G7,horizontal,skewed,clean,ok,
+1-124644001-OCR-LB-C02_jpg.rf.14b1ba77d34d5ec83f1d7b45fbdcc998.jpg,G4,vertical,skewed,hard,ok,"dark, rusty edge"
+1-124722001-OCR-LB-C02_jpg.rf.df2d470561feec3959054faa360c672c.jpg,G3,vertical,skewed,clean,ok,
+1-124759001-OCR-LB-C02_jpg.rf.aa346a870454120945a5862d7baf9e63.jpg,G3,vertical,skewed,clean,ok,code near top edge
+1-124954001-OCR-LB-C02_jpg.rf.30fc1c6db8d710eb255a05e3e56e3606.jpg,G3,vertical,skewed,clean,ok,
+1-124957001-OCR-LB-C02_jpg.rf.277c6f63fab1a1a196633be6a648a702.jpg,,,,,rejected,code clipped at top edge
+1-125212001-OCR-LB-C02_jpg.rf.a6e66a1916e21ba661b7b27ed4c90526.jpg,G3,vertical,skewed,clean,ok,
+1-125242001-OCR-LB-C02_jpg.rf.146abdffba9f44180b791737aecbe541.jpg,G4,vertical,skewed,hard,ok,"very dark, low contrast"
+1-125621001-OCR-LB-C02_jpg.rf.24348c3dd737a5844421743410c74abe.jpg,G3,vertical,skewed,clean,ok,
+1-125656001-OCR-LB-C02_jpg.rf.01e583c37bd393aa9abd47567acae301.jpg,G3,vertical,skewed,clean,ok,
+1-125908001-OCR-LB-C02_jpg.rf.3e9d52bb21f1e15abd0a581e15d69530.jpg,G3,vertical,skewed,clean,ok,
+1-125954001-OCR-LB-C02_jpg.rf.3cdd3a5796a78a0e06f0cb94d2723417.jpg,G4,vertical,skewed,hard,ok,"very dark, color cast"
+1-125959001-OCR-LB-C02_jpg.rf.8aa03305aa38017b345c160043ac118c.jpg,G7,horizontal,skewed,clean,ok,
+1-130148001-OCR-LB-C02_jpg.rf.4634ed0e909ff5899f1c8f061349a409.jpg,G3,vertical,skewed,clean,ok,
+1-130403001-OCR-LB-C02_jpg.rf.4beb39b3ba6a643bc56784550676d552.jpg,G3,vertical,skewed,clean,ok,
+1-130526001-OCR-LB-C02_jpg.rf.8ddf3df6a1a514c99446831b9f5d4dbc.jpg,G4,vertical,skewed,hard,ok,"dark, scratches"
+1-130533001-OCR-LB-C02_jpg.rf.fa0c164105c2d0030463c9c43e26ddc2.jpg,G4,vertical,skewed,hard,ok,"rust, teal color cast"
+1-130713001-OCR-LB-C02_jpg.rf.b08fe0294fd253e8f16ef47fe09ca2fa.jpg,G4,vertical,skewed,hard,ok,rust streaks
+1-130812001-OCR-LB-C02_jpg.rf.cf2e6690d6536e34bcaf83415535f267.jpg,G7,horizontal,skewed,clean,ok,
+1-130825001-OCR-LB-C02_jpg.rf.ec0993c51b90e5f16c70700157e619c0.jpg,G3,vertical,skewed,clean,ok,
+1-130901001-OCR-LB-C02_jpg.rf.07ebfc6224d38e69ed5c26e64ca5c002.jpg,G3,vertical,skewed,clean,ok,
+1-130941001-OCR-LB-C02_jpg.rf.8779f54983ac2b058c430684ad62dfdf.jpg,G3,vertical,skewed,clean,ok,
+1-131229001-OCR-LB-C02_jpg.rf.65b36284bcbe570aecbe553e62e7ac01.jpg,G3,vertical,skewed,clean,ok,
+1-131259001-OCR-LB-C02_jpg.rf.e19402adf962e573e021a3cfb3ca411f.jpg,G7,horizontal,skewed,clean,ok,
+1-131400001-OCR-LB-C02_jpg.rf.b1d7a7d716fab55b6bd48a24bb63262e.jpg,G4,vertical,skewed,hard,ok,"dark, low contrast"
+1-131544001-OCR-LB-C02_jpg.rf.1b8ff52594d0d5142520cc4a52f7414c.jpg,G4,vertical,skewed,hard,ok,"dark, teal color cast"
+1-131715001-OCR-LB-C02_jpg.rf.019dd0538421bf23450b51932c4d31ab.jpg,G7,horizontal,skewed,clean,ok,
+1-131723001-OCR-LB-C02_jpg.rf.ba1343b273fa520bce2818ec63c9fdc9.jpg,G3,vertical,skewed,clean,ok,
+1-131725001-OCR-LB-C02_jpg.rf.4594da58aaf29d8ee805da507da5addd.jpg,,,,,rejected,first letter clipped at top edge
+1-132223001-OCR-LB-C02_jpg.rf.05d61e29649eaec89eb6109af7e992db.jpg,G3,vertical,skewed,clean,ok,
+1-132325001-OCR-LB-C02_jpg.rf.330d1a921fd78bf7a96104d86bc46edc.jpg,G3,vertical,skewed,clean,ok,code near top edge
+1-132417001-OCR-LB-C02_jpg.rf.2b8b41d0fc7116cbbf2481ad40b6936c.jpg,G7,horizontal,skewed,clean,ok,
+1-132724001-OCR-LB-C02_jpg.rf.0b7a2aa228214c3f20319cb28f6337de.jpg,G4,vertical,skewed,hard,ok,"dark, teal color cast"
+1-132917001-OCR-LB-C02_jpg.rf.ea622bdc52b588e55f9a97c7fb660ece.jpg,G3,vertical,skewed,clean,ok,
+1-133128001-OCR-LB-C02_jpg.rf.1ab2cfbb2836146aece74c3c576467fc.jpg,G7,horizontal,skewed,clean,ok,code near top edge
+1-133136001-OCR-LB-C02_jpg.rf.df63365c6d13f19c5a6b2b9a48e7c179.jpg,G3,vertical,skewed,clean,ok,
+1-133545001-OCR-LB-C02_jpg.rf.1fc3527685846727fb9cc6cb9c940713.jpg,G4,vertical,skewed,hard,ok,"dark gray, low contrast"
+1-133601001-OCR-LB-C02_jpg.rf.db54c1984e211814aa68f6784d484bd7.jpg,G7,horizontal,skewed,clean,ok,
+1-134430001-OCR-LB-C02_jpg.rf.d44c1022ffef6ed1cf4324cbf73487c3.jpg,G3,vertical,skewed,clean,ok,
+1-134700001-OCR-LB-C02_jpg.rf.248cc20b05688c73e1b2f15ae8452d1a.jpg,,,,,rejected,first letter clipped at top edge
+1-134803001-OCR-LB-C02_jpg.rf.ff0b8a4f68fb8591b0f97259fca7eba9.jpg,G3,vertical,skewed,clean,ok,
+1-134841001-OCR-LB-C02_jpg.rf.8d6e5b4458e177dd5789f13544ea4f12.jpg,G4,vertical,skewed,hard,ok,rust on gray
+1-134925001-OCR-LB-C02_jpg.rf.ef440e4bda18d4d97e9cb764450b38f9.jpg,G3,vertical,skewed,clean,ok,
+1-135057001-OCR-LB-C02_jpg.rf.637f12d86d0c3eb91d869684f6b08155.jpg,G3,vertical,skewed,clean,ok,
+1-135433001-OCR-LB-C02_jpg.rf.24c3afc292582d8625222ce3fc8615c8.jpg,,,,,rejected,code clipped at top edge
+1-135553001-OCR-LB-C02_jpg.rf.0f5dfeb9a345c761fbe1f505797452b2.jpg,G3,vertical,skewed,clean,ok,
+1-135646001-OCR-LB-C02_jpg.rf.9baa63b224669bdcbaf0af65dd192169.jpg,G4,vertical,skewed,hard,ok,rust patches
+1-135649001-OCR-LB-C02_jpg.rf.044cf36d969a5f1c3c02b2d4b5fb2513.jpg,G3,vertical,skewed,clean,ok,
+1-135936001-OCR-LB-C02_jpg.rf.edf4895d7c243e578030b5cb9d73a6ea.jpg,G4,vertical,skewed,hard,ok,"dirty, rusty"
+1-135956001-OCR-LB-C02_jpg.rf.8f2a88ce23a88beab5bda65ae1eb8879.jpg,G4,vertical,skewed,hard,ok,"scratched yellow, dark code"
+1-140140001-OCR-LB-C02_jpg.rf.a6d8900cbe80ee85938c679a21ddc83d.jpg,G4,vertical,skewed,hard,ok,"dirty, rust speckles"
+1-140205001-OCR-LB-C02_jpg.rf.c60b6a14500a5afde9b74f25a5d337af.jpg,G3,vertical,skewed,clean,ok,
+1-140257001-OCR-LB-C02_jpg.rf.f2fd5f9c79a1ceb29445802f28318595.jpg,G7,horizontal,skewed,clean,ok,shadow across lower door
+1-140510001-OCR-LB-C02_jpg.rf.05974709950c00908cd933e438108de6.jpg,G4,vertical,skewed,hard,ok,"dirty yellow, dark code"
+1-140546001-OCR-LB-C02_jpg.rf.e1bc1b75cecb399388e600cb258b1011.jpg,,,,,rejected,first letters cut off at left edge
+1-144110001-OCR-LB-C02_jpg.rf.aa0264bc18bf4fa1ee6271986c766a81.jpg,G3,vertical,skewed,clean,ok,
+1-144123001-OCR-LB-C02_jpg.rf.c6f12e1fd74cd6dc26b3dec371ae10d1.jpg,G3,vertical,skewed,clean,ok,
+1-144157001-OCR-LB-C02_jpg.rf.807b82f1a6dd317e4d6e03fbcf0ec982.jpg,G7,horizontal,skewed,clean,ok,
+1-144244001-OCR-LB-C02_jpg.rf.4e03971cf50a4b1abcfe4f5a9d27e140.jpg,G3,vertical,skewed,clean,ok,
+1-144257001-OCR-LB-C02_jpg.rf.f9b00eec02834b76fa2857bcc8b2d3cc.jpg,G4,vertical,skewed,hard,ok,"dark, rusty edge"
+1-144334001-OCR-LB-C02_jpg.rf.994087c7241d090256fd96dd479f60a6.jpg,G3,vertical,skewed,clean,ok,
+1-144523001-OCR-LB-C02_jpg.rf.5056d30b260673b27262c616877d8d39.jpg,G3,vertical,skewed,clean,ok,
+1-144611001-OCR-LB-C02_jpg.rf.7b6ca71b5da33f50401454523dee957a.jpg,G3,vertical,skewed,clean,ok,
+1-144634001-OCR-LB-C02_jpg.rf.1fa7613e7fba112865a79b5c59effa13.jpg,G4,vertical,skewed,hard,ok,"rust streaks, scribbles; code near top edge"
+1-144701001-OCR-LB-C02_jpg.rf.70975bcd11230f1569c4a2b00cef7e1b.jpg,,,,,rejected,first letter clipped at top edge
+1-144725001-OCR-LB-C02_jpg.rf.a6d6f87b522acc5fad62b0a8f10cce2e.jpg,G7,horizontal,skewed,clean,ok,
+1-144753001-OCR-LB-C02_jpg.rf.d1ada5ec6b1fca037421e8f2aa8c005b.jpg,G7,horizontal,skewed,clean,ok,
+1-144818001-OCR-LB-C02_jpg.rf.01c8f1ac39c5d32aca24d4ce5fcd2ba3.jpg,G4,vertical,skewed,hard,ok,"dark, rusty"
+1-145138001-OCR-LB-C02_jpg.rf.cbbf9e179416042f69e665c34d3a638b.jpg,G7,horizontal,skewed,clean,ok,
+1-145142001-OCR-LB-C02_jpg.rf.4a7f07acc0a0ee97a37d1ad22e2359cb.jpg,,,,,rejected,code clipped at top edge
+1-145251001-OCR-LB-C02_jpg.rf.8391ba5192d1b3a5539a0cb7e97584c6.jpg,G8,horizontal,skewed,hard,ok,rust and scratches
+1-145326001-OCR-LB-C02_jpg.rf.b98c384ad46988d865f007e4e6715244.jpg,G3,vertical,skewed,clean,ok,
+1-145327001-OCR-LB-C02_jpg.rf.4ba4a3a2068de68f37cb76fce942fd0c.jpg,G8,horizontal,skewed,hard,ok,"dirty, scratched"
+1-145552001-OCR-LB-C02_jpg.rf.d63e8da76a89c273379388ddebc26d56.jpg,G7,horizontal,skewed,clean,ok,
+1-145637001-OCR-LB-C02_jpg.rf.6cfe9bb6f54a76a88759fade0fbcb12b.jpg,G7,horizontal,skewed,clean,ok,

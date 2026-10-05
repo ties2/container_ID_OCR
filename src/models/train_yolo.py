@@ -12,23 +12,24 @@ During training, Ultralytics' MLflow integration logs per epoch:
     val/... losses, metrics/precisionB, metrics/recallB, metrics/mAP50B, metrics/mAP50-95B
     (+ the same metrics with suffix M for masks), and the learning rates.
 
-After training, this script
-    1. evaluates best.pt on the TEST split (numbers added to MLflow as `test/...`),
-    2. writes a run history to results/history/, all files with the same prefix
-       <stamp>_<run>:
-           <prefix>.txt                    settings, dataset sizes, losses, metrics, diagnosis
-           <prefix>_curves.png             loss / metric curves per epoch (Ultralytics)
-           <prefix>_epochs.csv             all numbers per epoch
-           <prefix>_test_predictions.png   image | ground truth | masks | prediction (test set)
-           <prefix>_console.log            full console output (when started via make)
+After training, this script writes a run history to results/history/, all files
+with the same prefix <stamp>_<run>:
+    <prefix>.txt            settings, dataset sizes, best and final epoch, diagnosis
+    <prefix>_curves.png     loss / metric curves per epoch (Ultralytics)
+    <prefix>_epochs.csv     all numbers per epoch
+    <prefix>_console.log    full console output (when started via make)
+The test set is NOT touched here. Evaluate afterwards with src/models/evaluate.py
+(validation set while developing, test set once at the end).
 
 Usage (from the project root, inside the .venv):
     python -m src.models.train_yolo --task seg --seed 42
     python -m src.models.train_yolo --task det --seed 42 --epochs 3       # quick timing test
     python -m src.models.train_yolo --task seg --single-cls                # localisation only
+    python -m src.models.train_yolo --task seg --arch yolo11n              # another model family
     make train-seg SEED=42                                                # same via make
 
-View the runs:  make mlflow-ui   ->  http://127.0.0.1:5000
+Then:  make evaluate RUN=seg-s42          (figure + reading metrics on validation)
+       make mlflow-ui                     (http://127.0.0.1:5000)
 """
 
 from __future__ import annotations
@@ -45,7 +46,13 @@ from pathlib import Path
 
 log = logging.getLogger("train_yolo")
 
-PRETRAINED = {"seg": "yolov8n-seg.pt", "det": "yolov8n.pt"}
+# Model family/size. The same architecture is always used for seg and det, so a
+# seg/det pair differs only in the head: e.g. yolov8n-seg.pt vs yolov8n.pt.
+ARCHS = ("yolov8n", "yolo11n", "yolov8s", "yolo11s")
+
+
+def pretrained_weights(arch: str, task: str) -> str:
+    return f"{arch}-seg.pt" if task == "seg" else f"{arch}.pt"
 EXPERIMENT = "char-seg-vs-det"
 HISTORY = Path("results/history")
 
@@ -91,7 +98,7 @@ def diagnose(epochs: list[dict[str, float]]) -> list[str]:
 
 def write_history(prefix: Path, args: argparse.Namespace, run_name: str, run_id: str | None,
                   save_dir: Path, best: Path, dataset_info: dict, epochs: list[dict[str, float]],
-                  test_metrics: dict[str, float], minutes: float) -> Path:
+                  minutes: float) -> Path:
     best_row = max(epochs, key=lambda r: fitness(r, args.task))
     lines = [
         f"Run            : {run_name}",
@@ -113,9 +120,6 @@ def write_history(prefix: Path, args: argparse.Namespace, run_name: str, run_id:
         f"== Final epoch: {len(epochs)} ==",
         *(f"{k:28s}: {v:.4f}" for k, v in epochs[-1].items() if k != "epoch" and not k.startswith("lr/")),
         "",
-        "== Test set (best checkpoint) ==",
-        *(f"{k:28s}: {v:.4f}" for k, v in test_metrics.items()),
-        "",
         "== Diagnosis (heuristic) ==",
         *diagnose(epochs),
         "",
@@ -128,6 +132,8 @@ def write_history(prefix: Path, args: argparse.Namespace, run_name: str, run_id:
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--task", choices=["seg", "det"], required=True)
+    ap.add_argument("--arch", choices=ARCHS, default="yolov8n",
+                    help="model family and size (n = nano, s = small)")
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--epochs", type=int, default=300)
     ap.add_argument("--imgsz", type=int, default=1280, help="characters are small; 640 loses detail")
@@ -136,8 +142,6 @@ def main() -> None:
     ap.add_argument("--single-cls", action="store_true",
                     help="treat all 36 characters as one class (localisation only)")
     ap.add_argument("--dataset", type=Path, default=Path("data/03_processed/char_dataset"))
-    ap.add_argument("--export", type=Path, default=Path("data/02_interim/cvat_export"),
-                    help="CVAT export, used for the ground-truth panel of the figures")
     ap.add_argument("--mlflow-uri", default="sqlite:///results/mlflow.db",
                     help="MLflow tracking URI (MLflow 3 needs a database, e.g. SQLite)")
     ap.add_argument("--stamp", default=datetime.now().strftime("%Y%m%d-%H%M%S"),
@@ -145,7 +149,9 @@ def main() -> None:
     args = ap.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 
-    run_name = f"{args.task}{'-1cls' if args.single_cls else ''}-s{args.seed}"
+    # e.g. seg-s42, det-1cls-s7, seg-yolo11n-s42 (the default yolov8n is not written)
+    arch_tag = "" if args.arch == "yolov8n" else f"-{args.arch}"
+    run_name = f"{args.task}{arch_tag}{'-1cls' if args.single_cls else ''}-s{args.seed}"
     # Absolute path: Ultralytics puts a *relative* project under its global runs_dir
     # (~/.config/Ultralytics/settings.json), which may point to another project.
     project = Path("results/yolo").resolve()
@@ -172,7 +178,7 @@ def main() -> None:
     settings.update({"mlflow": True})
 
     t_start = time.time()
-    model = YOLO(PRETRAINED[args.task])
+    model = YOLO(pretrained_weights(args.arch, args.task))
     model.train(
         data=str(data_yaml),
         epochs=args.epochs,
@@ -192,15 +198,7 @@ def main() -> None:
     best = Path(model.trainer.best)          # where this run really saved its weights
     log.info("Best checkpoint: %s", best)
 
-    # Evaluate the best checkpoint on the held-out test split.
-    test = YOLO(str(best)).val(data=str(data_yaml), split="test", imgsz=args.imgsz,
-                               batch=args.batch, device=args.device, single_cls=args.single_cls,
-                               project=str(project), name=f"{run_name}-test", exist_ok=True)
-    test_metrics = {f"test/{k}": v for k, v in _clean(test.results_dict).items()}
-    for k, v in test_metrics.items():
-        log.info("%-35s %.4f", k, v)
-
-    # Run history: text summary + figures, all with the same prefix.
+    # Run history: text summary + curves, all with the same prefix.
     HISTORY.mkdir(parents=True, exist_ok=True)
     prefix = HISTORY / f"{args.stamp}_{run_name}"
     runs = mlflow.search_runs(experiment_names=[EXPERIMENT],
@@ -208,31 +206,19 @@ def main() -> None:
                               order_by=["start_time DESC"], max_results=1)
     run_id = None if runs.empty else runs.iloc[0]["run_id"]
     epochs = read_epochs(save_dir / "results.csv")
-    files = [write_history(prefix, args, run_name, run_id, save_dir, best, dataset_info,
-                           epochs, test_metrics, minutes)]
+    files = [write_history(prefix, args, run_name, run_id, save_dir, best, dataset_info, epochs, minutes)]
     for src, suffix in ((save_dir / "results.png", "_curves.png"), (save_dir / "results.csv", "_epochs.csv")):
         if src.exists():
             files.append(Path(shutil.copy(src, f"{prefix}{suffix}")))
-    try:
-        from src.visualization.plot_char_dataset import render
-        fig = render(args.dataset, args.export, HISTORY, split="test", n=0, weights=best,
-                     overview_name=f"{prefix.name}_test_predictions.png", per_image=False)
-        if fig:
-            files.append(fig)
-    except Exception as e:  # the figure is a bonus; never lose the run because of it
-        log.warning("Could not draw test predictions: %s", e)
     log.info("History written: %s*", prefix)
 
-    # Attach test numbers, dataset sizes and history files to the MLflow run.
-    if run_id is None:
-        log.warning("MLflow run '%s' not found - results are in %s*", run_name, prefix)
-        return
-    with mlflow.start_run(run_id=run_id):
-        mlflow.log_metrics(test_metrics)
-        mlflow.log_params({f"data/{k}": v for k, v in dataset_info.items()} | {"stamp": args.stamp})
-        for f in files:
-            mlflow.log_artifact(str(f), artifact_path="history")
-    log.info("Test metrics and history added to MLflow run '%s'.", run_name)
+    # Attach dataset sizes and history files to the MLflow run.
+    if run_id is not None:
+        with mlflow.start_run(run_id=run_id):
+            mlflow.log_params({f"data/{k}": v for k, v in dataset_info.items()} | {"stamp": args.stamp})
+            for f in files:
+                mlflow.log_artifact(str(f), artifact_path="history")
+    log.info("Next: make evaluate RUN=%s   (validation figure + reading metrics)", run_name)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,33 @@
+seg-s42  |  val: 9 images, 13 codes  |  mask mAP50 0.65  box mAP50 0.65  box mAP50-95 0.57  char acc 0.65  full-code acc 0.15
+
+== Localisation (Ultralytics) ==
+metrics/precisionB          : 0.9044
+metrics/recallB             : 0.4971
+metrics/mAP50B              : 0.6473
+metrics/mAP50-95B           : 0.5750
+metrics/precisionM          : 0.9044
+metrics/recallM             : 0.4971
+metrics/mAP50M              : 0.6453
+metrics/mAP50-95M           : 0.3542
+fitness                     : 0.9655
+
+== Reading (conf >= 0.25, class-agnostic NMS) ==
+reading/char_acc            : 0.6503
+reading/full_code_acc       : 0.1538
+reading/checkdigit_ok       : 0.1538
+
+== Reads ==
+image                        truth        pred         char_acc
+1-123147001-OCR-AH-A01       BSIU3121575  3            0.09
+1-123147001-OCR-AH-A01       BSIU3121575  BS1U3121575  0.91
+1-123638001-OCR-AH-A01       BMOU4131633  8M0U4131635  0.73
+1-123921001-OCR-AH-A01       MRKU0555960  755U7        0.18
+1-123921001-OCR-AH-A01       MRKU0555960  MRKU0555960  1.00
+1-124722001-OCR-AH-A01       TCNU6461279  TCNU6461279  1.00
+1-125254001-OCR-AH-A01       STXU2054050  57UU0        0.18
+1-125254001-OCR-AH-A01       STXU2054050  STAU2054050  0.91
+1-125513001-OCR-AH-A01       SEGU5845118  SEU5845118   0.91
+1-132303001-OCR-AH-A01       TGHU0537770  77777        0.27
+1-132303001-OCR-AH-A01       TGHU0537770  TCHU0537770  0.91
+1-132407001-OCR-AH-A01       FCIU9594900  TCU25400     0.55
+1-134203001-OCR-AH-A01       TRIU0535670  T1U0535670   0.82

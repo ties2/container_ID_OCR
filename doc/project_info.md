@@ -104,10 +104,23 @@ The experiment answers it, rather than assuming it.
 
 ### 5.1 Selection
 
-Images are selected for variation, not at random. Variation axes: camera (viewpoint),
-layout (vertical / horizontal), angle (straight / tilted), surface (clean / rust, glare,
-dirt). **Status:** 30 images from camera `AH` are annotated. Target: 30–40 images
-spread over the cameras.
+Every image of the five cameras was first screened and described in a selection sheet
+(`data/metadata/Label-camera-*.csv`): variation group, layout, angle, surface condition,
+status (ok / rejected, e.g. code cut off) and notes. The eight variation groups are
+
+| Group | Layout | Angle | Surface |
+|---|---|---|---|
+| G1 / G2 | vertical | straight | clean / hard |
+| G3 / G4 | vertical | skewed | clean / hard |
+| G5 / G6 | horizontal | straight | clean / hard |
+| G7 / G8 | horizontal | skewed | clean / hard |
+
+("hard": rust, glare, dirt, low contrast). `images-camera-info.csv` counts the images per
+camera and group; this shows which variations exist in the data at all (for example, the
+straight vertical group G1 only occurs at camera `AH`).
+
+**Status:** 78 images of camera `AH`, group G1, are annotated, used to test the full
+pipeline. Next: annotate the other groups and cameras so that every group is represented.
 
 ### 5.2 Annotation protocol (CVAT, "CVAT for images 1.1")
 
@@ -117,6 +130,9 @@ spread over the cameras.
 | `char` | rectangle | one per character, drawn around the letter; for the check digit around the digit or its frame |
 
 - Every visible copy of the code is annotated (instance segmentation: several instances per image).
+- A code that is only partly visible (cut off by the image border) gets an `ignore` polygon
+  instead. Codes and boxes inside it are dropped and the region is painted out of the image
+  (OpenCV inpainting), so its characters are neither labels nor false "background".
 - The true code is typed once per image in `labels.csv` and validated with the check digit.
 - Shapes are drawn as *Shape*, not *Track* (a track would copy the object to other frames).
 
@@ -143,6 +159,16 @@ rectangle is extracted with classical image processing and then checked by eye:
 6. **Outline**: the outer contour becomes the polygon. Several parts are joined with a
    convex hull.
 
+If no clean four-sided frame is found (frame cut by the crop or bent), lines much thinner
+than the character strokes are removed with a morphological opening whose size follows the
+stroke width (distance transform). For vertical codes, a character that is connected to
+dirt touching the crop border is recovered by clipping to the drawn box (flag `fallback`).
+
+**Orientation check.** Roof codes can be upside down (seen from the other side). Ordering
+their boxes left-to-right would then give every box a wrong class. `review/horizontal_codes.jpg`
+shows each horizontal code with the class given to each box; upside-down codes are visible at
+once and are marked as `ignore` regions.
+
 **Quality flags** (written to `mask_flags.csv`, shown in red in the figures): mask
 covers < 8% or > 85% of its box, letter made of several parts, nothing found.
 
@@ -156,22 +182,30 @@ covers < 8% or > 85% of its box, letter made of several parts, nothing found.
   read top to bottom, a horizontal one left to right. This works for tilted codes and does
   not depend on the order of drawing.
 - Box *i* gets character *i* of the typed code.
+- An image whose selection sheet says `status = rejected` is **EXCLUDED** on purpose
+  (reason in `notes`, e.g. code hidden or unreadable); it stays annotated in CVAT.
 - An image is marked **REVIEW** and left out of the dataset if: a code does not have exactly
   11 boxes (otherwise all following labels would shift), a box lies outside every code,
   the typed code fails the check digit, the image is missing, or a mask could not be made.
 
 ### 5.5 Split
 
-Train / validation / test = 60 / 20 / 20, **grouped by container ID**: all images of one
-container go to the same split, whichever camera they come from. The original Kaggle
-train/valid/test folders are ignored (they leak, Section 4.2).
+Train / validation / test = 60 / 20 / 20, with three properties:
 
-The assignment is **persistent** (`data/02_interim/split_assignments.csv`): when new images
-are annotated, containers that already have a split keep it, and each new container goes
-to the split that is furthest below its target share. So adding data never moves a test
-container into training, and runs on different dataset versions stay comparable.
-The detection dataset uses the same images and the same split. Outputs: `split.csv`,
-`dataset_info.json` (sizes per split), `class_counts.csv` (instances per class and split).
+1. **Grouped** by container ID: all images of one container go to the same split, whichever
+   camera they come from. The original Kaggle train/valid/test folders are ignored (they
+   leak, Section 4.2).
+2. **Stratified** by variation group: each new container goes to the split that is furthest
+   below its target share *within its own group* (G1–G8). Every group is therefore spread
+   over train, validation and test in the same 60/20/20 proportion.
+3. **Persistent** (`data/02_interim/split_assignments.csv`): containers that already have a
+   split keep it when new images are annotated. Adding data never moves a test container
+   into training, and runs on different dataset versions stay comparable.
+
+The detection dataset uses the same images and the same split. Outputs: `split.csv`
+(split, camera and group per image), `split_summary.csv` (images per camera, group, layout,
+angle and condition in each split: the diversity table), `dataset_info.json` and
+`class_counts.csv` (instances per class and split).
 
 ### 5.6 Visual check
 
@@ -192,6 +226,10 @@ Every image is checked before training.
 | Other augmentation | Ultralytics defaults (mosaic, HSV, scale, translate) | identical for both models |
 | Seeds | 42, 7, 123, `deterministic=True` | the test set is small; results are reported as mean ± std |
 
+Other model families can be compared as complete seg/det pairs with `ARCH=yolo11n`
+(or the small versions `yolov8s` / `yolo11s` once the dataset is larger); the pair
+always shares the architecture, so the seg-vs-det comparison stays controlled.
+
 Models not used, and why: larger YOLO variants (overfit on ~20 training images),
 Mask R-CNN (different framework and training pipeline, so differences would no longer
 come from segmentation vs detection alone), RT-DETR (detection only; transformers need
@@ -201,7 +239,11 @@ much more data).
 
 ## 7. Evaluation
 
-### 7.1 Localisation (reported by Ultralytics, on the test split)
+`src/models/evaluate.py` evaluates a trained run on the **validation** split while the
+method is developed, and on the **test** split once, for the final table. Decisions
+(settings, epochs) are never based on test results.
+
+### 7.1 Localisation (Ultralytics)
 
 - Detection: precision, recall, mAP@50, mAP@50–95 for boxes (suffix `B`).
 - Segmentation: the same for masks (suffix `M`), plus its own box metrics.
@@ -209,12 +251,15 @@ much more data).
 Note: mask metrics are measured against the Otsu masks, which are semi-automatic
 ground truth (see Section 9).
 
-### 7.2 Reading (the main comparison) — **Status: planned**
+### 7.2 Reading (the main comparison)
 
-Predictions are grouped per code, ordered along the code's axis and compared with the
-typed code:
+Prediction uses class-agnostic NMS (one character per location, confidence ≥ 0.25).
+Predicted characters whose centre lies inside an annotated code polygon are ordered
+along the code's axis (as in Section 5.4) and compared with the typed code. Using the
+annotated code region to group the characters isolates the question "are the characters
+found and recognised", independent of locating the code itself.
 
-- **Character accuracy**: share of the 11 positions read correctly.
+- **Character accuracy**: 1 − edit distance / 11 (missing, extra and wrong characters all count).
 - **Full-code accuracy**: share of codes with all 11 characters correct.
 - **Check-digit validity**: share of reads that pass ISO 6346.
 
@@ -228,15 +273,16 @@ and horizontal codes.
 
 Ultralytics' MLflow integration logs per epoch: training losses (`train/box_loss`,
 `train/cls_loss`, `train/dfl_loss`, and `train/seg_loss` for segmentation), validation
-losses, precision, recall, mAP and learning rates. `train_yolo.py` evaluates the best
-checkpoint on the test split afterwards and adds those numbers to the same run with the
-prefix `test/`. Runs are named `seg-s42`, `det-s42`, … in the experiment
-`char-seg-vs-det`.
+losses, precision, recall, mAP and learning rates. `evaluate.py` adds its numbers to the
+same run with the prefix `eval_val/` or `eval_test/`. Runs are named `seg-s42`, `det-s42`,
+`seg-1cls-s42`, … in the experiment `char-seg-vs-det`; the dataset sizes are logged as
+parameters (`data/...`).
 
-Every run also leaves a record in `results/history/`, all files sharing the prefix
-`<stamp>_<run>`: a text summary (settings, dataset sizes, best and final epoch, test
-metrics, a heuristic under/overfitting diagnosis), the loss/metric curves, the per-epoch
-numbers, the test-set predictions figure and the full console log.
+Every run leaves a record in `results/history/`, all files sharing the prefix
+`<stamp>_<run>`: the training summary (settings, dataset sizes, best and final epoch, a
+heuristic under/overfitting diagnosis), curves, per-epoch numbers and console log, and
+for every evaluation `<stamp>_<run>_<split>-eval.txt/.png/_reads.csv` (metrics, figure
+with ground truth vs prediction, every individual read).
 
 **Reading the curves.** Underfitting: training and validation losses both stay high
 (the model has not learned). Overfitting: training loss keeps falling while validation
@@ -252,8 +298,10 @@ This is underfitting caused by too little data per class, not a bug.
 
 ## 9. Limitations and threats to validity
 
-- **Small dataset**: about 30–40 annotated images and a test set of 6–8 images. Mitigated
-  by three seeds; conclusions are stated with caution.
+- **Small dataset**: a test set of roughly 15 images. Mitigated by three seeds; conclusions
+  are stated with caution.
+- **Reading uses the annotated code region** to group characters (Section 7.2), so it
+  measures character finding and recognition, not code localisation.
 - **One gate, one afternoon**: little variation in lighting and location.
 - **Semi-automatic masks**: mask metrics partly measure agreement with Otsu. The reading
   metrics use typed text only and are not affected.
@@ -272,6 +320,8 @@ make prepare            # CVAT export + labels.csv -> datasets, reports, overlay
 make plot-data          # visual check
 make train-setup        # once
 make train-all          # 2 models x 3 seeds, logged to MLflow
+make evaluate RUN=seg-s42               # validation: figure + metrics
+make evaluate RUN=seg-s42 SPLIT=test    # final numbers, once
 make mlflow-ui          # compare runs
 pytest tests/
 ```
@@ -282,11 +332,13 @@ pytest tests/
 
 | File | Responsibility |
 |---|---|
-| `src/data/prepare_dataset.py` | parse CVAT, assign and order characters, checks, Otsu masks, grouped split, YOLO datasets, reports |
-| `src/models/train_yolo.py` | train one model (seg or det), MLflow, test evaluation |
+| `src/data/prepare_dataset.py` | parse CVAT, assign and order characters, checks, Otsu masks, stratified grouped persistent split, YOLO datasets, reports |
+| `src/models/train_yolo.py` | train one model (seg or det), MLflow, run history |
+| `src/models/evaluate.py` | localisation + reading metrics on val/test, figure, history, MLflow |
 | `src/visualization/plot_char_dataset.py` | image / ground truth / masks / prediction figures |
 | `src/models/postprocess.py` | ISO 6346 validation (shared with the OCR prototype) |
 | `tests/test_prepare_dataset.py` | filenames, check digit, reading order, split, mask extraction, frame removal |
+| `tests/test_evaluate.py` | edit distance, reading a code from predictions, read scores |
 
 ---
 
@@ -295,7 +347,7 @@ pytest tests/
 | Norm | Where it is addressed |
 |---|---|
 | 67: challenge and well-reasoned choice of detection or segmentation | Sections 2–3: per-character segmentation chosen, detection trained as the controlled comparison |
-| 68: diverse, representative dataset, appropriate format, separate train/val/test | Sections 4–5: own annotations, variation axes, leakage analysis, grouped split, YOLO format |
+| 68: diverse, representative dataset, appropriate format, separate train/val/test | Sections 4–5: selection sheets, own annotations, leakage analysis, stratified grouped split, YOLO format, `split_summary.csv` |
 | 69: IMRaD extended abstract, max. two pages, with figures and tables | Abstract built from Sections 2–9; figures from `plot_char_dataset.py`, tables from MLflow |
 
 ---

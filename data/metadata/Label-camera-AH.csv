@@ -1,0 +1,207 @@
+file,group,layout,angle,condition,status,notes
+1-122728001-OCR-AH-A01_jpg.rf.5957b57c4c0e9ee82077bbfb3b710db6.jpg,G5,horizontal,straight,clean,ok,Dotted horizontal code only; no vertical code
+1-122830001-OCR-AH-A01_jpg.rf.f1962d51d77cd07e24123bd1b316edd4.jpg,G1,vertical,straight,clean,ok,
+1-122906001-OCR-AH-A01_jpg.rf.56b7a9161b16749c40b3117e501f1762.jpg,G1,vertical,straight,clean,ok,
+1-122923001-OCR-AH-A01_jpg.rf.38ba22c4451350cde2c2a65de879cfc8.jpg,G4,vertical,skewed,hard,ok,Rust; left edge of container slightly cut off
+1-122930001-OCR-AH-A01_jpg.rf.770eef9eb90b83a97f734c9c62f35ea4.jpg,G3,vertical,skewed,clean,ok,
+1-123029001-OCR-AH-A01_jpg.rf.59721db24c3a3f1dcbc2909685e8644d.jpg,G1,vertical,straight,clean,ok,
+1-123147001-OCR-AH-A01_jpg.rf.f4ec7bcf82ab1544a67eee02cc40fdbc.jpg,G1,vertical,straight,clean,ok,
+1-123222001-OCR-AH-A01_jpg.rf.34dbaa64cfc5b466e4044da9d73c6df3.jpg,G2,vertical,straight,hard,ok,Reefer container; vertical code on right edge
+1-123339001-OCR-AH-A01_jpg.rf.1fd7a2ce3b52a23c1ac175bcde8a006e.jpg,,,,,rejected,First character of code cut off at top
+1-123359001-OCR-AH-A01_jpg.rf.8712f2089a4ab0b9a0b072c253c2daab.jpg,G3,vertical,skewed,clean,ok,
+1-123402001-OCR-AH-A01_jpg.rf.025ac0a604bcddab7d2e2394eaa718f2.jpg,G1,vertical,straight,clean,ok,
+1-123407001-OCR-AH-A01_jpg.rf.0eee86cfd9bcbdb1b54bccfced90fed7.jpg,G1,vertical,straight,clean,reject,top code unreadable
+1-123502001-OCR-AH-A01_jpg.rf.3302eb7b50e4dd9ca78ee0cdd3390367.jpg,G3,vertical,skewed,clean,ok,
+1-123504001-OCR-AH-A01_jpg.rf.c02cc722c1fbe23e1813a6c425f214df.jpg,G1,vertical,straight,clean,ok,
+1-123511001-OCR-AH-A01_jpg.rf.d5a482881cbbfb151ac25223998c95df.jpg,G3,vertical,skewed,clean,ok,
+1-123512001-OCR-AH-A01_jpg.rf.34f8121c72af8c4e8af2009a22a2cfa4.jpg,G1,vertical,straight,clean,ok,
+1-123608001-OCR-AH-A01_jpg.rf.cc45881bf767d1c837ab554531aad8fb.jpg,,,,,rejected,Last digits of code cut off at bottom
+1-123638001-OCR-AH-A01_jpg.rf.e376a36b99bbeee8fcf47ef5d12fe50d.jpg,G1,vertical,straight,clean,ok,
+1-123641001-OCR-AH-A01_jpg.rf.43297dbfb09cb1058849320e839deb49.jpg,G4,vertical,skewed,hard,ok,Rust and stains; faded yellow
+1-123718001-OCR-AH-A01_jpg.rf.c3a8b6a7f7676f00208e3fdb9c9a6ae4.jpg,,,,,rejected,First characters of code cut off at top; heavy rust
+1-123810001-OCR-AH-A01_jpg.rf.b25bbc2add8635f13cee0e3e0cf251f9.jpg,G1,vertical,straight,clean,ok,
+1-123915001-OCR-AH-A01_jpg.rf.dedcc4126bf066da4322b13ab17cbc27.jpg,G3,vertical,skewed,clean,ok,
+1-123921001-OCR-AH-A01_jpg.rf.7564ea1d9e13905e16f3c33f0501c3ef.jpg,G1,vertical,straight,clean,ok,
+1-124043001-OCR-AH-A01_jpg.rf.ba761affa8efb2d97fe499dd008967a6.jpg,G2,vertical,straight,hard,ok,Dirty white/faded; low contrast
+1-124054001-OCR-AH-A01_jpg.rf.894844212cbd4aa3a73219c3b974f8b3.jpg,G8,horizontal,skewed,hard,ok,Container door; extra text and bars
+1-124141001-OCR-AH-A01_jpg.rf.2759e109d824ac401415a502f2bcda5f.jpg,G1,vertical,straight,clean,ok,
+1-124221001-OCR-AH-A01_jpg.rf.47b4159c400e8c4e01a4c1d251749a61.jpg,G1,vertical,straight,clean,ok,
+1-124251001-OCR-AH-A01_jpg.rf.3c2f389bc5fe9bbf6ddf4d823b79fa32.jpg,G4,vertical,skewed,hard,ok,Heavy rust
+1-124401001-OCR-AH-A01_jpg.rf.1829bd07606e7ca00ed2632d6ed68be7.jpg,G1,vertical,straight,clean,ok,
+1-124412001-OCR-AH-A01_jpg.rf.d0f765cb25faa1e65e0bae2aaebb3be5.jpg,G8,horizontal,skewed,hard,ok,Label with horizontal code; snow/reflection in right corner
+1-124419001-OCR-AH-A01_jpg.rf.2767a3c2dbe08fb6b84a57aba0b4544a.jpg,G1,vertical,straight,clean,ok,
+1-124421001-OCR-AH-A01_jpg.rf.df4311abfb03b87da75dee8241eedd5d.jpg,G1,vertical,straight,clean,ok,
+1-124444001-OCR-AH-A01_jpg.rf.a6d11579406724e26d355eae7bf84be2.jpg,G4,vertical,skewed,hard,ok,Dark code on gray; top of code near image edge
+1-124449001-OCR-AH-A01_jpg.rf.edc5f934e7c7a073034ec5e9cc583b8f.jpg,G1,vertical,straight,clean,ok,
+1-124453001-OCR-AH-A01_jpg.rf.acce5a2df998ea29d63211f908ce7fda.jpg,G3,vertical,skewed,clean,ok,
+1-124501001-OCR-AH-A01_jpg.rf.6389992ec631025171efd4a4a28916b2.jpg,G4,vertical,skewed,hard,ok,Dark code on blue-gray; top of code near image edge
+1-124543001-OCR-AH-A01_jpg.rf.f597256a9118917a7ec7e859e7ef30a3.jpg,G3,vertical,skewed,clean,ok,
+1-124544001-OCR-AH-A01_jpg.rf.50dd42f41e2269b5ab0bdc948d1bb9a9.jpg,G2,vertical,straight,hard,ok,Low contrast; cracks and shadow
+1-124554001-OCR-AH-A01_jpg.rf.ce3a4e785ec222acb789f8865873e547.jpg,G2,vertical,straight,hard,ok,Reefer container; code on edge and slightly rusty
+1-124555001-OCR-AH-A01_jpg.rf.ae7215c005786022129871a61ce9e431.jpg,,,,,rejected,Code cut off at top and bottom
+1-124629001-OCR-AH-A01_jpg.rf.e401624d723fdb36ad329cdb2885f9c6.jpg,G5,horizontal,straight,clean,ok,
+1-124650001-OCR-AH-A01_jpg.rf.96142d9e19dff677170f5d3b40500c1d.jpg,G5,horizontal,straight,clean,ok,
+1-124709001-OCR-AH-A01_jpg.rf.d1a968e569212a72c5a5e3cb31eb7ee7.jpg,G3,vertical,skewed,clean,ok,
+1-124722001-OCR-AH-A01_jpg.rf.80d63142fa0a5ffbe337045d8ad7d12d.jpg,G1,vertical,straight,clean,ok,
+1-124829001-OCR-AH-A01_jpg.rf.2fbc65fc154cd4a0fe6453238b5cfeb9.jpg,G2,vertical,straight,hard,ok,Dark body; low contrast
+1-124835001-OCR-AH-A01_jpg.rf.bf62f7d8d44224e9ba2344d52cc9b154.jpg,G8,horizontal,skewed,hard,ok,Container door; extra text and bars
+1-124908001-OCR-AH-A01_jpg.rf.6fe5f70316de10a7f51876f3d88cb6a1.jpg,G5,horizontal,straight,clean,ok,
+1-124954001-OCR-AH-A01_jpg.rf.13ae62f8b5c7a9c66d51931059b99b17.jpg,G2,vertical,straight,hard,ok,Digits slightly faded
+1-124957001-OCR-AH-A01_jpg.rf.c89aed20bc0b94eea6d971d3981ab42e.jpg,G1,vertical,straight,clean,ok,
+1-125007001-OCR-AH-A01_jpg.rf.a949adf4f4ceaee2b41fcbf92272ac66.jpg,G4,vertical,skewed,hard,ok,Heavy scratching
+1-125020001-OCR-AH-A01_jpg.rf.0c40c7de6d3c2a1e4a9f47dd0c14916b.jpg,G1,vertical,straight,clean,ok,
+1-125034001-OCR-AH-A01_jpg.rf.5d95ceba550caecba63005c9a11b5f8f.jpg,G4,vertical,skewed,hard,ok,Reefer container; code on right edge
+1-125138001-OCR-AH-A01_jpg.rf.e34e054d4e78777b9a839b311d484f4f.jpg,G1,vertical,straight,clean,ok,
+1-125143001-OCR-AH-A01_jpg.rf.0521f27780ed060c31b7f89ba866503a.jpg,,,,,rejected,Vertical code cut off at bottom (reefer)
+1-125234001-OCR-AH-A01_jpg.rf.4d42e38154f307050361433106711f7a.jpg,G2,vertical,straight,hard,ok,Dark body; low contrast
+1-125253001-OCR-AH-A01_jpg.rf.219f9a610c63995f288189e18e3af6b0.jpg,G5,horizontal,straight,clean,ok,
+1-125254001-OCR-AH-A01_jpg.rf.9bfb9bac7f6d341f4afd8cf83bfbbd77.jpg,G1,vertical,straight,clean,ok,
+1-125322001-OCR-AH-A01_jpg.rf.077d67640c2d63403e83546521acb081.jpg,,,,,rejected,Code cut off at bottom
+1-125334001-OCR-AH-A01_jpg.rf.ff6efd8851d6e7a4cff6c371d5030ab1.jpg,G4,vertical,skewed,hard,ok,Faded with stains; code slightly worn
+1-125357001-OCR-AH-A01_jpg.rf.25a46a44bbeadc93b15662ef817a8511.jpg,G1,vertical,straight,clean,ok,
+1-125432001-OCR-AH-A01_jpg.rf.c49a8a98b9552e3618e0e078f1f795c2.jpg,G3,vertical,skewed,clean,ok,
+1-125513001-OCR-AH-A01_jpg.rf.684b21857a84ae55e7839f94cade43c7.jpg,G1,vertical,straight,clean,ok,
+1-125621001-OCR-AH-A01_jpg.rf.65aeed55b6813b6f061e1cbc694d76c9.jpg,,,,,rejected,First character of code cut off at top
+1-125656001-OCR-AH-A01_jpg.rf.4f616b2dec9f661d6e9c1a04b81ddfd3.jpg,G1,vertical,straight,clean,ok,
+1-125715001-OCR-AH-A01_jpg.rf.9ca98a864591a7dc2405210f45c73cb3.jpg,G4,vertical,skewed,hard,ok,Dirty white with stains
+1-125744001-OCR-AH-A01_jpg.rf.2aea043ac289980d0cdcd2768e1e2aec.jpg,,,,,rejected,Code cut off at bottom (reefer)
+1-125942001-OCR-AH-A01_jpg.rf.729b79012b1c6d52f3ee065923ea2cb5.jpg,G2,vertical,straight,hard,ok,Rust and stains; dark code on gray
+1-125957001-OCR-AH-A01_jpg.rf.f12490e52e108d3b8e99d93919257033.jpg,G4,vertical,skewed,hard,ok,Scratches and stains
+1-130403001-OCR-AH-A01_jpg.rf.7c811c2b6e987b8af3ff237e71f41caf.jpg,G1,vertical,straight,clean,ok,
+1-130453001-OCR-AH-A01_jpg.rf.b5a1763f5691f1c3ad59b82b6323e2af.jpg,G7,horizontal,skewed,clean,ok,
+1-130526001-OCR-AH-A01_jpg.rf.cf11c65958a2760b3432b39a3d87d320.jpg,G4,vertical,skewed,hard,ok,Dark and rusty
+1-130533001-OCR-AH-A01_jpg.rf.3455046030c1ce8ba5817393eb72ce97.jpg,G1,vertical,straight,clean,ok,
+1-130636001-OCR-AH-A01_jpg.rf.c336acc502a28a0d22a59093e1cc4a12.jpg,G1,vertical,straight,clean,ok,
+1-130657001-OCR-AH-A01_jpg.rf.c79d9d58173355c88c52c000183edbc6.jpg,G4,vertical,skewed,hard,ok,Rust and damage
+1-130713001-OCR-AH-A01_jpg.rf.481fa4cd6b7a8b0db02f8e198e8a4256.jpg,G1,vertical,straight,clean,ok,
+1-130738001-OCR-AH-A01_jpg.rf.4c1fe2c965752aeb1ffc12bfd2e48b19.jpg,G1,vertical,straight,clean,ok,
+1-130749001-OCR-AH-A01_jpg.rf.e264e2476916e01dfbd8f549d42a5e19.jpg,G1,vertical,straight,clean,ok,
+1-130825001-OCR-AH-A01_jpg.rf.b40f9b0e55434a8be774d732b16bd4d4.jpg,G1,vertical,straight,clean,ok,
+1-130903001-OCR-AH-A01_jpg.rf.8d854cca69aac116612eea6466666479.jpg,G4,vertical,skewed,hard,ok,Faint code on blue
+1-130909001-OCR-AH-A01_jpg.rf.408c6b24d9f9b071fc74f3ca67de38ff.jpg,G1,vertical,straight,clean,ok,
+1-131010001-OCR-AH-A01_jpg.rf.d0b573452fd369540e057d21a459fc7a.jpg,G1,vertical,straight,clean,ok,
+1-131040001-OCR-AH-A01_jpg.rf.75b972305510b13f6d22e2f4f55bdd85.jpg,G6,horizontal,straight,hard,ok,Container door; extra text and bars
+1-131213001-OCR-AH-A01_jpg.rf.d5d358185c95b89939387e167b0d3850.jpg,G1,vertical,straight,clean,ok,
+1-131229001-OCR-AH-A01_jpg.rf.6bee3680d912534bcdea76899d70a4be.jpg,G1,vertical,straight,clean,ok,
+1-131354001-OCR-AH-A01_jpg.rf.1270a1d3e4c4c3dc2b21eb26f251cddd.jpg,G1,vertical,straight,clean,ok,
+1-131407001-OCR-AH-A01_jpg.rf.304077b3e625996a825a91cdb7e50297.jpg,G5,horizontal,straight,clean,ok,
+1-131418001-OCR-AH-A01_jpg.rf.1851b418fcbf91634245927158884772.jpg,G3,vertical,skewed,clean,ok,
+1-131516001-OCR-AH-A01_jpg.rf.8b18c071d1fcf7f15175213e23069980.jpg,G4,vertical,skewed,hard,ok,Reefer container; part of code beside edge/machine; top of code near image edge
+1-131554001-OCR-AH-A01_jpg.rf.09460b88c0431ff6306a62ea81cea7ac.jpg,G8,horizontal,skewed,hard,ok,Reefer container; horizontal code on plate
+1-131649001-OCR-AH-A01_jpg.rf.6c8fd670ceb1ac7240ebfc307edbf23a.jpg,G4,vertical,skewed,hard,ok,Rust
+1-131723001-OCR-AH-A01_jpg.rf.bf86e536923db11ada35e85a16aa94d1.jpg,G3,vertical,skewed,clean,ok,
+1-131757001-OCR-AH-A01_jpg.rf.bbff1d0907a0bd32a78c335d9721b366.jpg,G2,vertical,straight,hard,ok,Faint and thin code
+1-131810001-OCR-AH-A01_jpg.rf.d64e3269b909115de624f99cd296ef46.jpg,G8,horizontal,skewed,hard,ok,Rust streaks
+1-131831001-OCR-AH-A01_jpg.rf.f89a5a5e38f8e6e916f04a5fb12f1fdf.jpg,G1,vertical,straight,clean,ok,
+1-131925001-OCR-AH-A01_jpg.rf.1847d9539f656be5934b99b4236110ab.jpg,G2,vertical,straight,hard,ok,Heavy rust
+1-131947001-OCR-AH-A01_jpg.rf.8b92d3c2856fa303dd3172ddbad82c0b.jpg,G1,vertical,straight,clean,ok,
+1-132003001-OCR-AH-A01_jpg.rf.c7cdb2c9eaa003232c4ee96bc2b36fa5.jpg,G2,vertical,straight,hard,ok,Faint and thin code
+1-132030001-OCR-AH-A01_jpg.rf.4d405cc10e833cfcb9f706dcf1a1d3cb.jpg,G2,vertical,straight,hard,ok,Rust patches; dark code
+1-132047001-OCR-AH-A01_jpg.rf.40eb10737bdcf9b5bb0ed3c40965a1cd.jpg,G1,vertical,straight,clean,ok,
+1-132125001-OCR-AH-A01_jpg.rf.c9392d99c0148ad6dbe0e8fa196bb5c1.jpg,G1,vertical,straight,clean,ok,
+1-132128001-OCR-AH-A01_jpg.rf.f74a22070547e9f048f37c4666255830.jpg,G8,horizontal,skewed,hard,ok,Rust streaks
+1-132223001-OCR-AH-A01_jpg.rf.155b1aef4a62b28028dc75e94eed6799.jpg,G3,vertical,skewed,clean,ok,
+1-132241001-OCR-AH-A01_jpg.rf.bb01aea631c82d3dbd9ea28557b0cea4.jpg,G4,vertical,skewed,hard,ok,Faded yellow; dark low-contrast code
+1-132303001-OCR-AH-A01_jpg.rf.fb3b58e6b5e51d074bdd92bcdac50b4e.jpg,G1,vertical,straight,clean,ok,
+1-132325001-OCR-AH-A01_jpg.rf.4e1d4bd1ae8ccbc493d4fe949f6037e9.jpg,G1,vertical,straight,clean,ok,
+1-132349001-OCR-AH-A01_jpg.rf.7c59c66b18d17d400711db012aa6885f.jpg,G3,vertical,skewed,clean,ok,
+1-132407001-OCR-AH-A01_jpg.rf.a8b4726fba4088949a0dcfb4a0a4c667.jpg,G1,vertical,straight,clean,ok,
+1-132411001-OCR-AH-A01_jpg.rf.5aecc43a706a67df683b4c7f15e3452c.jpg,G1,vertical,straight,clean,ok,
+1-132541001-OCR-AH-A01_jpg.rf.8671ce90c77e296f7a899886c2fce348.jpg,G1,vertical,straight,clean,ok,
+1-132601001-OCR-AH-A01_jpg.rf.ec83bdf5eef2ebacce22d96d300d39b6.jpg,G1,vertical,straight,clean,ok,
+1-132612001-OCR-AH-A01_jpg.rf.79f6286032e16fd24313dbc744aa49a7.jpg,G2,vertical,straight,hard,ok,Scratches and edge rust; dark code on gray
+1-132637001-OCR-AH-A01_jpg.rf.8e9fc8a2485919ba36dca9dd96f1944e.jpg,G4,vertical,skewed,hard,ok,Stains and dirt
+1-132724001-OCR-AH-A01_jpg.rf.d561c3fb9b332802fc3ba40df907c087.jpg,G3,vertical,skewed,clean,ok,
+1-132736001-OCR-AH-A01_jpg.rf.cbf6e7b20b2429f3b5bb6625609afb3c.jpg,G2,vertical,straight,hard,ok,Very dark body
+1-132745001-OCR-AH-A01_jpg.rf.51f9a374f202aae46d072a3bb504eab7.jpg,G1,vertical,straight,clean,ok,
+1-132746001-OCR-AH-A01_jpg.rf.60303ed8019515e1b921f5a91fee6cc6.jpg,G4,vertical,skewed,hard,ok,Dirty and rusty
+1-132917001-OCR-AH-A01_jpg.rf.fcbeb1f74a4a131df321d9acfb608a9d.jpg,G3,vertical,skewed,clean,ok,
+1-132957001-OCR-AH-A01_jpg.rf.4023ba8cc9899b03afaa685b8b9c7e45.jpg,G8,horizontal,skewed,hard,ok,Container door; extra text and bars
+1-133006001-OCR-AH-A01_jpg.rf.4bdf247828fbb8ed5ac450cbd352bbea.jpg,G2,vertical,straight,hard,ok,Faint code
+1-133046001-OCR-AH-A01_jpg.rf.229985a0a9bd441a544c46aa7de10a81.jpg,G3,vertical,skewed,clean,ok,
+1-133101001-OCR-AH-A01_jpg.rf.64e63a6604634467671740ce1de434fa.jpg,G3,vertical,skewed,clean,ok,
+1-133128001-OCR-AH-A01_jpg.rf.99536574a10f9239e58c341544484022.jpg,G1,vertical,straight,clean,ok,
+1-133136001-OCR-AH-A01_jpg.rf.3e77e8073862caf4dcd1dc6654fa1a01.jpg,G1,vertical,straight,clean,ok,
+1-133247001-OCR-AH-A01_jpg.rf.1c957eb07ad5a5ff384f60735d5a1aeb.jpg,G8,horizontal,skewed,hard,ok,Reefer container; horizontal code on plate
+1-133319001-OCR-AH-A01_jpg.rf.8ffd013181908ebd634b4bb31c3abd10.jpg,G4,vertical,skewed,hard,ok,Rust
+1-133713001-OCR-AH-A01_jpg.rf.6655a9a4ddc03f37980f08559b02bbe3.jpg,G1,vertical,straight,clean,ok,
+1-133901001-OCR-AH-A01_jpg.rf.f96b748d80331ff97976afd5457d0bf3.jpg,G3,vertical,skewed,clean,ok,
+1-133903001-OCR-AH-A01_jpg.rf.8d2a32b2f5fcca74988bd4e7abd6a5bb.jpg,G7,horizontal,skewed,clean,ok,
+1-133954001-OCR-AH-A01_jpg.rf.d62ce32f21b76010778bd6076d5f3ef7.jpg,G4,vertical,skewed,hard,ok,Reefer container; code on right edge
+1-134141001-OCR-AH-A01_jpg.rf.3ddce8b24ffd88a94b0677b214e2e4b1.jpg,G4,vertical,skewed,hard,ok,Rust
+1-134203001-OCR-AH-A01_jpg.rf.b0180e1c7cc89ac29c454bceeb2e6724.jpg,G1,vertical,straight,clean,ok,
+1-134237001-OCR-AH-A01_jpg.rf.4c532832d676c52e63f54bb60207ad92.jpg,G3,vertical,skewed,clean,ok,
+1-134312001-OCR-AH-A01_jpg.rf.37c66a2893b58a87b3c6758b914fbc6e.jpg,G2,vertical,straight,hard,ok,Rust patches
+1-134430001-OCR-AH-A01_jpg.rf.a0ef948d506782af585d5526204234d1.jpg,G1,vertical,straight,clean,ok,
+1-134616001-OCR-AH-A01_jpg.rf.695e7f4d9dfba42f19d161b89ddd373a.jpg,G1,vertical,straight,clean,ok,
+1-134639001-OCR-AH-A01_jpg.rf.c17ada867269da3e16138a0826cbeada.jpg,G4,vertical,skewed,hard,ok,Faint code
+1-134655001-OCR-AH-A01_jpg.rf.d9e14d9d1611d45b845d43818f1df93a.jpg,G1,vertical,straight,clean,ok,
+1-134829001-OCR-AH-A01_jpg.rf.930488c0de8607af2d256234a66efe74.jpg,G3,vertical,skewed,clean,ok,
+1-134854001-OCR-AH-A01_jpg.rf.9e939db433fccd2e80c04153e4f8bccf.jpg,,,,,rejected,Code cut off/obstructed at top (reefer)
+1-134910001-OCR-AH-A01_jpg.rf.d679560c3f495b9ab8fc7c84621faad0.jpg,G6,horizontal,straight,hard,ok,Tank container; horizontal code at top under frame
+1-135047001-OCR-AH-A01_jpg.rf.f51b82475785161ae156a2124fd81684.jpg,G7,horizontal,skewed,clean,ok,
+1-135116001-OCR-AH-A01_jpg.rf.40e238b8a56363ed181a19ffe7019175.jpg,G1,vertical,straight,clean,ok,
+1-135154001-OCR-AH-A01_jpg.rf.5cd8d57c45b11c8cbdd84e13886a9807.jpg,G6,horizontal,straight,hard,ok,Container door; extra text and bars
+1-135300001-OCR-AH-A01_jpg.rf.633c50f1a7bca5cb09a43d8491e4ff71.jpg,,,,,rejected,Distant framing; very small low-contrast code
+1-135405001-OCR-AH-A01_jpg.rf.94de794c5400406a694547e3a9bd2f5e.jpg,G1,vertical,straight,clean,ok,
+1-135443001-OCR-AH-A01_jpg.rf.1bcfa679db4e1be0153f7b0107fb50da.jpg,G3,vertical,skewed,clean,ok,
+1-135618001-OCR-AH-A01_jpg.rf.c7f2caac3ff12cc3dde77b76de10f517.jpg,,,,,rejected,Code cut off at bottom
+1-135646001-OCR-AH-A01_jpg.rf.72765c70b5766d05912db5cf57c7ed94.jpg,G2,vertical,straight,hard,ok,Very dark body
+1-135910001-OCR-AH-A01_jpg.rf.499116c6c70c2ed0dcf561a5da20a0a2.jpg,G1,vertical,straight,clean,ok,
+1-135936001-OCR-AH-A01_jpg.rf.dc8a25ad3d280994e0803bd8b13edcfc.jpg,G8,horizontal,skewed,hard,ok,Container door; extra text and bars
+1-135943001-OCR-AH-A01_jpg.rf.d3bb3b9073834521d2afd172fdaf57b1.jpg,G8,horizontal,skewed,hard,ok,Grainy/noisy; horizontal code in middle of body
+1-140021001-OCR-AH-A01_jpg.rf.a00567a156af77b9e70dd09969c6c268.jpg,G4,vertical,skewed,hard,ok,Scratches near code
+1-140105001-OCR-AH-A01_jpg.rf.50281d02d26837ea11ae0aff34d2fb58.jpg,G2,vertical,straight,hard,ok,Heavy rust
+1-140205001-OCR-AH-A01_jpg.rf.54151722d3e1efb5b620d9cf4e174bd0.jpg,G1,vertical,straight,clean,ok,
+1-140240001-OCR-AH-A01_jpg.rf.de2d67c36b697f367cf6e7b052b3e18e.jpg,G3,vertical,skewed,clean,ok,
+1-140432001-OCR-AH-A01_jpg.rf.f65894d198a4858164d41962e032e7df.jpg,,,,,rejected,Code cut off at bottom (reefer)
+1-140504001-OCR-AH-A01_jpg.rf.1b16e87dd52539bd4ac6a5313312d055.jpg,G8,horizontal,skewed,hard,ok,Container door; extra text and bars
+1-140506001-OCR-AH-A01_jpg.rf.7fe708d3d5a5e68bd6aebf84a13ac4ac.jpg,G1,vertical,straight,clean,ok,
+1-140510001-OCR-AH-A01_jpg.rf.c5b41b78b7ae711734bcf51881268a02.jpg,G2,vertical,straight,hard,ok,Dirty yellow; dark low-contrast code
+1-140546001-OCR-AH-A01_jpg.rf.67950dce7eb9bdf37ee5c9374a652a60.jpg,G5,horizontal,straight,clean,ok,
+1-140628001-OCR-AH-A01_jpg.rf.7ebb3ce747d51f3fd0334bef7f505336.jpg,G4,vertical,skewed,hard,ok,Faded yellow; dark code
+1-140650001-OCR-AH-A01_jpg.rf.6d9ee756e653b35d1d714a4d710c2b88.jpg,G7,horizontal,skewed,clean,ok,
+1-144110001-OCR-AH-A01_jpg.rf.ccb39bbd14035dd735cbdabbd197d7bb.jpg,G1,vertical,straight,clean,ok,
+1-144123001-OCR-AH-A01_jpg.rf.af69572f4ba70409f247f9b85558dabe.jpg,G3,vertical,skewed,clean,ok,
+1-144130001-OCR-AH-A01_jpg.rf.4f52c9d5701e205be11804ab132877c8.jpg,G1,vertical,straight,clean,ok,
+1-144157001-OCR-AH-A01_jpg.rf.c573cf90aec8bf2af0289459de331d4c.jpg,G1,vertical,straight,clean,ok,
+1-144223001-OCR-AH-A01_jpg.rf.266a4386a763a0f3218ab5386f856725.jpg,G4,vertical,skewed,hard,ok,Different scene (truck); thin low-contrast code
+1-144239001-OCR-AH-A01_jpg.rf.c6b0b910e457d2765e892b9348281209.jpg,G3,vertical,skewed,clean,ok,
+1-144240001-OCR-AH-A01_jpg.rf.78167f38338a68ddb5efe98fed3a9978.jpg,G1,vertical,straight,clean,ok,
+1-144244001-OCR-AH-A01_jpg.rf.a47dd3366571749d87f47711e74def54.jpg,G1,vertical,straight,clean,ok,
+1-144310001-OCR-AH-A01_jpg.rf.a181e6a61532a66fce997c89e3c85a33.jpg,,,,,rejected,Distant framing; small dim code
+1-144323001-OCR-AH-A01_jpg.rf.2015b9598a59bd25fa7dcfdcdbc6708e.jpg,G3,vertical,skewed,clean,ok,
+1-144334001-OCR-AH-A01_jpg.rf.779e32482b25c0f563738bae6560d160.jpg,G1,vertical,straight,clean,ok,
+1-144354001-OCR-AH-A01_jpg.rf.4950aaa78375542363aa29b2e007f63e.jpg,G4,vertical,skewed,hard,ok,Wear and scratches
+1-144516001-OCR-AH-A01_jpg.rf.6d25586473814fe18a6b3e15f5f74842.jpg,G1,vertical,straight,clean,ok,
+1-144523001-OCR-AH-A01_jpg.rf.ba8b8ba7ec6c73e49993339f537b6965.jpg,G1,vertical,straight,clean,ok,
+1-144547001-OCR-AH-A01_jpg.rf.2fb798d53e93e2cb0408e76e4df55130.jpg,G1,vertical,straight,clean,ok,
+1-144612001-OCR-AH-A01_jpg.rf.c9e078b7ef39a7cb6b19aedd70307cf1.jpg,,,,,rejected,Distant framing (on truck); small code
+1-144701001-OCR-AH-A01_jpg.rf.33f4106b7284b2f60942ee0c7ce1c974.jpg,G1,vertical,straight,clean,ok,
+1-144707001-OCR-AH-A01_jpg.rf.17447907f110dbe3ad4e3997d5de2109.jpg,G2,vertical,straight,hard,ok,Very dark body
+1-144710001-OCR-AH-A01_jpg.rf.1ddfe064cfcba1ff965f8e4248ebfe43.jpg,G1,vertical,straight,clean,ok,
+1-144717001-OCR-AH-A01_jpg.rf.e3a09b1aa51636e9d5da7f501ca73e1e.jpg,G7,horizontal,skewed,clean,ok,
+1-144721001-OCR-AH-A01_jpg.rf.15337378e9adbf7fd7ac32d85fcb97fc.jpg,G3,vertical,skewed,clean,ok,
+1-144725001-OCR-AH-A01_jpg.rf.6d7c3c94a0e68a591f4282aae0c33ff9.jpg,G5,horizontal,straight,clean,ok,
+1-144726001-OCR-AH-A01_jpg.rf.7ca56eabc2771ea9d2e04d76ef72e57a.jpg,G2,vertical,straight,hard,ok,Truck scene; low-contrast code
+1-144733001-OCR-AH-A01_jpg.rf.ad5ae2328576738787a7ed63b23104ac.jpg,G2,vertical,straight,hard,ok,Dark and worn
+1-144747001-OCR-AH-A01_jpg.rf.cd976d8cde92ad367deadd12de46301b.jpg,G1,vertical,straight,clean,ok,
+1-144815001-OCR-AH-A01_jpg.rf.4f968d61328d783d6a85096e39c199be.jpg,G1,vertical,straight,clean,ok,
+1-144818001-OCR-AH-A01_jpg.rf.cafb3de7460ee192808d34a8039b0cac.jpg,G2,vertical,straight,hard,ok,Dark and worn
+1-144923001-OCR-AH-A01_jpg.rf.bfdcf35845ad0635f89a67a85f9797a6.jpg,G1,vertical,straight,clean,ok,
+1-144929001-OCR-AH-A01_jpg.rf.140e4584c5990046a62c47de4cbbeb8d.jpg,G1,vertical,straight,clean,ok,
+1-145016001-OCR-AH-A01_jpg.rf.fd04a8ba7c3330c3f0fb869eae9236aa.jpg,G1,vertical,straight,clean,ok,
+1-145029001-OCR-AH-A01_jpg.rf.1e47d807ce95bef501941a2d156c4802.jpg,G4,vertical,skewed,hard,ok,Heavy rust
+1-145032001-OCR-AH-A01_jpg.rf.9422976acc35b84257904e91387398a7.jpg,G1,vertical,straight,clean,ok,
+1-145053001-OCR-AH-A01_jpg.rf.a2e6bb03dc2148b8b5fbe682d6ff276c.jpg,G1,vertical,straight,clean,ok,
+1-145118001-OCR-AH-A01_jpg.rf.9f654bc1336310dd3454ec8baaeb263d.jpg,G6,horizontal,straight,hard,ok,Reefer container; horizontal code on plate
+1-145142001-OCR-AH-A01_jpg.rf.10a3bb1b18ab805021e1fea61dd07207.jpg,G4,vertical,skewed,hard,ok,Rust
+1-145237001-OCR-AH-A01_jpg.rf.4e01bd03a49f00c083d03e4422920837.jpg,G4,vertical,skewed,hard,ok,Heavy scratching
+1-145251001-OCR-AH-A01_jpg.rf.4ea3a87d9b2f1c1e8cf1497bd506a450.jpg,G2,vertical,straight,hard,ok,Rust and dirt
+1-145327001-OCR-AH-A01_jpg.rf.a543bc97903684ce8ccf5d251a29ab2e.jpg,G8,horizontal,skewed,hard,ok,Container door; extra text and bars
+1-145329001-OCR-AH-A01_jpg.rf.caaa7d83de710759536e3fd44ea4377f.jpg,G7,horizontal,skewed,clean,ok,
+1-145345001-OCR-AH-A01_jpg.rf.8011801aa82c753815830fe322b058f8.jpg,G5,horizontal,straight,clean,ok,
+1-145554001-OCR-AH-A01_jpg.rf.14e65caaf30153ea326edcd9e45629f2.jpg,G4,vertical,skewed,hard,ok,Truck scene; bottom of image covered by red object
+1-145637001-OCR-AH-A01_jpg.rf.de1b4c933017805de806f7c46ab7da29.jpg,G5,horizontal,straight,clean,ok,
+1-145639001-OCR-AH-A01_jpg.rf.c6da126496e8d88c1bc7d95caa556cee.jpg,G7,horizontal,skewed,clean,ok,
+1-145647001-OCR-AH-A01_jpg.rf.7ae1a8cec77df939afd4e95549e0fcc9.jpg,G6,horizontal,straight,hard,ok,Dark and cluttered door; slightly blurry
