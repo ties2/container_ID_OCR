@@ -74,3 +74,4 @@ class TestFormatCorrection:
 def test_layout_from_polygon():
     assert code_layout(CODE_POLY) == "vertical"
     assert code_layout(CODE_POLY[:, ::-1].copy()) == "horizontal"
+

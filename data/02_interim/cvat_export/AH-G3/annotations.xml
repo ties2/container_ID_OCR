@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <annotations>
   <version>1.1</version>
   <meta>
@@ -7,13 +7,13 @@
       <size>26</size>
       <mode>annotation</mode>
       <overlap>0</overlap>
-      <bugtracker></bugtracker>
+      <bugtracker />
       <created>2026-10-04 16:05:21.952886+00:00</created>
       <updated>2026-10-05 16:02:10.741264+00:00</updated>
       <subset>default</subset>
       <start_frame>0</start_frame>
       <stop_frame>25</stop_frame>
-      <frame_filter></frame_filter>
+      <frame_filter />
       <segments>
         <segment>
           <id>822</id>
@@ -26,7 +26,7 @@
         <username>252forouzandeh.fanaelahi1</username>
         <email>forouzandeh.fanaelahi1@student.nhlstenden.com</email>
       </owner>
-      <assignee></assignee>
+      <assignee />
       <labels>
         <label>
           <name>container_id</name>
@@ -244,7 +244,7 @@
     </box>
     <box label="char" source="manual" occluded="0" xtl="1042.00" ytl="923.13" xbr="1082.99" ybr="980.16" z_order="0">
     </box>
-    <polygon label="container_id" source="manual" occluded="0" points="400.42,89.07;870.91,99.76;853.09,146.10;379.03,137.19" z_order="0">
+    <polygon label="ignore" source="manual" occluded="0" points="400.42,89.07;870.91,99.76;853.09,146.10;379.03,137.19" z_order="0">
     </polygon>
     <polygon label="container_id" source="manual" occluded="0" points="1059.82,347.49;1120.42,347.49;1084.77,989.07;1036.65,983.72" z_order="0">
     </polygon>
@@ -314,7 +314,7 @@
     </box>
     <polygon label="container_id" source="manual" occluded="0" points="1041.04,340.66;1099.76,338.88;1078.41,972.36;1021.47,965.24" z_order="0">
     </polygon>
-    <polygon label="container_id" source="manual" occluded="0" points="395.11,100.44;843.53,100.44;839.97,164.50;386.21,157.38" z_order="0">
+    <polygon label="ignore" source="manual" occluded="0" points="395.11,100.44;843.53,100.44;839.97,164.50;386.21,157.38" z_order="0">
     </polygon>
     <box label="char" source="manual" occluded="0" xtl="1052.04" ytl="349.35" xbr="1091.77" ybr="410.43" z_order="0">
     </box>
@@ -384,7 +384,7 @@
     </box>
     <box label="char" source="manual" occluded="0" xtl="1019.69" ytl="849.58" xbr="1065.96" ybr="904.74" z_order="0">
     </box>
-    <polygon label="container_id" source="manual" occluded="0" points="186.92,80.87;640.67,68.41;621.10,118.23;149.55,132.47" z_order="0">
+    <polygon label="ignore" source="manual" occluded="0" points="186.92,80.87;640.67,68.41;621.10,118.23;149.55,132.47" z_order="0">
     </polygon>
     <box label="char" source="manual" occluded="0" xtl="180.60" ytl="85.65" xbr="214.92" ybr="120.60" rotation="9.30" z_order="0">
     </box>
@@ -584,7 +584,7 @@
     </box>
     <box label="char" source="manual" occluded="0" xtl="1226.10" ytl="835.34" xbr="1268.81" ybr="886.95" z_order="0">
     </box>
-    <polygon label="container_id" source="manual" occluded="0" points="653.13,73.75;1081.97,79.09;1085.53,127.13;640.67,114.67" z_order="0">
+    <polygon label="ignore" source="manual" occluded="0" points="653.13,73.75;1081.97,79.09;1085.53,127.13;640.67,114.67" z_order="0">
     </polygon>
     <box label="char" source="manual" occluded="0" xtl="656.69" ytl="79.09" xbr="692.28" ybr="109.34" z_order="0">
     </box>
@@ -614,7 +614,7 @@
     </box>
     <polygon label="container_id" source="manual" occluded="0" points="1233.22,262.37;1315.07,267.71;1238.56,901.18;1178.06,897.62" z_order="0">
     </polygon>
-    <polygon label="container_id" source="manual" occluded="0" points="608.64,23.92;1044.60,32.82;1044.60,77.31;594.41,66.63" z_order="0">
+    <polygon label="ignore" source="manual" occluded="0" points="608.64,23.92;1044.60,32.82;1044.60,77.31;594.41,66.63" z_order="0">
     </polygon>
     <box label="char" source="manual" occluded="0" xtl="1247.81" ytl="269.13" xbr="1293.78" ybr="325.48" z_order="0">
     </box>
@@ -680,7 +680,7 @@
     </box>
     <box label="char" source="manual" occluded="0" xtl="1259.91" ytl="769.50" xbr="1299.06" ybr="815.77" z_order="0">
     </box>
-    <polygon label="container_id" source="manual" occluded="0" points="396.89,50.62;968.09,59.51;966.31,114.67;375.54,104.00" z_order="0">
+    <polygon label="ignore" source="manual" occluded="0" points="396.89,50.62;968.09,59.51;966.31,114.67;375.54,104.00" z_order="0">
     </polygon>
     <box label="char" source="manual" occluded="0" xtl="1254.57" ytl="817.55" xbr="1290.16" ybr="860.25" z_order="0">
     </box>
@@ -764,7 +764,7 @@
     </box>
     <polygon label="container_id" source="manual" occluded="0" points="1185.18,242.79;1242.12,246.35;1179.84,920.75;1135.35,913.64" z_order="0">
     </polygon>
-    <polygon label="container_id" source="manual" occluded="0" points="302.58,38.16;747.40,47.10;729.60,91.50;293.68,79.09" z_order="0">
+    <polygon label="ignore" source="manual" occluded="0" points="302.58,38.16;747.40,47.10;729.60,91.50;293.68,79.09" z_order="0">
     </polygon>
     <box label="char" source="manual" occluded="0" xtl="1189.98" ytl="246.89" xbr="1230.02" ybr="310.65" z_order="0">
     </box>
@@ -834,7 +834,7 @@
     </box>
     <box label="char" source="manual" occluded="0" xtl="1222.50" ytl="776.60" xbr="1261.69" ybr="828.22" z_order="0">
     </box>
-    <polygon label="container_id" source="manual" occluded="0" points="1088.60,0.00;1092.30,42.70;656.92,32.97;666.81,0.00" z_order="0">
+    <polygon label="ignore" source="manual" occluded="0" points="1088.60,0.00;1092.30,42.70;656.92,32.97;666.81,0.00" z_order="0">
     </polygon>
     <box label="char" source="manual" occluded="0" xtl="674.66" ytl="1.03" xbr="701.26" ybr="25.05" z_order="0">
     </box>
@@ -862,7 +862,7 @@
   <image id="18" name="1-134237001-OCR-AH-A01_jpg.rf.4c532832d676c52e63f54bb60207ad92.jpg" width="1920" height="1080">
     <polygon label="container_id" source="manual" occluded="0" points="1130.01,402.94;1186.96,401.16;1144.25,1007.95;1089.09,1007.95" z_order="0">
     </polygon>
-    <polygon label="container_id" source="manual" occluded="0" points="489.42,141.37;944.95,141.37;944.95,191.19;473.41,184.07" z_order="0">
+    <polygon label="ignore" source="manual" occluded="0" points="489.42,141.37;944.95,141.37;944.95,191.19;473.41,184.07" z_order="0">
     </polygon>
     <box label="char" source="manual" occluded="0" xtl="1137.09" ytl="408.02" xbr="1170.46" ybr="467.30" z_order="0">
     </box>
@@ -900,13 +900,21 @@
     </box>
     <box label="char" source="manual" occluded="0" xtl="879.45" ytl="145.19" xbr="940.00" ybr="184.73" z_order="0">
     </box>
-  </image>
+  <box label="char" source="manual" occluded="0" xtl="1118.00" ytl="800.00" xbr="1148.00" ybr="847.00" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1115.00" ytl="846.00" xbr="1144.00" ybr="892.00" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1112.00" ytl="889.00" xbr="1140.00" ybr="933.00" z_order="0">
+    </box>
+    <box label="char" source="manual" occluded="0" xtl="1102.00" ytl="947.00" xbr="1142.00" ybr="993.00" z_order="0">
+    </box>
+    </image>
   <image id="19" name="1-134829001-OCR-AH-A01_jpg.rf.930488c0de8607af2d256234a66efe74.jpg" width="1920" height="1080">
     <box label="char" source="manual" occluded="0" xtl="1046.38" ytl="709.00" xbr="1094.43" ybr="755.27" z_order="0">
     </box>
     <polygon label="container_id" source="manual" occluded="0" points="1051.72,342.44;1119.34,344.22;1090.87,965.24;1041.04,970.58" z_order="0">
     </polygon>
-    <polygon label="container_id" source="manual" occluded="0" points="382.66,111.12;823.95,96.88;823.95,153.82;366.64,162.72" z_order="0">
+    <polygon label="ignore" source="manual" occluded="0" points="382.66,111.12;823.95,96.88;823.95,153.82;366.64,162.72" z_order="0">
     </polygon>
     <box label="char" source="manual" occluded="0" xtl="1058.84" ytl="349.56" xbr="1101.54" ybr="408.28" z_order="0">
     </box>
@@ -954,7 +962,7 @@
   <image id="20" name="1-135443001-OCR-AH-A01_jpg.rf.1bcfa679db4e1be0153f7b0107fb50da.jpg" width="1920" height="1080">
     <polygon label="container_id" source="manual" occluded="0" points="1172.72,363.79;1252.80,362.01;1167.38,1007.95;1114.00,1006.17" z_order="0">
     </polygon>
-    <polygon label="container_id" source="manual" occluded="0" points="478.75,143.15;964.53,159.16;960.97,216.10;462.73,196.53" z_order="0">
+    <polygon label="ignore" source="manual" occluded="0" points="478.75,143.15;964.53,159.16;960.97,216.10;462.73,196.53" z_order="0">
     </polygon>
     <box label="char" source="manual" occluded="0" xtl="1171.89" ytl="444.49" xbr="1222.12" ybr="498.07" z_order="0">
     </box>
@@ -1004,7 +1012,7 @@
   <image id="21" name="1-140240001-OCR-AH-A01_jpg.rf.de2d67c36b697f367cf6e7b052b3e18e.jpg" width="1920" height="1080">
     <polygon label="container_id" source="manual" occluded="0" points="1146.03,253.47;1218.99,253.47;1172.72,890.50;1105.10,888.72" z_order="0">
     </polygon>
-    <polygon label="container_id" source="manual" occluded="0" points="275.89,41.72;800.82,27.48;795.48,82.64;256.32,96.88" z_order="0">
+    <polygon label="ignore" source="manual" occluded="0" points="275.89,41.72;800.82,27.48;795.48,82.64;256.32,96.88" z_order="0">
     </polygon>
     <box label="char" source="manual" occluded="0" xtl="1154.69" ytl="263.26" xbr="1194.23" ybr="321.40" z_order="0">
     </box>
@@ -1154,7 +1162,7 @@
     </box>
     <box label="char" source="manual" occluded="0" xtl="1176.28" ytl="906.52" xbr="1218.99" ybr="963.46" z_order="0">
     </box>
-    <polygon label="container_id" source="manual" occluded="0" points="589.07,75.53;1041.04,80.87;1041.04,136.03;580.17,128.91" z_order="0">
+    <polygon label="ignore" source="manual" occluded="0" points="589.07,75.53;1041.04,80.87;1041.04,136.03;580.17,128.91" z_order="0">
     </polygon>
     <box label="char" source="manual" occluded="0" xtl="592.63" ytl="79.09" xbr="630.00" ybr="125.35" z_order="0">
     </box>

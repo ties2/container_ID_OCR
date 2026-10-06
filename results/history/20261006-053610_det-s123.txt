@@ -1,0 +1,64 @@
+Run            : det-s123
+Stamp          : 20261006-053610
+MLflow run id  : 95a9a8a7b73b487f896593a081fe1da0
+Duration       : 62.9 min
+Weights        : /home/student/Nirvana/container_ID-Seg/results/yolo/det-s123/weights/best.pt
+Ultralytics dir: /home/student/Nirvana/container_ID-Seg/results/yolo/det-s123
+
+== Settings ==
+arch           : yolov8n
+batch          : 4
+dataset        : data/03_processed/char_dataset
+device         : cpu
+epochs         : 200
+imgsz          : 1280
+mlflow_uri     : sqlite:///results/mlflow.db
+seed           : 123
+single_cls     : False
+stamp          : 20261006-053610
+task           : det
+
+== Dataset ==
+annotated_images    : 128
+excluded_images     : 0
+review_images       : 40
+ok_images           : 88
+train_images        : 53
+train_containers    : 53
+val_images          : 18
+val_containers      : 18
+test_images         : 17
+test_containers     : 17
+train_characters    : 638
+val_characters      : 242
+test_characters     : 220
+
+== Best epoch (checkpoint): 187 of 200 ==
+time                        : 3528.6500
+train/box_loss              : 0.4798
+train/cls_loss              : 0.8876
+train/dfl_loss              : 0.7950
+metrics/precision(B)        : 0.9162
+metrics/recall(B)           : 0.6729
+metrics/mAP50(B)            : 0.8246
+metrics/mAP50-95(B)         : 0.7394
+val/box_loss                : 0.7610
+val/cls_loss                : 0.9841
+val/dfl_loss                : 0.8841
+
+== Final epoch: 200 ==
+time                        : 3765.9000
+train/box_loss              : 0.5556
+train/cls_loss              : 1.0688
+train/dfl_loss              : 0.7994
+metrics/precision(B)        : 0.9083
+metrics/recall(B)           : 0.6515
+metrics/mAP50(B)            : 0.8219
+metrics/mAP50-95(B)         : 0.7202
+val/box_loss                : 0.8066
+val/cls_loss                : 1.0388
+val/dfl_loss                : 0.8885
+
+== Diagnosis (heuristic) ==
+train/cls_loss 5.924 -> 1.069 (-82%)
+val/cls_loss lowest 0.980 at epoch 189, final 1.039

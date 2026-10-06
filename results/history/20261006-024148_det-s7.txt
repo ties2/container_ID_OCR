@@ -1,0 +1,64 @@
+Run            : det-s7
+Stamp          : 20261006-024148
+MLflow run id  : 522c48b70fc441009a6bf26fdf74f876
+Duration       : 63.0 min
+Weights        : /home/student/Nirvana/container_ID-Seg/results/yolo/det-s7/weights/best.pt
+Ultralytics dir: /home/student/Nirvana/container_ID-Seg/results/yolo/det-s7
+
+== Settings ==
+arch           : yolov8n
+batch          : 4
+dataset        : data/03_processed/char_dataset
+device         : cpu
+epochs         : 200
+imgsz          : 1280
+mlflow_uri     : sqlite:///results/mlflow.db
+seed           : 7
+single_cls     : False
+stamp          : 20261006-024148
+task           : det
+
+== Dataset ==
+annotated_images    : 128
+excluded_images     : 0
+review_images       : 40
+ok_images           : 88
+train_images        : 53
+train_containers    : 53
+val_images          : 18
+val_containers      : 18
+test_images         : 17
+test_containers     : 17
+train_characters    : 638
+val_characters      : 242
+test_characters     : 220
+
+== Best epoch (checkpoint): 187 of 200 ==
+time                        : 3535.4200
+train/box_loss              : 0.5306
+train/cls_loss              : 0.9449
+train/dfl_loss              : 0.7883
+metrics/precision(B)        : 0.7649
+metrics/recall(B)           : 0.7376
+metrics/mAP50(B)            : 0.8201
+metrics/mAP50-95(B)         : 0.7346
+val/box_loss                : 0.7614
+val/cls_loss                : 0.9773
+val/dfl_loss                : 0.8844
+
+== Final epoch: 200 ==
+time                        : 3773.2400
+train/box_loss              : 0.5633
+train/cls_loss              : 1.1496
+train/dfl_loss              : 0.7907
+metrics/precision(B)        : 0.7948
+metrics/recall(B)           : 0.7032
+metrics/mAP50(B)            : 0.8002
+metrics/mAP50-95(B)         : 0.6992
+val/box_loss                : 0.8317
+val/cls_loss                : 1.0493
+val/dfl_loss                : 0.9027
+
+== Diagnosis (heuristic) ==
+train/cls_loss 5.854 -> 1.150 (-80%)
+val/cls_loss lowest 0.977 at epoch 183, final 1.049

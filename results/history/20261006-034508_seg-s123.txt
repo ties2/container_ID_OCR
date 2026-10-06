@@ -1,0 +1,80 @@
+Run            : seg-s123
+Stamp          : 20261006-034508
+MLflow run id  : a6c03b4b97d1427c8551d21aabe4eef6
+Duration       : 110.7 min
+Weights        : /home/student/Nirvana/container_ID-Seg/results/yolo/seg-s123/weights/best.pt
+Ultralytics dir: /home/student/Nirvana/container_ID-Seg/results/yolo/seg-s123
+
+== Settings ==
+arch           : yolov8n
+batch          : 4
+dataset        : data/03_processed/char_dataset
+device         : cpu
+epochs         : 200
+imgsz          : 1280
+mlflow_uri     : sqlite:///results/mlflow.db
+seed           : 123
+single_cls     : False
+stamp          : 20261006-034508
+task           : seg
+
+== Dataset ==
+annotated_images    : 128
+excluded_images     : 0
+review_images       : 40
+ok_images           : 88
+train_images        : 53
+train_containers    : 53
+val_images          : 18
+val_containers      : 18
+test_images         : 17
+test_containers     : 17
+train_characters    : 638
+val_characters      : 242
+test_characters     : 220
+
+== Best epoch (checkpoint): 174 of 200 ==
+time                        : 5799.8100
+train/box_loss              : 0.5424
+train/seg_loss              : 0.7939
+train/cls_loss              : 1.0395
+train/dfl_loss              : 0.7810
+train/sem_loss              : 0.0000
+metrics/precision(B)        : 0.8081
+metrics/recall(B)           : 0.6894
+metrics/mAP50(B)            : 0.7662
+metrics/mAP50-95(B)         : 0.6821
+metrics/precision(M)        : 0.7845
+metrics/recall(M)           : 0.6660
+metrics/mAP50(M)            : 0.7304
+metrics/mAP50-95(M)         : 0.4010
+val/box_loss                : 0.7240
+val/seg_loss                : 1.8642
+val/cls_loss                : 1.1897
+val/dfl_loss                : 0.8428
+val/sem_loss                : 0.0000
+
+== Final epoch: 200 ==
+time                        : 6631.1500
+train/box_loss              : 0.5963
+train/seg_loss              : 0.9264
+train/cls_loss              : 1.2308
+train/dfl_loss              : 0.7946
+train/sem_loss              : 0.0000
+metrics/precision(B)        : 0.8136
+metrics/recall(B)           : 0.6656
+metrics/mAP50(B)            : 0.7624
+metrics/mAP50-95(B)         : 0.6649
+metrics/precision(M)        : 0.7890
+metrics/recall(M)           : 0.6450
+metrics/mAP50(M)            : 0.7287
+metrics/mAP50-95(M)         : 0.3843
+val/box_loss                : 0.7888
+val/seg_loss                : 1.9607
+val/cls_loss                : 1.2651
+val/dfl_loss                : 0.8555
+val/sem_loss                : 0.0000
+
+== Diagnosis (heuristic) ==
+train/cls_loss 6.011 -> 1.231 (-80%)
+val/cls_loss lowest 1.183 at epoch 181, final 1.265

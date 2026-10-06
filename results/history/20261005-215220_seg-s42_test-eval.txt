@@ -1,0 +1,55 @@
+seg-s42  |  test: 17 images, 20 codes  |  mask mAP50 0.86  box mAP50 0.87  box mAP50-95 0.77  char acc 0.85  full-code acc 0.40
+
+== Localisation (Ultralytics) ==
+metrics/precisionB          : 0.8446
+metrics/recallB             : 0.7472
+metrics/mAP50B              : 0.8691
+metrics/mAP50-95B           : 0.7710
+metrics/precisionM          : 0.8411
+metrics/recallM             : 0.7429
+metrics/mAP50M              : 0.8555
+metrics/mAP50-95M           : 0.4734
+fitness                     : 1.2443
+
+== Reading (conf >= 0.25, class-agnostic NMS) ==
+reading/char_acc            : 0.8500
+reading/full_code_acc       : 0.4000
+reading/checkdigit_ok       : 0.4000
+reading_fmt/char_acc        : 0.8591
+reading_fmt/full_code_acc   : 0.4500
+reading/n_codes             : 20.0000
+reading_vertical/char_acc   : 0.9358
+reading_vertical/full_code_acc: 0.4706
+reading_vertical/checkdigit_ok: 0.4706
+reading_vertical_fmt/char_acc: 0.9465
+reading_vertical_fmt/full_code_acc: 0.5294
+reading_vertical/n_codes    : 17.0000
+reading_horizontal/char_acc : 0.3636
+reading_horizontal/full_code_acc: 0.0000
+reading_horizontal/checkdigit_ok: 0.0000
+reading_horizontal_fmt/char_acc: 0.3636
+reading_horizontal_fmt/full_code_acc: 0.0000
+reading_horizontal/n_codes  : 3.0000
+
+== Reads ==
+image                        layout     truth        pred         pred_fmt     char_acc
+1-123504001-OCR-AH-A01       vertical   TCLU5533417  TCLU5533417  TCLU5533417  1.00
+1-123810001-OCR-AH-A01       vertical   MRKU4571399  MRKU4571399  MRKU4571399  1.00
+1-124421001-OCR-AH-A01       vertical   BMOU6200266  BH0U6200266  BHOU6200266  0.82
+1-125656001-OCR-AH-A01       vertical   CAIU8782037  CA1U8782037  CAIU8782037  0.91
+1-130403001-OCR-AH-A01       vertical   TCNU4922860  TCNU4922860  TCNU4922860  1.00
+1-131010001-OCR-AH-A01       vertical   TRLU8200492  TLU8200492   TLU8200492   0.91
+1-132047001-OCR-AH-A01       horizontal TRHU3640459  1U4645       1U4645       0.36
+1-132047001-OCR-AH-A01       vertical   TRHU3640459  TBHU3640459  TBHU3640459  0.91
+1-132745001-OCR-AH-A01       vertical   TCNU5345016  TCNU5345016  TCNU5345016  1.00
+1-134430001-OCR-AH-A01       vertical   TCNU7873178  TCNU7873178  TCNU7873178  1.00
+1-144815001-OCR-AH-A01       vertical   TCNU5466194  TCNU5466194  TCNU5466194  1.00
+1-144929001-OCR-AH-A01       vertical   BMOU5836865  BMU5836865   BMU5836865   0.91
+1-124829001-OCR-AH-A01       vertical   TGHU9782280  TCU9782280   TCU9782280   0.82
+1-132003001-OCR-AH-A01       vertical   WDFU3017155  MFU3017155   MFU3017155   0.82
+1-135646001-OCR-AH-A01       vertical   TRLU8228210  TLU8228210   TLU8228210   0.91
+1-144707001-OCR-AH-A01       vertical   SEGU5033840  SEGU5033840  SEGU5033840  1.00
+1-122930001-OCR-AH-A01       horizontal BSIU2607578  2U2022276    2U2022276    0.27
+1-122930001-OCR-AH-A01       vertical   BSIU2607578  BSLU2607578  BSLU2607578  0.91
+1-131418001-OCR-AH-A01       vertical   TEMU4535937  TEMU4535937  TEMU4535937  1.00
+1-131418001-OCR-AH-A01       horizontal TEMU4535937  7U4625637    7U4625637    0.45

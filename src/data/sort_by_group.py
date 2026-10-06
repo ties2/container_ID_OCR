@@ -11,7 +11,8 @@ pipeline itself reads the groups from the sheets, not from these folders.
                                  by_camera/AH/rejected/1-...jpg
 
 Files are COPIED by default (safe to run again: existing copies are skipped).
-Use --move to move them instead. A table Camera,Group,Count (usable images) is
+Use --move to move them instead; after an earlier copy run, --move also deletes the
+loose originals that already have a complete copy, which frees the disk space. A table Camera,Group,Count (usable images) is
 written to <root>/group_counts.csv; it matches data/metadata/images-camera-info.csv.
 
 Usage (from the project root):
@@ -61,11 +62,17 @@ def main() -> None:
         for img in sorted(p for p in cam_dir.iterdir() if p.suffix.lower() in IMAGE_TYPES):
             folder = target_folder(meta, image_key(img.name))
             dest = cam_dir / folder / img.name
-            counts[folder] += 1
             if dest.exists():
+                # Already copied by an earlier run: with --move, remove the loose original
+                # (only when the copy is complete, i.e. has the same size).
+                if args.move and dest.stat().st_size == img.stat().st_size:
+                    img.unlink()
                 continue
             dest.parent.mkdir(exist_ok=True)
             (shutil.move if args.move else shutil.copy2)(img, dest)
+        # count what is in the sub-folders now (also correct when run again)
+        for sub in (p for p in cam_dir.iterdir() if p.is_dir()):
+            counts[sub.name] = sum(1 for f in sub.iterdir() if f.suffix.lower() in IMAGE_TYPES)
         summary = "  ".join(f"{k}:{counts[k]}" for k in sorted(counts))
         print(f"{cam_dir.name}: {sum(counts.values())} images  ->  {summary}")
         table += [(cam_dir.name, g, n) for g, n in sorted(counts.items()) if g.startswith("G")]

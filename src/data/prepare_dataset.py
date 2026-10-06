@@ -54,10 +54,7 @@ log = logging.getLogger("prepare")
 CLASSES = list("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 CLASS_ID = {c: i for i, c in enumerate(CLASSES)}
 CODE_LEN = 11
-
-
-
-# --------------------------------------------------------------------------- data
+# data
 
 @dataclass
 class Box:
@@ -253,7 +250,7 @@ def _background_is_bright(gray: np.ndarray, box: Box, thr: float, pad_frac: floa
     ctx = cv2.GaussianBlur(gray[y1:y2, x1:x2], (3, 3), 0)
     inside = np.zeros(ctx.shape, bool)
     inside[max(0, int(box.y1) - y1):int(np.ceil(box.y2)) - y1,
-    max(0, int(box.x1) - x1):int(np.ceil(box.x2)) - x1] = True
+           max(0, int(box.x1) - x1):int(np.ceil(box.x2)) - x1] = True
     ring = ctx[~inside]
     return ring.size > 0 and float((ring > thr).mean()) > 0.5
 
@@ -315,9 +312,27 @@ def remove_frame(bw: np.ndarray) -> np.ndarray:
     return bw
 
 
-def binarize(gray: np.ndarray, box: Box, pad_frac: float = 0.15,
-             framed: bool = False) -> tuple[np.ndarray | None, int, int]:
-    """Padded crop -> Otsu -> characters white (-> frame removed). Returns (binary, x1, y1)."""
+def code_background(gray: np.ndarray, code: Code) -> float | None:
+    """Median grey value of the code's own background: inside the code polygon but
+    outside every character box. This is the plate/paint the characters are printed on,
+    which decides the text polarity better than the wider surroundings (a white plate on
+    a dark container would otherwise look like a dark background). None if too few pixels."""
+    mask = np.zeros(gray.shape, np.uint8)
+    cv2.fillPoly(mask, [code.polygon.astype(np.int32)], 255)
+    for b in code.boxes:
+        mask[int(b.y1):int(np.ceil(b.y2)), int(b.x1):int(np.ceil(b.x2))] = 0
+    values = gray[mask > 0]
+    return float(np.median(values)) if values.size >= 150 else None
+
+
+def binarize(gray: np.ndarray, box: Box, pad_frac: float = 0.15, framed: bool = False,
+             bg_level: float | None = None, flatten: bool = False) -> tuple[np.ndarray | None, int, int]:
+    """Padded crop -> Otsu -> characters white (-> frame removed). Returns (binary, x1, y1).
+
+    flatten=True first removes uneven light (a shadow edge across the character): a
+    morphological black-hat (dark text) or top-hat (bright text) with a kernel wider than
+    the strokes keeps the strokes and drops the slowly varying background.
+    """
     H, W = gray.shape
     bw_, bh_ = box.x2 - box.x1, box.y2 - box.y1
     px, py = (pad_frac * bw_ + 2, pad_frac * bh_ + 2) if pad_frac > 0 else (1, 1)
@@ -328,7 +343,13 @@ def binarize(gray: np.ndarray, box: Box, pad_frac: float = 0.15,
         return None, x1, y1
     crop = cv2.GaussianBlur(crop, (3, 3), 0)
     thr, bw = cv2.threshold(crop, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-    if _background_is_bright(gray, box, thr):     # dark characters -> make them white
+    bright_bg = bg_level > thr if bg_level is not None else _background_is_bright(gray, box, thr)
+    if flatten:
+        k = max(7, int(0.35 * min(bw_, bh_))) | 1
+        kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (k, k))
+        enhanced = cv2.morphologyEx(crop, cv2.MORPH_BLACKHAT if bright_bg else cv2.MORPH_TOPHAT, kernel)
+        _, bw = cv2.threshold(enhanced, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)   # strokes white
+    elif bright_bg:                                # dark characters -> make them white
         bw = 255 - bw
     if framed:
         cleaned = remove_frame(bw)
@@ -336,10 +357,11 @@ def binarize(gray: np.ndarray, box: Box, pad_frac: float = 0.15,
     return bw, x1, y1
 
 
-def debug_strip(gray: np.ndarray, box: Box, pad_frac: float, framed: bool) -> np.ndarray:
+def debug_strip(gray: np.ndarray, box: Box, pad_frac: float, framed: bool,
+                bg_level: float | None = None) -> np.ndarray:
     """Picture of a failed character: grey crop with the drawn box | binary after Otsu.
     Saved to review/failed/ so the reason for the failure can be seen."""
-    bw, x1, y1 = binarize(gray, box, pad_frac, framed)
+    bw, x1, y1 = binarize(gray, box, pad_frac, framed, bg_level)
     if bw is None:
         return np.zeros((40, 80, 3), np.uint8)
     crop = cv2.cvtColor(gray[y1:y1 + bw.shape[0], x1:x1 + bw.shape[1]], cv2.COLOR_GRAY2BGR)
@@ -368,17 +390,19 @@ def remove_thin_lines(bw: np.ndarray) -> np.ndarray:
 
 
 def extract_mask(gray: np.ndarray, box: Box, pad_frac: float = 0.15,
-                 framed: bool = False, fallback: bool = False) -> tuple[np.ndarray | None, list[str]]:
+                 framed: bool = False, fallback: bool = False,
+                 bg_level: float | None = None, flatten: bool = False) -> tuple[np.ndarray | None, list[str]]:
     """Return the character contour (image coordinates) inside `box`, plus QA flags.
 
     `pad_frac` enlarges the box before thresholding so a tightly drawn box does
     not cut the character. For the check digit use pad_frac=0 and framed=True:
     a printed frame around the digit is then detected and erased (remove_frame).
 
-    `fallback` (used for vertical codes): when dirt or a streak is connected to the
-    character and touches the crop border, nothing survives the normal rules. Then the
-    binary image is clipped to the drawn box and the largest piece is kept; the mask is
-    flagged 'fallback' so it is checked by eye (red outline in the figures).
+    `fallback` (vertical codes only): when dirt or a streak is
+    connected to the character and reaches the crop border, nothing survives the normal
+    rules. Then the binary image is clipped to the drawn box (+8%), surface stripes across
+    the whole box are ignored and the largest piece is kept; the mask is flagged
+    'fallback' so it is checked by eye (red outline in the figures).
 
     Steps: pad the box -> Otsu -> make the character white (decided from a ring
     of container surface around the box) -> connected components -> drop components touching the
@@ -387,7 +411,7 @@ def extract_mask(gray: np.ndarray, box: Box, pad_frac: float = 0.15,
     """
     flags: list[str] = []
     bw_, bh_ = box.x2 - box.x1, box.y2 - box.y1
-    bw, x1, y1 = binarize(gray, box, pad_frac, framed)
+    bw, x1, y1 = binarize(gray, box, pad_frac, framed, bg_level, flatten)
     if bw is None:
         return None, ["empty_crop"]
 
@@ -413,12 +437,25 @@ def extract_mask(gray: np.ndarray, box: Box, pad_frac: float = 0.15,
 
     cand = [a for a in cand if not any(contains(a, b) for b in cand if b != a)]
     cand = [i for i in cand if stats[i][cv2.CC_STAT_AREA] >= 0.03 * bw_ * bh_]   # ignore specks
+    if not cand and not flatten:
+        # Retry once with the light evened out (shadow edge across the character).
+        contour, retry_flags = extract_mask(gray, box, pad_frac, framed, fallback, bg_level, flatten=True)
+        return contour, retry_flags + ["flattened"]
     if not cand and fallback:
+        # Clip to the drawn box (slightly enlarged) so touching neighbours / dirt are cut off.
+        ex, ey = 0.08 * bw_, 0.08 * bh_
+        cx1, cy1 = max(0, int(box.x1 - ex) - x1), max(0, int(box.y1 - ey) - y1)
+        cx2, cy2 = int(np.ceil(box.x2 + ex)) - x1, int(np.ceil(box.y2 + ey)) - y1
         clip = np.zeros_like(bw)
-        bx1, by1 = max(0, int(box.x1) - x1), max(0, int(box.y1) - y1)
-        clip[by1:int(np.ceil(box.y2)) - y1, bx1:int(np.ceil(box.x2)) - x1] = 255
+        clip[cy1:cy2, cx1:cx2] = 255
         n, lab, stats, _ = cv2.connectedComponentsWithStats(cv2.bitwise_and(bw, clip), connectivity=8)
-        cand = [i for i in range(1, n) if stats[i][cv2.CC_STAT_AREA] >= 0.05 * bw_ * bh_]
+        cw2, ch2 = max(1, min(cx2, bw.shape[1]) - cx1), max(1, min(cy2, bw.shape[0]) - cy1)
+
+        def is_band(i: int) -> bool:   # a bright/dark stripe of the surface across the whole box
+            return stats[i][cv2.CC_STAT_WIDTH] >= 0.95 * cw2 and stats[i][cv2.CC_STAT_HEIGHT] < 0.35 * ch2
+
+        cand = [i for i in range(1, n)
+                if stats[i][cv2.CC_STAT_AREA] >= 0.05 * bw_ * bh_ and not is_band(i)]
         cand = sorted(cand, key=lambda i: -stats[i][cv2.CC_STAT_AREA])[:1]
         if cand:
             flags.append("fallback")
@@ -426,6 +463,8 @@ def extract_mask(gray: np.ndarray, box: Box, pad_frac: float = 0.15,
         return None, ["no_character_found"]
     biggest = max(stats[i][cv2.CC_STAT_AREA] for i in cand)
     keep = [i for i in cand if stats[i][cv2.CC_STAT_AREA] >= 0.10 * biggest]
+    if framed:   # leftovers of the frame must not be joined to the digit (would give a square)
+        keep = [max(keep, key=lambda i: stats[i][cv2.CC_STAT_AREA])]
     if len(keep) > 1:
         flags.append("multi_part")
 
@@ -433,6 +472,8 @@ def extract_mask(gray: np.ndarray, box: Box, pad_frac: float = 0.15,
     fill = (mask > 0).sum() / max(1.0, bw_ * bh_)
     if fill < 0.08 or fill > 0.85:
         flags.append(f"odd_fill_{fill:.2f}")
+        if "fallback" in flags:     # a rescued mask that is also implausible: do not trust it
+            return None, flags
 
     contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
     if len(contours) > 1:                         # stencil font: merge parts into one outline
@@ -628,6 +669,11 @@ def main() -> None:
             report_rows.append([name, "EXCLUDED", truth.get(key, ""), 0, 0, f"rejected in selection sheet: {note}"])
             log.info("%-8s %-40s %s", "EXCLUDED", key, note)
             continue
+        if not codes and ignore_of.get(key):
+            # every code of this image is an ignore region (e.g. owner code cut off by the border)
+            report_rows.append([name, "EXCLUDED", truth.get(key, ""), 0, 0, "all codes marked ignore"])
+            log.info("%-8s %-40s %s", "EXCLUDED", key, "all codes marked ignore")
+            continue
         reasons: list[str] = []
         text = truth.get(key)
         if text is None:
@@ -656,20 +702,21 @@ def main() -> None:
             failed_at: list[str] = []
             for j, code in enumerate(codes):
                 _, _, cw_, ch_ = cv2.boundingRect(code.polygon.astype(np.int32))
-                vertical = ch_ > cw_
+                vertical = ch_ > cw_   # rescue masks only in vertical codes; faded roof codes -> ignore
+                bg = code_background(gray, code)
                 for pos, (box, ch) in enumerate(zip(reading_order(code.boxes), text)):
                     # The check digit (last position) often sits in a printed frame:
                     # no padding there, so the frame stays outside the crop.
                     is_check = pos == CODE_LEN - 1
                     contour, flags = extract_mask(gray, box, pad_frac=0.0 if is_check else 0.15,
-                                                  framed=is_check, fallback=vertical)
+                                                  framed=is_check, fallback=vertical, bg_level=bg)
                     insts.append(Instance(CLASS_ID[ch], contour, flags))
                     if contour is None:
                         failed_at.append(f"code{j}:{pos + 1}={ch}")
                         fail_dir = args.out / "review" / "failed"
                         fail_dir.mkdir(exist_ok=True)
                         cv2.imwrite(str(fail_dir / f"{key}_code{j}_pos{pos + 1:02d}_{ch}.png"),
-                                    debug_strip(gray, box, 0.0 if is_check else 0.15, is_check))
+                                    debug_strip(gray, box, 0.0 if is_check else 0.15, is_check, bg))
             if failed_at:   # e.g. "masks_failed code0:1=S code0:11=6" (position 1-11 = character)
                 reasons.append("masks_failed " + " ".join(failed_at))
 

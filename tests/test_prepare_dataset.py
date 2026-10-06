@@ -246,3 +246,4 @@ def test_thin_frame_cut_by_the_crop_is_removed():
     assert contour is not None
     x, y, w, h = cv2.boundingRect(contour.astype(np.int32))
     assert w < 0.85 * 68
+

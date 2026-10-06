@@ -16,7 +16,7 @@ DEVICE  ?= cpu
 
 # Character dataset (built by `make prepare`) and training settings
 CHARSET  ?= data/03_processed/char_dataset
-EPOCHS   ?= 200
+EPOCHS   ?= 300
 # characters are small: 640 px loses detail
 IMGSZ    ?= 1280
 BATCH    ?= 4
@@ -69,7 +69,7 @@ predict-video:
 
 ## Copy the camera folders into G1..G8 sub-folders (browsing / choosing what to annotate)
 sort-groups:
-	python3 -m src.data.sort_by_group
+	python3 -m src.data.sort_by_group --move
 
 ## Build YOLO datasets from the CVAT export (see src/data/prepare_dataset.py)
 prepare:

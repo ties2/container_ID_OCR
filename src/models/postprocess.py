@@ -37,11 +37,7 @@ from typing import Optional
 
 logger = logging.getLogger(__name__)
 
-
-# ──────────────────────────────────────────────────────────────────────
 # Stage 4 – ISO 6346 Validation
-# ──────────────────────────────────────────────────────────────────────
-
 # Pre-compute char → numeric value map.
 # Letters skip multiples of 11: A=10 B=12 C=13 D=14 … K=21(skip 22→23) …
 def _build_char_value_map() -> dict[str, int]:
